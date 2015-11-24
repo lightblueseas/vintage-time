@@ -10,7 +10,32 @@
 	</parent>
 
 	<artifactId>vintage-time</artifactId>
-	<version>4.4.0</version>
+	<version>4.6.0</version>
+	
+	<name>${project.artifactId}</name>
+
+	<description>
+		Project that have utility classes for compute date objects before jdk8
+	</description>
+
+	<url>https://github.com/lightblueseas/vintage-time</url>
+
+	<scm>
+		<connection>scm:git:git:@github.com:lightblueseas/vintage-time.git</connection>
+		<developerConnection>scm:git:git@github.com:lightblueseas/vintage-time.git</developerConnection>
+		<url>git:@github.com:lightblueseas/vintage-time.git</url>
+	</scm>
+
+	<ciManagement>
+		<system>travis-ci</system>
+		<url>https://travis-ci.org/lightblueseas/vintage-time</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/lightblueseas/vintage-time/issues</url>
+	</issueManagement>
+	
 
 	<properties>
 		<!-- EXTERNAL LIBRARIES versions -->
