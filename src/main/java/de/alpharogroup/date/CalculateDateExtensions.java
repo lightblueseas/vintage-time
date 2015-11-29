@@ -37,7 +37,7 @@ import java.util.GregorianCalendar;
  * @author Asterios Raptis
  * @version 1.0
  */
-public class CalculateDateUtils implements DatePatterns
+public class CalculateDateExtensions implements DatePatterns
 {
 
 	/**
@@ -258,7 +258,7 @@ public class CalculateDateUtils implements DatePatterns
 	 */
 	public static int computeAge(final Date birthday, final Date computeDate)
 	{
-		final long ageInLong = CalculateDateUtils.calculateElapsedTime(birthday, computeDate);
+		final long ageInLong = CalculateDateExtensions.calculateElapsedTime(birthday, computeDate);
 		final Age age = new Age(ageInLong);
 		return (int)age.calculateInYears();
 	}
@@ -277,7 +277,7 @@ public class CalculateDateUtils implements DatePatterns
 		final int month = easternSundayNumber / 31;
 		final int day = easternSundayNumber % 31 + 1;
 
-		return CreateDateUtils.newDate(year, month - 1, day);
+		return CreateDateExtensions.newDate(year, month - 1, day);
 	}
 
 	/**
@@ -333,7 +333,7 @@ public class CalculateDateUtils implements DatePatterns
 	 */
 	public static boolean isDateInTheFuture(final Date date)
 	{
-		return !CalculateDateUtils.isDateInThePast(date);
+		return !CalculateDateExtensions.isDateInThePast(date);
 	}
 
 	/**
@@ -467,7 +467,7 @@ public class CalculateDateUtils implements DatePatterns
 	/**
 	 * Util-class. Do not make instances from this class.
 	 */
-	private CalculateDateUtils()
+	private CalculateDateExtensions()
 	{
 	}
 

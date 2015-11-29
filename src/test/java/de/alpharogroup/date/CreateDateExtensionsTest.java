@@ -33,12 +33,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class CreateDateUtils.
+ * Test class for the class {@link CreateDateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
  */
-public class CreateDateUtilsTest
+public class CreateDateExtensionsTest
 {
 
 	/**
@@ -65,13 +65,13 @@ public class CreateDateUtilsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CreateDateUtils#newDate(int, int, int)}.
+	 * Test method for {@link de.alpharogroup.date.CreateDateExtensions#newDate(int, int, int)}.
 	 */
 	@Test
 	public void testCreateDateIntIntInt()
 	{
 
-		final Date date = CreateDateUtils.newDate(2000, 1, 1);
+		final Date date = CreateDateExtensions.newDate(2000, 1, 1);
 		final Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.YEAR, 2000);
 		calendar.set(Calendar.MONTH, 1 - 1);
@@ -87,13 +87,13 @@ public class CreateDateUtilsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.CreateDateUtils#newDate(int, int, int, int, int, int)} .
+	 * {@link de.alpharogroup.date.CreateDateExtensions#newDate(int, int, int, int, int, int)} .
 	 */
 	@Test
 	public void testCreateDateIntIntIntIntIntInt()
 	{
 
-		final Date date = CreateDateUtils.newDate(2000, 1, 1, 12, 0, 0);
+		final Date date = CreateDateExtensions.newDate(2000, 1, 1, 12, 0, 0);
 		final Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.YEAR, 2000);
 		calendar.set(Calendar.MONTH, 1 - 1);

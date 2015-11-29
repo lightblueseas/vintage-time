@@ -39,12 +39,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class ParseDateUtils.
+ * Test class for the class {@link ParseDateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ParseDateUtilsTest
+public class ParseDateExtensionsTest
 {
 
 	/** The Constant DD_MM. */
@@ -114,10 +114,10 @@ public class ParseDateUtilsTest
 		this.format3 = YYYY_MMDD_HHMMSS;
 		this.format4 = DD_MM;
 
-		this.expectedDate1 = CreateDateUtils.newDate(2000, 12, 31);
-		this.expectedDate2 = CreateDateUtils.newDate(2005, 06, 22, 9, 4, 55);
-		this.expectedDate3 = CreateDateUtils.newDate(2005, 6, 21, 13, 44, 51);
-		this.expectedDate4 = CreateDateUtils.newDate(1971, 2, 1, 0, 0, 0);
+		this.expectedDate1 = CreateDateExtensions.newDate(2000, 12, 31);
+		this.expectedDate2 = CreateDateExtensions.newDate(2005, 06, 22, 9, 4, 55);
+		this.expectedDate3 = CreateDateExtensions.newDate(2005, 6, 21, 13, 44, 51);
+		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
 	}
 
@@ -138,12 +138,12 @@ public class ParseDateUtilsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateUtils#parseDate(java.lang.String, java.util.List)} .
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseDate(java.lang.String, java.util.List)} .
 	 */
 	@Test
 	public void testParseDate()
 	{
-		final Date date = ParseDateUtils.parseDate(this.datum1, DateUtils.getAllDateFormats());
+		final Date date = ParseDateExtensions.parseDate(this.datum1, DateExtensions.getAllDateFormats());
 		System.out.println(date);
 		AssertJUnit.assertTrue(date.equals(this.expectedDate1));
 	}
@@ -157,19 +157,19 @@ public class ParseDateUtilsTest
 	@Test
 	public void testparseToDate() throws ParseException
 	{
-		final Date date = ParseDateUtils.parseToDate("11.12.1960", DatePatterns.DOT_DD_MM_YYYY);
+		final Date date = ParseDateExtensions.parseToDate("11.12.1960", DatePatterns.DOT_DD_MM_YYYY);
 		System.out.println(date);
 		// ----------------------------------------------
 		final DateFormat df1 = new SimpleDateFormat(this.format1);
 		final Date date1 = df1.parse(this.datum1);
-		final Date test1 = ParseDateUtils.parseToDate(this.datum1, this.format1);
+		final Date test1 = ParseDateExtensions.parseToDate(this.datum1, this.format1);
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate1.equals(date1));
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate1.equals(test1));
 		AssertJUnit.assertTrue("Dates should be equal.", date1.equals(test1));
 		// ----------------------------------------------
 		final DateFormat df2 = new SimpleDateFormat(this.format2);
 		final Date date2 = df2.parse(this.datum2);
-		final Date test2 = ParseDateUtils.parseToDate(this.datum2, this.format2);
+		final Date test2 = ParseDateExtensions.parseToDate(this.datum2, this.format2);
 
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate2.equals(date2));
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate2.equals(test2));
@@ -177,7 +177,7 @@ public class ParseDateUtilsTest
 		// -----------------------------------------------
 		final DateFormat df3 = new SimpleDateFormat(this.format3);
 		final Date date3 = df3.parse(this.datum3);
-		final Date test3 = ParseDateUtils.parseToDate(this.datum3, this.format3);
+		final Date test3 = ParseDateExtensions.parseToDate(this.datum3, this.format3);
 
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate3.equals(date3));
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate3.equals(test3));
@@ -185,7 +185,7 @@ public class ParseDateUtilsTest
 		// -----------------------------------------------
 		final DateFormat df4 = new SimpleDateFormat(this.format4);
 		final Date date4 = df4.parse(this.datum4);
-		final Date test4 = ParseDateUtils.parseToDate(this.datum4, this.format4);
+		final Date test4 = ParseDateExtensions.parseToDate(this.datum4, this.format4);
 
 		System.out.println("date4:" + date4.toString());
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate4.equals(date4));
@@ -204,7 +204,7 @@ public class ParseDateUtilsTest
 		String actual = null;
 		try
 		{
-			actual = ParseDateUtils.parseToString("10.08.2012", "dd.MM.yyyy", "yyyyMMdd");
+			actual = ParseDateExtensions.parseToString("10.08.2012", "dd.MM.yyyy", "yyyyMMdd");
 		}
 		catch (final ParseException e)
 		{
@@ -217,7 +217,7 @@ public class ParseDateUtilsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateUtils#parseToDateLenient(java.lang.String, java.lang.String, boolean)}
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDateLenient(java.lang.String, java.lang.String, boolean)}
 	 * .
 	 *
 	 * @throws ParseException
@@ -229,14 +229,14 @@ public class ParseDateUtilsTest
 		// ----------------------------------------------
 		final DateFormat df1 = new SimpleDateFormat(this.format1);
 		final Date date1 = df1.parse(this.datum1);
-		final Date test1 = ParseDateUtils.parseToDateLenient(this.datum1, this.format1, false);
+		final Date test1 = ParseDateExtensions.parseToDateLenient(this.datum1, this.format1, false);
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate1.equals(date1));
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate1.equals(test1));
 		AssertJUnit.assertTrue("Dates should be equal.", date1.equals(test1));
 		// ----------------------------------------------
 		final DateFormat df2 = new SimpleDateFormat(this.format2);
 		final Date date2 = df2.parse(this.datum2);
-		final Date test2 = ParseDateUtils.parseToDateLenient(this.datum2, this.format2, false);
+		final Date test2 = ParseDateExtensions.parseToDateLenient(this.datum2, this.format2, false);
 
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate2.equals(date2));
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate2.equals(test2));
@@ -244,7 +244,7 @@ public class ParseDateUtilsTest
 		// -----------------------------------------------
 		final DateFormat df3 = new SimpleDateFormat(this.format3);
 		final Date date3 = df3.parse(this.datum3);
-		final Date test3 = ParseDateUtils.parseToDateLenient(this.datum3, this.format3, false);
+		final Date test3 = ParseDateExtensions.parseToDateLenient(this.datum3, this.format3, false);
 
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate3.equals(date3));
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate3.equals(test3));
@@ -252,7 +252,7 @@ public class ParseDateUtilsTest
 		// -----------------------------------------------
 		final DateFormat df4 = new SimpleDateFormat(this.format4);
 		final Date date4 = df4.parse(this.datum4);
-		final Date test4 = ParseDateUtils.parseToDateLenient(this.datum4, this.format4, false);
+		final Date test4 = ParseDateExtensions.parseToDateLenient(this.datum4, this.format4, false);
 
 		AssertJUnit.assertNull("Dates should be equal.", test4);
 		AssertJUnit.assertTrue("Dates should be equal.", this.expectedDate4.equals(date4));
@@ -262,7 +262,7 @@ public class ParseDateUtilsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateUtils#parseToDate(java.lang.String, java.lang.String)} .
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDate(java.lang.String, java.lang.String)} .
 	 */
 	@Test
 	public void testParseToDateStringString()
@@ -270,7 +270,7 @@ public class ParseDateUtilsTest
 		Date testDate = null;
 		try
 		{
-			testDate = ParseDateUtils.parseToDate(this.datum1, this.format1);
+			testDate = ParseDateExtensions.parseToDate(this.datum1, this.format1);
 		}
 		catch (final ParseException e)
 		{
@@ -282,7 +282,7 @@ public class ParseDateUtilsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateUtils#parseToDate(java.lang.String, java.lang.String[], java.util.Locale)}
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDate(java.lang.String, java.lang.String[], java.util.Locale)}
 	 * .
 	 */
 	@Test
@@ -290,10 +290,10 @@ public class ParseDateUtilsTest
 	{
 		final Locale de = new Locale("de", "DE");
 		final String formats[] = { this.format2, this.format3 };
-		Date testDate = ParseDateUtils.parseToDate(this.datum1, formats, de);
+		Date testDate = ParseDateExtensions.parseToDate(this.datum1, formats, de);
 		assertNull(testDate);
 		formats[0] = this.format1;
-		testDate = ParseDateUtils.parseToDate(this.datum1, formats, de);
+		testDate = ParseDateExtensions.parseToDate(this.datum1, formats, de);
 		assertNotNull(testDate);
 		AssertJUnit.assertTrue("Generated testDate should be equal with the expectedDate1.",
 			testDate.equals(this.expectedDate1));
@@ -302,12 +302,12 @@ public class ParseDateUtilsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateUtils#parseToString(java.util.Date, java.lang.String)} .
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToString(java.util.Date, java.lang.String)} .
 	 */
 	@Test
 	public void testParseToString()
 	{
-		final String testString = ParseDateUtils.parseToString(this.expectedDate1, this.format1);
+		final String testString = ParseDateExtensions.parseToString(this.expectedDate1, this.format1);
 		AssertJUnit.assertTrue("Generated testString should be equal with the datum1.",
 			testString.equals(this.datum1));
 		System.out.println();

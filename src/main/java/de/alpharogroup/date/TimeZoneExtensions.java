@@ -28,9 +28,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * The Class TimeZoneUtils.
+ * The class {@link TimeZoneExtensions}.
  */
-public class TimeZoneUtils
+public class TimeZoneExtensions
 {
 
 	/**

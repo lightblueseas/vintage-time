@@ -90,7 +90,7 @@ public class Age implements Serializable
 	 */
 	public Age(final Date birthday, final Date till)
 	{
-		this.elapsed = CalculateDateUtils.calculateElapsedTime(birthday, till);
+		this.elapsed = CalculateDateExtensions.calculateElapsedTime(birthday, till);
 		this.birthday = Calendar.getInstance();
 		this.birthday.setTime(birthday);
 		this.till = Calendar.getInstance();

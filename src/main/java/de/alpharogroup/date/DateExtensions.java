@@ -41,7 +41,7 @@ import java.util.TimeZone;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class DateUtils implements DatePatterns
+public class DateExtensions implements DatePatterns
 {
 
 	/**
@@ -237,7 +237,7 @@ public class DateUtils implements DatePatterns
 	/**
 	 * Util-class. Do not make instances from this class.
 	 */
-	private DateUtils()
+	private DateExtensions()
 	{
 	}
 

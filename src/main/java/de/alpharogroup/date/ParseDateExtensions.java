@@ -38,7 +38,7 @@ import java.util.Locale;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ParseDateUtils implements DatePatterns
+public class ParseDateExtensions implements DatePatterns
 {
 
 	/**
@@ -217,7 +217,7 @@ public class ParseDateUtils implements DatePatterns
 	/**
 	 * Util-class. Do not make instances from this class.
 	 */
-	private ParseDateUtils()
+	private ParseDateExtensions()
 	{
 	}
 

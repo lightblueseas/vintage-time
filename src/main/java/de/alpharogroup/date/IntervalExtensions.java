@@ -26,7 +26,7 @@ package de.alpharogroup.date;
 
 import org.joda.time.Interval;
 
-public class IntervalUtils
+public class IntervalExtensions
 {
 
 	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)

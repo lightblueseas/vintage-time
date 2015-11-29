@@ -33,12 +33,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class DateUtils.
+ * Test class for the class {@link DateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
  */
-public class DateUtilsTest
+public class DateExtensionsTest
 {
 
 	/** The expected date1. */
@@ -56,8 +56,8 @@ public class DateUtilsTest
 	@BeforeMethod
 	protected void setUp() throws Exception
 	{
-		this.expectedDate1 = CreateDateUtils.newDate(2000, 12, 31);
-		this.expectedDate4 = CreateDateUtils.newDate(1971, 2, 1, 0, 0, 0);
+		this.expectedDate1 = CreateDateExtensions.newDate(2000, 12, 31);
+		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class DateUtilsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getAllDateFormats()}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getAllDateFormats()}.
 	 *
 	 * @throws IllegalArgumentException
 	 *             the illegal argument exception
@@ -84,7 +84,7 @@ public class DateUtilsTest
 	@Test
 	public void testGetAllDateFormats() throws IllegalArgumentException, IllegalAccessException
 	{
-		final List<String> dateformats = DateUtils.getAllDateFormats();
+		final List<String> dateformats = DateExtensions.getAllDateFormats();
 		int i = 1;
 		for (final String element : dateformats)
 		{
@@ -94,73 +94,73 @@ public class DateUtilsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getDay(java.util.Date)}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getDay(java.util.Date)}.
 	 */
 	@Test
 	public void testGetDay()
 	{
 
-		final int day = DateUtils.getDay(this.expectedDate1);
+		final int day = DateExtensions.getDay(this.expectedDate1);
 		final int expected = 31;
 		AssertJUnit.assertTrue("The day should be 31.", day == expected);
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getHours(java.util.Date)}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getHours(java.util.Date)}.
 	 */
 	@Test
 	public void testGetHours()
 	{
 
-		final int hour = DateUtils.getHours(this.expectedDate4);
+		final int hour = DateExtensions.getHours(this.expectedDate4);
 		final int expected = 0;
 		AssertJUnit.assertTrue("The hour should be 0.", hour == expected);
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getMinutes(java.util.Date)}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getMinutes(java.util.Date)}.
 	 */
 	@Test
 	public void testGetMinutes()
 	{
 
-		final int minutes = DateUtils.getMinutes(this.expectedDate4);
+		final int minutes = DateExtensions.getMinutes(this.expectedDate4);
 		final int expected = 0;
 		AssertJUnit.assertTrue("The minutes should be 0.", minutes == expected);
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getMonth(java.util.Date)}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getMonth(java.util.Date)}.
 	 */
 	@Test
 	public void testGetMonth()
 	{
 
-		final int month = DateUtils.getMonth(this.expectedDate1);
+		final int month = DateExtensions.getMonth(this.expectedDate1);
 		final int expected = 11;
 		AssertJUnit.assertTrue("The month should be 11.", month == expected);
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getSeconds(java.util.Date)}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getSeconds(java.util.Date)}.
 	 */
 	@Test
 	public void testGetSeconds()
 	{
 
-		final int seconds = DateUtils.getSeconds(this.expectedDate4);
+		final int seconds = DateExtensions.getSeconds(this.expectedDate4);
 		final int expected = 0;
 		AssertJUnit.assertTrue("The seconds should be 0.", seconds == expected);
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateUtils#getYear(java.util.Date)}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getYear(java.util.Date)}.
 	 */
 	@Test
 	public void testGetYear()
 	{
 
-		final int year = DateUtils.getYear(this.expectedDate1);
+		final int year = DateExtensions.getYear(this.expectedDate1);
 		final int expected = 2000;
 		AssertJUnit.assertTrue("The year should be 2000.", year == expected);
 	}

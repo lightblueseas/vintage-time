@@ -35,7 +35,7 @@ import java.util.Random;
  * @author Asterios Raptis
  * @version 1.0
  */
-public final class CreateDateUtils implements DatePatterns
+public final class CreateDateExtensions implements DatePatterns
 {
 
 	/**
@@ -49,7 +49,7 @@ public final class CreateDateUtils implements DatePatterns
 	 */
 	public static Date inPast(final Date from, final int millis)
 	{
-		return CalculateDateUtils.addMilliseconds(from, (millis * (-1)));
+		return CalculateDateExtensions.addMilliseconds(from, (millis * (-1)));
 	}
 
 	/**
@@ -154,7 +154,7 @@ public final class CreateDateUtils implements DatePatterns
 	/**
 	 * Util-class. Do not make instances from this class.
 	 */
-	private CreateDateUtils()
+	private CreateDateExtensions()
 	{
 	}
 

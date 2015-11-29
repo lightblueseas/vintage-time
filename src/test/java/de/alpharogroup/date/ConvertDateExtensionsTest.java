@@ -34,12 +34,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class ConvertDateUtils.
+ * Test class for the class {@link ConvertDateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ConvertDateUtilsTest
+public class ConvertDateExtensionsTest
 {
 
 	/** The Constant YYYY_MM_DD. */
@@ -73,20 +73,20 @@ public class ConvertDateUtilsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateUtils#toCalendar(java.util.Date)} .
+	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)} .
 	 */
 	@Test
 	public void testConvertDateToCalendar()
 	{
 
 		final Date now = new Date();
-		final Calendar calendar = ConvertDateUtils.toCalendar(now);
+		final Calendar calendar = ConvertDateExtensions.toCalendar(now);
 		final Date expected = calendar.getTime();
 		AssertJUnit.assertTrue("The calendar should be equal with the date.", expected.equals(now));
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateUtils#toCalendar(java.util.Date)} .
+	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)} .
 	 * 
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.
@@ -94,15 +94,15 @@ public class ConvertDateUtilsTest
 	@Test
 	public void testConvertToCalendar() throws ParseException
 	{
-		final Date test = ParseDateUtils.parseToDate("1900-10-01", this.format1);
-		final Calendar calendar = ConvertDateUtils.toCalendar(test);
+		final Date test = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
+		final Calendar calendar = ConvertDateExtensions.toCalendar(test);
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(test);
 		AssertJUnit.assertTrue(calendar.equals(compare));
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateUtils#toDate(java.util.Calendar)} .
+	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toDate(java.util.Calendar)} .
 	 * 
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.
@@ -110,18 +110,18 @@ public class ConvertDateUtilsTest
 	@Test
 	public void testConvertToDate() throws ParseException
 	{
-		final Date expected = ParseDateUtils.parseToDate("1900-10-01", this.format1);
+		final Date expected = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(expected);
-		final Date date = ConvertDateUtils.toDate(compare);
+		final Date date = ConvertDateExtensions.toDate(compare);
 		AssertJUnit.assertTrue(date.equals(expected));
 	}
 
 	@Test
 	public void testToCalendar() throws ParseException
 	{
-		final Date test = ParseDateUtils.parseToDate("1900-10-01", this.format1);
-		final Calendar calendar = ConvertDateUtils.toCalendar(test.getTime());
+		final Date test = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
+		final Calendar calendar = ConvertDateExtensions.toCalendar(test.getTime());
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(test);
 		AssertJUnit.assertTrue(calendar.equals(compare));
@@ -130,11 +130,11 @@ public class ConvertDateUtilsTest
 	@Test
 	public void testToDate() throws ParseException
 	{
-		final Date expected = ParseDateUtils.parseToDate("1900-10-01", this.format1);
+		final Date expected = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
 		final long millis = expected.getTime();
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(expected);
-		final Date actual = ConvertDateUtils.toDate(millis);
+		final Date actual = ConvertDateExtensions.toDate(millis);
 		AssertJUnit.assertTrue(actual.equals(expected));
 	}
 
