@@ -125,7 +125,6 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)}
-	 * .
 	 */
 	@Test
 	public void testAddHoursToDate()

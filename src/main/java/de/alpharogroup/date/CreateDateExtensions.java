@@ -148,7 +148,18 @@ public final class CreateDateExtensions implements DatePatterns
 	 */
 	public static Date now()
 	{
-		return new Date(System.currentTimeMillis());
+		return newDate(System.currentTimeMillis());
+	}
+
+	/**
+	 * Creates a date from the given long value.
+	 *
+	 * @param time the time
+	 * @return the date
+	 */
+	public static Date newDate(final long time)
+	{
+		return new Date(time);
 	}
 
 	/**
