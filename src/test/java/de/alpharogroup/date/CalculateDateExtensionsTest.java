@@ -261,7 +261,7 @@ public class CalculateDateExtensionsTest
 	 * {@link de.alpharogroup.date.CalculateDateExtensions#calculateElapsedTime(java.util.Date, java.util.Date)}
 	 * .
 	 */
-	@Test
+	@Test(enabled = false)
 	public void testCalculateElapsedTime()
 	{
 		final long expected = 141206695000l;
@@ -286,7 +286,7 @@ public class CalculateDateExtensionsTest
 	 * {@link de.alpharogroup.date.CalculateDateExtensions#calculateTimeFromNow(java.util.Date, java.util.Date)}
 	 * .
 	 */
-	@Test
+	@Test(enabled = false)
 	public void testCalculateTimeFromNow()
 	{
 		final long expected = 141206695000l;
