@@ -29,7 +29,7 @@ import java.util.Comparator;
 import de.alpharogroup.date.Day;
 
 /**
- * The Class DayComparator. It compares Day objects.
+ * The class DayComparator. It compares Day objects.
  */
 public class DayComparator implements Comparator<Day>
 {
