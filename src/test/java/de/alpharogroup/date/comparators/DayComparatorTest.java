@@ -35,7 +35,7 @@ import org.testng.annotations.Test;
 import de.alpharogroup.date.Day;
 
 /**
- * The Class DayComparatorTest.
+ * The class DayComparatorTest.
  */
 public class DayComparatorTest
 {
