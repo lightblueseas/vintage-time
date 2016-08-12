@@ -1,11 +1,5 @@
 # vintage-time
 
-<a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
-</a>
-
-# vintage-time
-
 
 ## License
 
@@ -55,4 +49,9 @@ Don't forget to add new units tests on your changes.
 Do not hesitate to contact the vintage-time developers with your questions, concerns, comments, bug reports, or feature requests.
 - Feature requests, questions and bug reports can be reported at the [issues page](https://github.com/lightblueseas/vintage-time/issues).
 
+# Donate
+
+<a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
+</a>
 
