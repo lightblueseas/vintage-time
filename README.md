@@ -1,11 +1,6 @@
 # vintage-time
 
-<a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
-</a>
-
-# vintage-time
-
+Project that have utility classes for compute date objects before jdk8
 
 ## License
 
@@ -27,7 +22,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- vintage-time version -->
-		<vintage-time.version>4.10.0</vintage-time.version>
+		<vintage-time.version>4.9.0</vintage-time.version>
 
 		<dependencies>
 			...
@@ -55,4 +50,10 @@ Don't forget to add new units tests on your changes.
 Do not hesitate to contact the vintage-time developers with your questions, concerns, comments, bug reports, or feature requests.
 - Feature requests, questions and bug reports can be reported at the [issues page](https://github.com/lightblueseas/vintage-time/issues).
 
+# Donate
+
+If you like this library, please consider a donation through 
+<a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
+</a>
 
