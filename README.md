@@ -1,5 +1,6 @@
 # vintage-time
 
+Project that have utility classes for compute date objects before jdk8
 
 ## License
 
@@ -51,6 +52,7 @@ Do not hesitate to contact the vintage-time developers with your questions, conc
 
 # Donate
 
+If you like this library, please consider a donation through 
 <a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
