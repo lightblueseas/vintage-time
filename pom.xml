@@ -17,6 +17,14 @@
 	<description>
 		Project that have utility classes for compute date objects before jdk8
 	</description>
+	
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<url>https://github.com/lightblueseas/vintage-time</url>
 
