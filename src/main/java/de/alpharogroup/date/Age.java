@@ -117,13 +117,12 @@ public class Age implements Serializable
 	 * Instantiates a new {@link Age} object from the given long that represents a {@link Date}
 	 * object. It calculates the age from the given birthday {@link Date} object till now.
 	 *
-	 * @param startFrom
-	 *            The long that represents a {@link Date} object from where to start the
-	 *            calculation.
+	 * @param elapsed
+	 *            The elapsed time in long.
 	 */
-	public Age(final long startFrom)
+	public Age(final long elapsed)
 	{
-		this(new Date(startFrom));
+		this(new Date(CreateDateExtensions.now().getTime() - elapsed));
 	}
 
 	/**
