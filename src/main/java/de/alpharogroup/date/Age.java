@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2007 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -30,7 +30,7 @@ import java.util.Date;
 
 /**
  * Helper class to present one long value from a calculate two Dates in a human readable string.
- * 
+ *
  * @version 1.0
  * @author Asterios Raptis
  */
@@ -41,6 +41,50 @@ public class Age implements Serializable
 	 * The serialVersionUID from Age.
 	 */
 	private static final long serialVersionUID = -1110889254918807595L;
+
+	/**
+	 * Factory method to create a new {@link Age} object from the given birthday Date object. It
+	 * calculates the age from the given birthday Date object till now.
+	 *
+	 * @param startFrom
+	 *            The long that represents a {@link Date} object from where to start the
+	 *            calculation.
+	 *
+	 * @return the new {@link Age} object
+	 */
+	public static Age of(final long startFrom)
+	{
+		return new Age(startFrom);
+	}
+
+	/**
+	 * Factory method to create a new {@link Age} object from the given birthday Date object. It
+	 * calculates the age from the given birthday Date object till now.
+	 *
+	 * @param birthday
+	 *            the birthday
+	 * @return the new {@link Age} object
+	 */
+	public static Age of(final Date birthday)
+	{
+		return new Age(birthday);
+	}
+
+	/**
+	 * Factory method to create a new {@link Age} object from the given birthday {@link Date} object
+	 * and the given till {@link Date} object. It calculates the age from the given birthday Date
+	 * object till the given till {@link Date} object.
+	 *
+	 * @param birthday
+	 *            the birthday
+	 * @param till
+	 *            The point where the Age stops.
+	 * @return the new {@link Age} object
+	 */
+	public static Age of(final Date birthday, final Date till)
+	{
+		return new Age(birthday);
+	}
 
 	/** The Constant ONE_SECOND. */
 	public static final long ONE_SECOND = 1000l;
@@ -61,17 +105,30 @@ public class Age implements Serializable
 	public static final long ONE_YEAR = ONE_DAY * 365l + ONE_HOUR * 6l;
 
 	/** The elapsed time in long. */
-	private long elapsed;
+	private final long elapsed;
 
 	/** The birthday. */
-	private Calendar birthday;
+	private final Calendar birthday;
 
 	/** The point where the Age stops. */
-	private Calendar till;
+	private final Calendar till;
 
 	/**
-	 * Instantiates a new Age object from the given Date objects.
-	 * 
+	 * Instantiates a new {@link Age} object from the given long that represents a {@link Date}
+	 * object. It calculates the age from the given birthday {@link Date} object till now.
+	 *
+	 * @param elapsed
+	 *            The elapsed time in long.
+	 */
+	public Age(final long elapsed)
+	{
+		this(new Date(CreateDateExtensions.now().getTime() - elapsed));
+	}
+
+	/**
+	 * Instantiates a new {@link Age} object from the given birthday {@link Date} object. It
+	 * calculates the age from the given birthday {@link Date} object till now.
+	 *
 	 * @param birthday
 	 *            The birthday.
 	 */
@@ -81,8 +138,10 @@ public class Age implements Serializable
 	}
 
 	/**
-	 * Instantiates a new Age object from the given Date objects.
-	 * 
+	 * Instantiates a new {@link Age} object from the given birthday {@link Date} object and the
+	 * given till {@link Date} object. It calculates the age from the given birthday Date object
+	 * till the given till {@link Date} object.
+	 *
 	 * @param birthday
 	 *            The birthday.
 	 * @param till
@@ -98,19 +157,8 @@ public class Age implements Serializable
 	}
 
 	/**
-	 * Default constructor.
-	 * 
-	 * @param elapsed
-	 *            The elapsed time in long.
-	 */
-	public Age(final long elapsed)
-	{
-		this.elapsed = elapsed;
-	}
-
-	/**
 	 * Calculate in days.
-	 * 
+	 *
 	 * @return the double
 	 */
 	public double calculateInDays()
@@ -122,7 +170,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in days.
-	 * 
+	 *
 	 * @param time
 	 *            the time
 	 * @return the double
@@ -136,7 +184,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in default month.
-	 * 
+	 *
 	 * @return the double
 	 */
 	public double calculateInDefaultMonth()
@@ -146,7 +194,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in default month. It is calculated that one default month is 30 days.
-	 * 
+	 *
 	 * @param time
 	 *            the time.
 	 * @return the result as double.
@@ -158,7 +206,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in hours.
-	 * 
+	 *
 	 * @return the double
 	 */
 	public double calculateInHours()
@@ -170,7 +218,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in hours.
-	 * 
+	 *
 	 * @param time
 	 *            the time
 	 * @return the double
@@ -184,7 +232,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in minutes.
-	 * 
+	 *
 	 * @return the double
 	 */
 	public double calculateInMinutes()
@@ -196,7 +244,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in minutes.
-	 * 
+	 *
 	 * @param time
 	 *            the time
 	 * @return the double
@@ -210,7 +258,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in seconds.
-	 * 
+	 *
 	 * @return the double
 	 */
 	public double calculateInSeconds()
@@ -222,7 +270,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in minutes.
-	 * 
+	 *
 	 * @param time
 	 *            the time
 	 * @return the double
@@ -236,7 +284,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in years.
-	 * 
+	 *
 	 * @return the double
 	 */
 	public double calculateInYears()
@@ -248,7 +296,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in years.
-	 * 
+	 *
 	 * @param el
 	 *            The time.
 	 * @return the double
@@ -262,7 +310,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in years months days hours minutes and seconds.
-	 * 
+	 *
 	 * @return the int[] Returns an int array where the first element is the years the second
 	 *         element the months the third element the days then hours, minutes and seconds.
 	 */
@@ -275,7 +323,7 @@ public class Age implements Serializable
 
 	/**
 	 * Calculate in years months days hours minutes and seconds.
-	 * 
+	 *
 	 * @param compute
 	 *            The long to calculate.
 	 * @return the int[] Returns an int array where the first element is the years the second
@@ -355,7 +403,7 @@ public class Age implements Serializable
 
 	/**
 	 * Gets a human readable string from the age.
-	 * 
+	 *
 	 * @return Returns a human readable string from the age.
 	 */
 	public String getHumanReadableAge()
@@ -365,7 +413,7 @@ public class Age implements Serializable
 
 	/**
 	 * Gets a human readable string from the age.
-	 * 
+	 *
 	 * @param readableAge
 	 *            The int array with the age values.
 	 * @return Returns a human readable string from the age.
