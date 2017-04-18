@@ -102,8 +102,8 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#addDays(java.util.Date, int)}
-	 * .
+	 * Test method for
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#addDays(java.util.Date, int)} .
 	 */
 	@Test
 	public void testAddDaysToDate()
@@ -124,7 +124,8 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)}
+	 * Test method for
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)}
 	 */
 	@Test
 	public void testAddHoursToDate()
@@ -145,8 +146,8 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)}
-	 * .
+	 * Test method for
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)} .
 	 */
 	@Test
 	public void testAddMinutesToDate()
@@ -184,8 +185,8 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)}
-	 * .
+	 * Test method for
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#addHours(java.util.Date, int)} .
 	 */
 	@Test
 	public void testAddSecondsToDate()
@@ -206,8 +207,8 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#addWeeks(java.util.Date, int)}
-	 * .
+	 * Test method for
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#addWeeks(java.util.Date, int)} .
 	 */
 	@Test
 	public void testAddWeeksToDate()
@@ -337,7 +338,8 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.CalculateDateExtensions#computeAge(java.util.Date, java.util.Date)} .
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#computeAge(java.util.Date, java.util.Date)}
+	 * .
 	 */
 	@Test
 	public void testComputeAge()
@@ -348,7 +350,8 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CalculateDateExtensions#computeEasternSunday(int)}.
+	 * Test method for
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#computeEasternSunday(int)}.
 	 */
 	@Test
 	public void testComputeEasternSunday()
@@ -378,8 +381,8 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testIsDateInTheFuture()
 	{
-		final boolean now = CalculateDateExtensions.isDateInTheFuture(CalculateDateExtensions.addDays(
-			new Date(), 1));
+		final boolean now = CalculateDateExtensions
+			.isDateInTheFuture(CalculateDateExtensions.addDays(new Date(), 1));
 		AssertJUnit.assertTrue("Now is not in the future.", now);
 		final boolean past = CalculateDateExtensions.isDateInTheFuture(this.expectedDate1);
 		AssertJUnit.assertFalse("The expectedDate1 should be in the future.", past);
@@ -395,8 +398,8 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testIsDateInThePast()
 	{
-		final boolean now = CalculateDateExtensions.isDateInThePast(CalculateDateExtensions.addDays(
-			new Date(), 1));
+		final boolean now = CalculateDateExtensions
+			.isDateInThePast(CalculateDateExtensions.addDays(new Date(), 1));
 		AssertJUnit.assertFalse("Now is not in the past.", now);
 		final boolean past = CalculateDateExtensions.isDateInThePast(this.expectedDate1);
 		AssertJUnit.assertTrue("The expectedDate1 should be in the past.", past);
@@ -432,7 +435,8 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.CalculateDateExtensions#substractDaysFromDate(java.util.Date, int)} .
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#substractDaysFromDate(java.util.Date, int)}
+	 * .
 	 */
 	@Test
 	public void testSubstractDaysFromDate()
@@ -448,7 +452,8 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.CalculateDateExtensions#substractYearsFromDate(java.util.Date, int)} .
+	 * {@link de.alpharogroup.date.CalculateDateExtensions#substractYearsFromDate(java.util.Date, int)}
+	 * .
 	 */
 	@Test
 	public void testSubstractYearsFromDate()

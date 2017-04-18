@@ -138,12 +138,14 @@ public class ParseDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseDate(java.lang.String, java.util.List)} .
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseDate(java.lang.String, java.util.List)}
+	 * .
 	 */
 	@Test
 	public void testParseDate()
 	{
-		final Date date = ParseDateExtensions.parseDate(this.datum1, DateExtensions.getAllDateFormats());
+		final Date date = ParseDateExtensions.parseDate(this.datum1,
+			DateExtensions.getAllDateFormats());
 		System.out.println(date);
 		AssertJUnit.assertTrue(date.equals(this.expectedDate1));
 	}
@@ -157,7 +159,8 @@ public class ParseDateExtensionsTest
 	@Test
 	public void testparseToDate() throws ParseException
 	{
-		final Date date = ParseDateExtensions.parseToDate("11.12.1960", DatePatterns.DOT_DD_MM_YYYY);
+		final Date date = ParseDateExtensions.parseToDate("11.12.1960",
+			DatePatterns.DOT_DD_MM_YYYY);
 		System.out.println(date);
 		// ----------------------------------------------
 		final DateFormat df1 = new SimpleDateFormat(this.format1);
@@ -210,8 +213,9 @@ public class ParseDateExtensionsTest
 		{
 			e.printStackTrace();
 		}
-		AssertJUnit.assertTrue("Generated actual date string '" + actual
-			+ "' should be equal with the expected value '" + expected + "'.",
+		AssertJUnit.assertTrue(
+			"Generated actual date string '" + actual
+				+ "' should be equal with the expected value '" + expected + "'.",
 			expected.equals(actual));
 	}
 
@@ -262,7 +266,8 @@ public class ParseDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDate(java.lang.String, java.lang.String)} .
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDate(java.lang.String, java.lang.String)}
+	 * .
 	 */
 	@Test
 	public void testParseToDateStringString()
@@ -302,12 +307,14 @@ public class ParseDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToString(java.util.Date, java.lang.String)} .
+	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToString(java.util.Date, java.lang.String)}
+	 * .
 	 */
 	@Test
 	public void testParseToString()
 	{
-		final String testString = ParseDateExtensions.parseToString(this.expectedDate1, this.format1);
+		final String testString = ParseDateExtensions.parseToString(this.expectedDate1,
+			this.format1);
 		AssertJUnit.assertTrue("Generated testString should be equal with the datum1.",
 			testString.equals(this.datum1));
 		System.out.println();

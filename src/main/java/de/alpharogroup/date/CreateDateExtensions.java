@@ -126,6 +126,18 @@ public final class CreateDateExtensions implements DatePatterns
 	}
 
 	/**
+	 * Creates a date from the given long value.
+	 *
+	 * @param time
+	 *            the time
+	 * @return the date
+	 */
+	public static Date newDate(final long time)
+	{
+		return new Date(time);
+	}
+
+	/**
 	 * Creates the random date.
 	 *
 	 * @param from
@@ -149,17 +161,6 @@ public final class CreateDateExtensions implements DatePatterns
 	public static Date now()
 	{
 		return newDate(System.currentTimeMillis());
-	}
-
-	/**
-	 * Creates a date from the given long value.
-	 *
-	 * @param time the time
-	 * @return the date
-	 */
-	public static Date newDate(final long time)
-	{
-		return new Date(time);
 	}
 
 	/**

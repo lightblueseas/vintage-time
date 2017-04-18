@@ -81,8 +81,8 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
-		AssertJUnit
-			.assertTrue("The date should be equal with the expected.", date.equals(expected));
+		AssertJUnit.assertTrue("The date should be equal with the expected.",
+			date.equals(expected));
 	}
 
 	/**
@@ -103,8 +103,8 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
-		AssertJUnit
-			.assertTrue("The date should be equal with the expected.", date.equals(expected));
+		AssertJUnit.assertTrue("The date should be equal with the expected.",
+			date.equals(expected));
 	}
 
 }

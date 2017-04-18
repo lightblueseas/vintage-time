@@ -73,7 +73,8 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)} .
+	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)}
+	 * .
 	 */
 	@Test
 	public void testConvertDateToCalendar()
@@ -86,7 +87,8 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)} .
+	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)}
+	 * .
 	 * 
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.
@@ -102,7 +104,8 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toDate(java.util.Calendar)} .
+	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toDate(java.util.Calendar)}
+	 * .
 	 * 
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.

@@ -149,9 +149,9 @@ public class ParseDateExtensions implements DatePatterns
 
 	/**
 	 * The Method parseToString(Date, String) formats the given Date to the given Format. For
-	 * Example: Date date =new Date(System.currentTimeMillis()); String format =
-	 * "dd.MM.yyyy HH:mm:ss"; String now = UtilDate.parseToString(date, format);
-	 * System.out.println(now); The output would be something like this:'15.07.2005 14:12:00'
+	 * Example: Date date =new Date(System.currentTimeMillis()); String format = "dd.MM.yyyy
+	 * HH:mm:ss"; String now = UtilDate.parseToString(date, format); System.out.println(now); The
+	 * output would be something like this:'15.07.2005 14:12:00'
 	 *
 	 * @param date
 	 *            The Date to format to a String
@@ -166,9 +166,9 @@ public class ParseDateExtensions implements DatePatterns
 
 	/**
 	 * The Method parseToString(Date, String) formats the given Date to the given Format. For
-	 * Example: Date date =new Date(System.currentTimeMillis()); String format =
-	 * "dd.MM.yyyy HH:mm:ss"; String now = UtilDate.parseToString(date, format);
-	 * System.out.println(now); The output would be something like this:'15.07.2005 14:12:00'
+	 * Example: Date date =new Date(System.currentTimeMillis()); String format = "dd.MM.yyyy
+	 * HH:mm:ss"; String now = UtilDate.parseToString(date, format); System.out.println(now); The
+	 * output would be something like this:'15.07.2005 14:12:00'
 	 *
 	 * @param date
 	 *            The Date to format to a String

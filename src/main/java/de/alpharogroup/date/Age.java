@@ -42,20 +42,23 @@ public class Age implements Serializable
 	 */
 	private static final long serialVersionUID = -1110889254918807595L;
 
-	/**
-	 * Factory method to create a new {@link Age} object from the given birthday Date object. It
-	 * calculates the age from the given birthday Date object till now.
-	 *
-	 * @param startFrom
-	 *            The long that represents a {@link Date} object from where to start the
-	 *            calculation.
-	 *
-	 * @return the new {@link Age} object
-	 */
-	public static Age of(final long startFrom)
-	{
-		return new Age(startFrom);
-	}
+	/** The Constant ONE_SECOND. */
+	public static final long ONE_SECOND = 1000l;
+
+	/** The Constant ONE_MINUTE. */
+	public static final long ONE_MINUTE = ONE_SECOND * 60l;
+
+	/** The Constant ONE_HOUR. */
+	public static final long ONE_HOUR = ONE_MINUTE * 60l;
+
+	/** The Constant ONE_DAY. */
+	public static final long ONE_DAY = ONE_HOUR * 24l;
+
+	/** The Constant ONE_DEFAULT_MONTH. */
+	public static final long ONE_DEFAULT_MONTH = ONE_DAY * 30l;
+
+	/** The Constant ONE_YEAR. */
+	public static final long ONE_YEAR = ONE_DAY * 365l + ONE_HOUR * 6l;
 
 	/**
 	 * Factory method to create a new {@link Age} object from the given birthday Date object. It
@@ -86,23 +89,20 @@ public class Age implements Serializable
 		return new Age(birthday);
 	}
 
-	/** The Constant ONE_SECOND. */
-	public static final long ONE_SECOND = 1000l;
-
-	/** The Constant ONE_MINUTE. */
-	public static final long ONE_MINUTE = ONE_SECOND * 60l;
-
-	/** The Constant ONE_HOUR. */
-	public static final long ONE_HOUR = ONE_MINUTE * 60l;
-
-	/** The Constant ONE_DAY. */
-	public static final long ONE_DAY = ONE_HOUR * 24l;
-
-	/** The Constant ONE_DEFAULT_MONTH. */
-	public static final long ONE_DEFAULT_MONTH = ONE_DAY * 30l;
-
-	/** The Constant ONE_YEAR. */
-	public static final long ONE_YEAR = ONE_DAY * 365l + ONE_HOUR * 6l;
+	/**
+	 * Factory method to create a new {@link Age} object from the given birthday Date object. It
+	 * calculates the age from the given birthday Date object till now.
+	 *
+	 * @param startFrom
+	 *            The long that represents a {@link Date} object from where to start the
+	 *            calculation.
+	 *
+	 * @return the new {@link Age} object
+	 */
+	public static Age of(final long startFrom)
+	{
+		return new Age(startFrom);
+	}
 
 	/** The elapsed time in long. */
 	private final long elapsed;
@@ -112,18 +112,6 @@ public class Age implements Serializable
 
 	/** The point where the Age stops. */
 	private final Calendar till;
-
-	/**
-	 * Instantiates a new {@link Age} object from the given long that represents a {@link Date}
-	 * object. It calculates the age from the given birthday {@link Date} object till now.
-	 *
-	 * @param elapsed
-	 *            The elapsed time in long.
-	 */
-	public Age(final long elapsed)
-	{
-		this(new Date(CreateDateExtensions.now().getTime() - elapsed));
-	}
 
 	/**
 	 * Instantiates a new {@link Age} object from the given birthday {@link Date} object. It
@@ -154,6 +142,18 @@ public class Age implements Serializable
 		this.birthday.setTime(birthday);
 		this.till = Calendar.getInstance();
 		this.till.setTime(till);
+	}
+
+	/**
+	 * Instantiates a new {@link Age} object from the given long that represents a {@link Date}
+	 * object. It calculates the age from the given birthday {@link Date} object till now.
+	 *
+	 * @param elapsed
+	 *            The elapsed time in long.
+	 */
+	public Age(final long elapsed)
+	{
+		this(new Date(CreateDateExtensions.now().getTime() - elapsed));
 	}
 
 	/**
