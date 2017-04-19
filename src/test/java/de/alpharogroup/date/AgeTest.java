@@ -24,9 +24,10 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 import java.util.Date;
 
-import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 /**
@@ -43,11 +44,18 @@ public class AgeTest
 	{
 		final Date birthDayNick = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		final Date now = CreateDateExtensions.now();
-		final long elapsed = CalculateDateExtensions.calculateElapsedTime(birthDayNick, now);
-		final Age bdn = new Age(birthDayNick);
-		final int expected = (int)(elapsed / Age.ONE_DAY);
-		final int actual = (int)bdn.calculateInDays();
-		AssertJUnit.assertTrue(actual == expected);
+		long elapsed = CalculateDateExtensions.calculateElapsedTime(birthDayNick, now);
+		final Age ageOfNick = new Age(birthDayNick);
+		int expected = (int)(elapsed / Age.ONE_DAY);
+		int actual = (int)ageOfNick.calculateInDays();
+		assertTrue(actual == expected);
+
+		final Date birthDayJohnDoe = CreateDateExtensions.newDate(1987, 12, 24);
+		Age ageOfJohnDoe = Age.of(CreateDateExtensions.newDate(1987, 12, 24));
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDayJohnDoe, now);
+		expected = (int)(elapsed / Age.ONE_DAY);
+		actual = (int)ageOfJohnDoe.calculateInDays();
+		assertTrue(actual == expected);
 	}
 
 	/**
@@ -62,7 +70,7 @@ public class AgeTest
 		final Age bdn = new Age(birthDayNick);
 		final int expected = (int)(elapsed / Age.ONE_HOUR);
 		final int actual = (int)bdn.calculateInHours();
-		AssertJUnit.assertTrue(actual == expected);
+		assertTrue(actual == expected);
 	}
 
 }
