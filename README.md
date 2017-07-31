@@ -41,7 +41,7 @@ The source code for vintage-time are on GitHub. Please feel free to fork and sen
 
 Create your own fork of [lightblueseas/vintage-time/fork](https://github.com/lightblueseas/vintage-time/fork)
 
-To share your changes, [submit a pull request](https://github.com/lightblueseas/vintage-time/pull/new/master).
+To share your changes, [submit a pull request](https://github.com/lightblueseas/vintage-time/pull/new/develop).
 
 Don't forget to add new units tests on your changes.
 
