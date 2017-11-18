@@ -26,6 +26,7 @@ Than you can add the dependency to your dependencies:
 
 		<dependencies>
 			...
+			<!-- VINTAGE-TIME DEPENDENCY -->
 			<dependency>
 				<groupId>de.alpharogroup</groupId>
 				<artifactId>vintage-time</artifactId>
