@@ -32,7 +32,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class {@link CalculateDateExtensions}.
+ * The unit test class for the class {@link CalculateDateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis

@@ -34,7 +34,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class {@link ConvertDateExtensions}.
+ * The unit test class for the class {@link ConvertDateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis

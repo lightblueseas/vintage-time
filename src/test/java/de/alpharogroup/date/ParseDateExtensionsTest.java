@@ -39,7 +39,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class {@link ParseDateExtensions}.
+ * The unit test class for the class {@link ParseDateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
