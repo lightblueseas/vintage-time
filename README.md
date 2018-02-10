@@ -1,16 +1,18 @@
 # vintage-time
 
+<div align="center">
+
+[![Build Status](https://travis-ci.org/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.org/lightblueseas/vintage-time)
+[![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=develop)](https://coveralls.io/github/lightblueseas/vintage-time?branch=develop)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
+
+</div>
+
 Project that have utility classes for compute date objects before jdk8
 
 ## License
 
 The source code comes under the liberal MIT License, making vintage-time great for all types of applications.
-
-# Build status and latest maven version
-[![Build Status](https://travis-ci.org/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.org/lightblueseas/vintage-time)
-
-
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
 
 ## Maven dependency
 
