@@ -233,6 +233,20 @@ public class CalculateDateExtensions implements DatePatterns
 	}
 
 	/**
+	 * Calculate elapsed time in seconds from the given start time as long to the current system
+	 * time. This is useful for benchmarking
+	 *
+	 * @param startTime
+	 *            the start time
+	 * @return The elapsed time in double
+	 */
+	public static double calculateElapsedTimeInSeconds(final long startTime)
+	{
+		final double elapsedTime = ((double)(System.nanoTime() - startTime)) / 1000000;
+		return elapsedTime;
+	}
+
+	/**
 	 * Calculates the elapsed time from the future to now.
 	 *
 	 * @param now
