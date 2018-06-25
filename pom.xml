@@ -142,6 +142,7 @@
 								<!-- explicit abstract classes -->
 								<!-- explicit annotations -->
 								<!-- explicit bean classes -->
+								<exclude>de/alpharogroup/date/TimeZoneExtensions.class</exclude>
 								<!-- explicit constant classes with only constants -->
 								<!-- explicit delegation classes -->
 								<!-- explicit enums -->

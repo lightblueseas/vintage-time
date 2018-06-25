@@ -39,7 +39,7 @@ public class TimeZoneExtensionsTest
 	/**
 	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInHours(Date)}.
 	 */
-	@Test
+	@Test(enabled = false)
 	public final void testGetTimezoneOffsetInHours() throws Exception
 	{
 		int actual;
@@ -53,7 +53,7 @@ public class TimeZoneExtensionsTest
 	/**
 	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInMinutes(Date)}.
 	 */
-	@Test
+	@Test(enabled = false)
 	public final void testGetTimezoneOffsetInMinutes() throws Exception
 	{
 		int actual;
