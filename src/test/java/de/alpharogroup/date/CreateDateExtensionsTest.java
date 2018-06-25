@@ -24,10 +24,11 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 import java.util.Calendar;
 import java.util.Date;
 
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -81,7 +82,7 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
-		AssertJUnit.assertTrue("The date should be equal with the expected.",
+		assertTrue("The date should be equal with the expected.",
 			date.equals(expected));
 	}
 
@@ -103,7 +104,7 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
-		AssertJUnit.assertTrue("The date should be equal with the expected.",
+		assertTrue("The date should be equal with the expected.",
 			date.equals(expected));
 	}
 

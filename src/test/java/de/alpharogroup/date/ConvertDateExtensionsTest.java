@@ -24,11 +24,12 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -83,7 +84,7 @@ public class ConvertDateExtensionsTest
 		final Date now = new Date();
 		final Calendar calendar = ConvertDateExtensions.toCalendar(now);
 		final Date expected = calendar.getTime();
-		AssertJUnit.assertTrue("The calendar should be equal with the date.", expected.equals(now));
+		assertTrue("The calendar should be equal with the date.", expected.equals(now));
 	}
 
 	/**
@@ -100,7 +101,7 @@ public class ConvertDateExtensionsTest
 		final Calendar calendar = ConvertDateExtensions.toCalendar(test);
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(test);
-		AssertJUnit.assertTrue(calendar.equals(compare));
+		assertTrue(calendar.equals(compare));
 	}
 
 	/**
@@ -117,7 +118,7 @@ public class ConvertDateExtensionsTest
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(expected);
 		final Date date = ConvertDateExtensions.toDate(compare);
-		AssertJUnit.assertTrue(date.equals(expected));
+		assertTrue(date.equals(expected));
 	}
 
 	@Test
@@ -127,7 +128,7 @@ public class ConvertDateExtensionsTest
 		final Calendar calendar = ConvertDateExtensions.toCalendar(test.getTime());
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(test);
-		AssertJUnit.assertTrue(calendar.equals(compare));
+		assertTrue(calendar.equals(compare));
 	}
 
 	@Test
@@ -138,7 +139,7 @@ public class ConvertDateExtensionsTest
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(expected);
 		final Date actual = ConvertDateExtensions.toDate(millis);
-		AssertJUnit.assertTrue(actual.equals(expected));
+		assertTrue(actual.equals(expected));
 	}
 
 }

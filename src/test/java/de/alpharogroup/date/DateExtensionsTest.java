@@ -24,10 +24,11 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.AssertJUnit.assertTrue;
+
 import java.util.Date;
 import java.util.List;
 
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -102,7 +103,7 @@ public class DateExtensionsTest
 
 		final int day = DateExtensions.getDay(this.expectedDate1);
 		final int expected = 31;
-		AssertJUnit.assertTrue("The day should be 31.", day == expected);
+		assertTrue("The day should be 31.", day == expected);
 	}
 
 	/**
@@ -114,7 +115,7 @@ public class DateExtensionsTest
 
 		final int hour = DateExtensions.getHours(this.expectedDate4);
 		final int expected = 0;
-		AssertJUnit.assertTrue("The hour should be 0.", hour == expected);
+		assertTrue("The hour should be 0.", hour == expected);
 	}
 
 	/**
@@ -126,7 +127,7 @@ public class DateExtensionsTest
 
 		final int minutes = DateExtensions.getMinutes(this.expectedDate4);
 		final int expected = 0;
-		AssertJUnit.assertTrue("The minutes should be 0.", minutes == expected);
+		assertTrue("The minutes should be 0.", minutes == expected);
 	}
 
 	/**
@@ -138,7 +139,7 @@ public class DateExtensionsTest
 
 		final int month = DateExtensions.getMonth(this.expectedDate1);
 		final int expected = 11;
-		AssertJUnit.assertTrue("The month should be 11.", month == expected);
+		assertTrue("The month should be 11.", month == expected);
 	}
 
 	/**
@@ -150,7 +151,7 @@ public class DateExtensionsTest
 
 		final int seconds = DateExtensions.getSeconds(this.expectedDate4);
 		final int expected = 0;
-		AssertJUnit.assertTrue("The seconds should be 0.", seconds == expected);
+		assertTrue("The seconds should be 0.", seconds == expected);
 	}
 
 	/**
@@ -162,7 +163,7 @@ public class DateExtensionsTest
 
 		final int year = DateExtensions.getYear(this.expectedDate1);
 		final int expected = 2000;
-		AssertJUnit.assertTrue("The year should be 2000.", year == expected);
+		assertTrue("The year should be 2000.", year == expected);
 	}
 
 }
