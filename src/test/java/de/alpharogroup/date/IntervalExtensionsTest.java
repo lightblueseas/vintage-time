@@ -25,34 +25,21 @@
 package de.alpharogroup.date;
 
 import org.joda.time.Interval;
+import org.testng.annotations.Test;
 
 /**
- * The class {@link IntervalExtensions} provides algorithms for compute if a given time range is
- * between of two points of time.
+ * The class {@link IntervalExtensionsTest}.
  */
-public class IntervalExtensions
+public class IntervalExtensionsTest
 {
 
 	/**
-	 * Checks if the given time range is between the given time range to check.
-	 *
-	 * @param timeRange
-	 *            the time range
-	 * @param timeRangeToCheck
-	 *            the time range to check
-	 * @return true, if it is between otherwise false
+	 * Test method for {@link IntervalExtensions#isBetween(Interval, Interval)}.
 	 */
-	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)
+	@Test
+	public void testIsBetween()
 	{
-		if (timeRange.getStart() != null
-			&& !timeRange.getStart().isAfter(timeRangeToCheck.getEnd()))
-		{
-			if (timeRange.getEnd() != null
-				&& !timeRange.getEnd().isBefore(timeRangeToCheck.getStart()))
-			{
-				return true;
-			}
-		}
-		return false;
+		// TODO implement unit test cases...
 	}
+
 }

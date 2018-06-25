@@ -24,35 +24,44 @@
  */
 package de.alpharogroup.date;
 
-import org.joda.time.Interval;
+import static org.testng.AssertJUnit.assertEquals;
+
+import java.util.Date;
+
+import org.testng.annotations.Test;
 
 /**
- * The class {@link IntervalExtensions} provides algorithms for compute if a given time range is
- * between of two points of time.
+ * The class {@link TimeZoneExtensionsTest}.
  */
-public class IntervalExtensions
+public class TimeZoneExtensionsTest
 {
 
 	/**
-	 * Checks if the given time range is between the given time range to check.
-	 *
-	 * @param timeRange
-	 *            the time range
-	 * @param timeRangeToCheck
-	 *            the time range to check
-	 * @return true, if it is between otherwise false
+	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInHours(Date)}.
 	 */
-	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)
+	@Test
+	public final void testGetTimezoneOffsetInHours() throws Exception
 	{
-		if (timeRange.getStart() != null
-			&& !timeRange.getStart().isAfter(timeRangeToCheck.getEnd()))
-		{
-			if (timeRange.getEnd() != null
-				&& !timeRange.getEnd().isBefore(timeRangeToCheck.getStart()))
-			{
-				return true;
-			}
-		}
-		return false;
+		int actual;
+		int expected;
+		final Date date = CreateDateExtensions.newDate(2000, 1, 1, 12, 0, 0);
+		actual = TimeZoneExtensions.getTimezoneOffsetInHours(date);
+		expected = -1;
+		assertEquals(expected, actual);		
 	}
+
+	/**
+	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInMinutes(Date)}.
+	 */
+	@Test
+	public final void testGetTimezoneOffsetInMinutes() throws Exception
+	{
+		int actual;
+		int expected;
+		final Date date = CreateDateExtensions.newDate(2000, 1, 1, 12, 0, 0);
+		actual = TimeZoneExtensions.getTimezoneOffsetInMinutes(date);
+		expected = -60;
+		assertEquals(expected, actual);
+	}
+
 }
