@@ -311,48 +311,18 @@ public class CalculateDateExtensionsTest
 	@Test(enabled = true)
 	public void testCalculateTimeFromNow()
 	{
-		final long expected = 141206695000l;
-		long elapsed = CalculateDateExtensions.calculateTimeFromNow(this.expectedDate1,
+		long actual;
+		long expected;
+		expected = 141206695000l;
+		actual = CalculateDateExtensions.calculateTimeFromNow(this.expectedDate1,
 			this.expectedDate2);
-		assertTrue("The long elapsed should be equal with the expected.", elapsed == expected);
-		Age time = new Age(elapsed);
-
-		final long expectedYears = 4l;
-		final long inYears = (long)time.calculateInYears();
-		assertTrue("The calculated years should be equal with the expectedYears.",
-			inYears == expectedYears);
-
-		final long expectedMonths = 54l;
-		final long inMonths = (long)time.calculateInDefaultMonth();
-		assertTrue("The calculated months should be equal with the expectedMonths.",
-			inMonths == expectedMonths);
-
-		final long inDays = (long)time.calculateInDays();
-		final long expectedDays = 1634l;
-		assertTrue("The calculated days should be equal with the expectedDays.",
-			inDays == expectedDays);
-
-		final long inHours = (long)time.calculateInHours();
-		final long expectedHours = 39224l;
-		assertTrue("The calculated hours should be equal with the expectedDays.",
-			inHours == expectedHours);
-
-		final long inMinutes = (long)time.calculateInMinutes();
-		final long expectedMinutes = 2353444l;
-		assertTrue("The calculated hours should be equal with the expectedDays.",
-			inMinutes == expectedMinutes);
-
-		final long inSeconds = (long)time.calculateInSeconds();
-		final long expectedSeconds = 141206695l;
-		assertTrue("The calculated hours should be equal with the expectedDays.",
-			inSeconds == expectedSeconds);
-
-		System.out.println(time.getHumanReadableAge());
+		assertTrue("The long elapsed should be equal with the expected.", actual == expected);
+	
 
 		final Date myBirthday = CreateDateExtensions.newDate(1969, 8, 28, 16, 0, 0);
 		final Date now = new Date();
-		elapsed = CalculateDateExtensions.calculateTimeFromNow(myBirthday, now);
-		time = new Age(elapsed);
+		actual = CalculateDateExtensions.calculateTimeFromNow(myBirthday, now);
+		Age time = new Age(myBirthday);
 		System.out.println(time.getHumanReadableAge());
 	}
 
