@@ -308,7 +308,7 @@ public class CalculateDateExtensionsTest
 	/**
 	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)}
 	 */
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void testCalculateTimeFromNow()
 	{
 		long actual;
