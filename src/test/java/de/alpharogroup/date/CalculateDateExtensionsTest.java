@@ -111,7 +111,7 @@ public class CalculateDateExtensionsTest
 	{
 		Date actual;
 		Date expected;
-		
+
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
 		expected = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
@@ -134,7 +134,7 @@ public class CalculateDateExtensionsTest
 	{
 		Date actual;
 		Date expected;
-		
+
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
 		expected = CreateDateExtensions.newDate(1971, 2, 1, 1, 0, 0);
@@ -245,7 +245,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#after(Date, Date)} 
+	 * Test method for {@link CalculateDateExtensions#after(Date, Date)}
 	 */
 	@Test
 	public void testAfter()
@@ -259,7 +259,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#before(Date, Date)} 
+	 * Test method for {@link CalculateDateExtensions#before(Date, Date)}
 	 */
 	@Test
 	public void testBefore()
@@ -273,7 +273,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateElapsedTime(Date, Date)} 
+	 * Test method for {@link CalculateDateExtensions#calculateElapsedTime(Date, Date)}
 	 */
 	@Test(enabled = false)
 	public void testCalculateElapsedTime()
@@ -294,7 +294,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateElapsedTimeInSeconds(long)} 
+	 * Test method for {@link CalculateDateExtensions#calculateElapsedTimeInSeconds(long)}
 	 */
 	@Test(enabled = true)
 	public void testCalculateElapsedTimeInSeconds()
@@ -306,7 +306,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)} 
+	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)}
 	 */
 	@Test(enabled = true)
 	public void testCalculateTimeFromNow()
@@ -316,8 +316,10 @@ public class CalculateDateExtensionsTest
 		expected = 141206695000l;
 		actual = CalculateDateExtensions.calculateTimeFromNow(this.expectedDate1,
 			this.expectedDate2);
-		assertTrue("The long elapsed should be equal with the expected.", actual == expected);
-	
+		assertTrue(
+			"The long elapsed:" + actual + " should be equal with the expected:" + expected + " ",
+			actual == expected);
+
 
 		final Date myBirthday = CreateDateExtensions.newDate(1969, 8, 28, 16, 0, 0);
 		final Date now = new Date();
@@ -327,7 +329,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#computeAge(Date, Date)} 
+	 * Test method for {@link CalculateDateExtensions#computeAge(Date, Date)}
 	 */
 	@Test
 	public void testComputeAge()
@@ -349,7 +351,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#computeEasternSundayNumber(int)} 
+	 * Test method for {@link CalculateDateExtensions#computeEasternSundayNumber(int)}
 	 */
 	@Test
 	public void testComputeEasternSundayNumber()
@@ -445,6 +447,7 @@ public class CalculateDateExtensionsTest
 
 		assertTrue("The expected should be equal with actual.", date.equals(expected));
 	}
+
 	/**
 	 * Test method for {@link CalculateDateExtensions#addMilliseconds(Date, int)}.
 	 */
