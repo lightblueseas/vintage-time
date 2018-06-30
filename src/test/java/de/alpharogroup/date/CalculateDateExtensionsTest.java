@@ -109,19 +109,21 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddDaysToDate()
 	{
-
+		Date actual;
+		Date expected;
+		
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
-		Date expected = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
+		expected = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
 
-		Date date = CalculateDateExtensions.addDays(this.expectedDate4, 1);
+		actual = CalculateDateExtensions.addDays(this.expectedDate4, 1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 		expected = CreateDateExtensions.newDate(1971, 1, 31, 0, 0, 0);
 		// Add negative value...
-		date = CalculateDateExtensions.addDays(this.expectedDate4, -1);
+		actual = CalculateDateExtensions.addDays(this.expectedDate4, -1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 	}
 
 	/**
@@ -130,19 +132,21 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddHoursToDate()
 	{
-
+		Date actual;
+		Date expected;
+		
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
-		Date expected = CreateDateExtensions.newDate(1971, 2, 1, 1, 0, 0);
+		expected = CreateDateExtensions.newDate(1971, 2, 1, 1, 0, 0);
 
-		Date date = CalculateDateExtensions.addHours(this.expectedDate4, 1);
+		actual = CalculateDateExtensions.addHours(this.expectedDate4, 1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 		expected = CreateDateExtensions.newDate(1971, 1, 31, 23, 0, 0);
 		// Add negative value...
-		date = CalculateDateExtensions.addHours(this.expectedDate4, -1);
+		actual = CalculateDateExtensions.addHours(this.expectedDate4, -1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 	}
 
 	/**
@@ -151,19 +155,20 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddMinutesToDate()
 	{
-
+		Date actual;
+		Date expected;
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
-		Date expected = CreateDateExtensions.newDate(1971, 2, 1, 0, 1, 0);
+		expected = CreateDateExtensions.newDate(1971, 2, 1, 0, 1, 0);
 
-		Date date = CalculateDateExtensions.addMinutes(this.expectedDate4, 1);
+		actual = CalculateDateExtensions.addMinutes(this.expectedDate4, 1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 		expected = CreateDateExtensions.newDate(1971, 1, 31, 23, 59, 0);
 		// Add negative value...
-		date = CalculateDateExtensions.addMinutes(this.expectedDate4, -1);
+		actual = CalculateDateExtensions.addMinutes(this.expectedDate4, -1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 	}
 
 	/**
@@ -172,14 +177,16 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddMonthsToDate()
 	{
+		Date actual;
+		Date expected;
 
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
-		final Date expected = CreateDateExtensions.newDate(1971, 3, 1, 0, 0, 0);
+		expected = CreateDateExtensions.newDate(1971, 3, 1, 0, 0, 0);
 
-		final Date date = CalculateDateExtensions.addMonths(this.expectedDate4, 1);
+		actual = CalculateDateExtensions.addMonths(this.expectedDate4, 1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 	}
 
 	/**
@@ -188,19 +195,21 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddSecondsToDate()
 	{
+		Date actual;
+		Date expected;
 
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
-		Date expected = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 1);
+		expected = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 1);
 
-		Date date = CalculateDateExtensions.addSeconds(this.expectedDate4, 1);
+		actual = CalculateDateExtensions.addSeconds(this.expectedDate4, 1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with date.", actual.equals(expected));
 		expected = CreateDateExtensions.newDate(1971, 1, 31, 23, 59, 59);
 		// Add negative value...
-		date = CalculateDateExtensions.addSeconds(this.expectedDate4, -1);
+		actual = CalculateDateExtensions.addSeconds(this.expectedDate4, -1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with actual date.", actual.equals(expected));
 	}
 
 	/**
@@ -209,14 +218,16 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddWeeksToDate()
 	{
+		Date actual;
+		Date expected;
 
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
 
-		final Date expected = CreateDateExtensions.newDate(1971, 2, 8, 0, 0, 0);
+		expected = CreateDateExtensions.newDate(1971, 2, 8, 0, 0, 0);
 
-		final Date date = CalculateDateExtensions.addWeeks(this.expectedDate4, 1);
+		actual = CalculateDateExtensions.addWeeks(this.expectedDate4, 1);
 
-		assertTrue("The expected should be equal with date.", date.equals(expected));
+		assertTrue("The expected should be equal with actual date.", actual.equals(expected));
 	}
 
 	/**
@@ -225,12 +236,17 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddYearsToDate()
 	{
-		final Date testdate = CalculateDateExtensions.addYears(this.expectedDate1, 10);
-		final Date expected = CreateDateExtensions.newDate(2010, 12, 31);
-		assertTrue("The expected date should be 10 years after the expectedDate1.",
-			testdate.equals(expected));
+		Date actual;
+		Date expected;
+		actual = CalculateDateExtensions.addYears(this.expectedDate1, 10);
+		expected = CreateDateExtensions.newDate(2010, 12, 31);
+		assertTrue("The expected date should be 10 years after the actual date.",
+			actual.equals(expected));
 	}
 
+	/**
+	 * Test method for {@link CalculateDateExtensions#after(Date, Date)} 
+	 */
 	@Test
 	public void testAfter()
 	{
@@ -242,6 +258,9 @@ public class CalculateDateExtensionsTest
 		assertFalse("Now is not after future.", actual);
 	}
 
+	/**
+	 * Test method for {@link CalculateDateExtensions#before(Date, Date)} 
+	 */
 	@Test
 	public void testBefore()
 	{
@@ -254,7 +273,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateElapsedTime(Date, Date)} .
+	 * Test method for {@link CalculateDateExtensions#calculateElapsedTime(Date, Date)} 
 	 */
 	@Test(enabled = false)
 	public void testCalculateElapsedTime()
@@ -272,9 +291,11 @@ public class CalculateDateExtensionsTest
 		final long inYears = (long)time.calculateInYears();
 		assertTrue("The calculated years should be equal with the expectedYears.",
 			inYears == expectedYears);
-
 	}
 
+	/**
+	 * Test method for {@link CalculateDateExtensions#calculateElapsedTimeInSeconds(long)} 
+	 */
 	@Test(enabled = true)
 	public void testCalculateElapsedTimeInSeconds()
 	{
@@ -285,9 +306,9 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)} .
+	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)} 
 	 */
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testCalculateTimeFromNow()
 	{
 		final long expected = 141206695000l;
@@ -336,7 +357,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#computeAge(Date, Date)} .
+	 * Test method for {@link CalculateDateExtensions#computeAge(Date, Date)} 
 	 */
 	@Test
 	public void testComputeAge()
@@ -347,7 +368,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#computeEasternSunday(int)}.
+	 * Test method for {@link CalculateDateExtensions#computeEasternSunday(int)}
 	 */
 	@Test
 	public void testComputeEasternSunday()
@@ -358,7 +379,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#computeEasternSundayNumber(int)} .
+	 * Test method for {@link CalculateDateExtensions#computeEasternSundayNumber(int)} 
 	 */
 	@Test
 	public void testComputeEasternSundayNumber()
@@ -454,5 +475,41 @@ public class CalculateDateExtensionsTest
 
 		assertTrue("The expected should be equal with actual.", date.equals(expected));
 	}
+	/**
+	 * Test method for {@link CalculateDateExtensions#addMilliseconds(Date, int)}.
+	 */
+	@Test
+	public void testAddMilliseconds()
+	{
+		// TODO implement unit test cases...
+	}
+
+	/**
+	 * Test method for {@link CalculateDateExtensions#isBetween(Date, Date, Date)}.
+	 */
+	@Test
+	public void testIsBetween()
+	{
+		// TODO implement unit test cases...
+	}
+
+	/**
+	 * Test method for {@link CalculateDateExtensions#substractMonthsFromDate(Date, int)}.
+	 */
+	@Test
+	public void testSubstractMonthsFromDate()
+	{
+		// TODO implement unit test cases...
+	}
+
+	/**
+	 * Test method for {@link CalculateDateExtensions#substractWeeksFromDate(Date, int)}.
+	 */
+	@Test
+	public void testSubstractWeeksFromDate()
+	{
+		// TODO implement unit test cases...
+	}
+
 
 }
