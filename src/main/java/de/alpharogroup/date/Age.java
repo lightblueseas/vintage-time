@@ -86,7 +86,7 @@ public class Age implements Serializable
 	 */
 	public static Age of(final Date birthday, final Date till)
 	{
-		return new Age(birthday);
+		return new Age(birthday, till);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class Age implements Serializable
 	 */
 	public Age(final long elapsed)
 	{
-		this(new Date(CreateDateExtensions.now().getTime() - elapsed));
+		this(new Date(elapsed));
 	}
 
 	/**

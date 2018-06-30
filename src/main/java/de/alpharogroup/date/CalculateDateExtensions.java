@@ -268,12 +268,11 @@ public class CalculateDateExtensions implements DatePatterns
 	 *            The Date object from the birthday.
 	 * @param computeDate
 	 *            The Date-object from where to compute.
-	 * @return Returns the computed age.
+	 * @return Returns the computed age in years.
 	 */
 	public static int computeAge(final Date birthday, final Date computeDate)
 	{
-		final long ageInLong = CalculateDateExtensions.calculateElapsedTime(birthday, computeDate);
-		final Age age = new Age(ageInLong);
+		final Age age = new Age(birthday, computeDate);
 		return (int)age.calculateInYears();
 	}
 
@@ -286,7 +285,6 @@ public class CalculateDateExtensions implements DatePatterns
 	 */
 	public static Date computeEasternSunday(final int year)
 	{
-
 		final int easternSundayNumber = computeEasternSundayNumber(year);
 		final int month = easternSundayNumber / 31;
 		final int day = easternSundayNumber % 31 + 1;
