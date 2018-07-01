@@ -28,16 +28,19 @@ import static org.testng.AssertJUnit.assertEquals;
 
 import java.util.Date;
 
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.Test;
 
 /**
- * The class {@link TimeZoneExtensionsTest}.
+ * The unit test class for the class {@link TimeZoneExtensions}
  */
 public class TimeZoneExtensionsTest
 {
 
 	/**
-	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInHours(Date)}.
+	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInHours(Date)}
 	 */
 	@Test(enabled = false)
 	public final void testGetTimezoneOffsetInHours() throws Exception
@@ -51,7 +54,7 @@ public class TimeZoneExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInMinutes(Date)}.
+	 * Test method for {@link TimeZoneExtensions#getTimezoneOffsetInMinutes(Date)}
 	 */
 	@Test(enabled = false)
 	public final void testGetTimezoneOffsetInMinutes() throws Exception
@@ -64,4 +67,14 @@ public class TimeZoneExtensionsTest
 		assertEquals(expected, actual);
 	}
 
+	/**
+	 * Test method for {@link TimeZoneExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(TimeZoneExtensions.class);
+	}
+	
 }

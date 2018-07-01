@@ -31,6 +31,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import lombok.experimental.UtilityClass;
+
 
 /**
  * Utility class for the use of Date and Calendar object.
@@ -38,7 +40,8 @@ import java.util.Locale;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ParseDateExtensions implements DatePatterns
+@UtilityClass
+public final class ParseDateExtensions implements DatePatterns
 {
 
 	/**
@@ -212,13 +215,6 @@ public class ParseDateExtensions implements DatePatterns
 		final Date currentDate = parseToDate(date, currentformat);
 		final String result = parseToString(currentDate, newFormat);
 		return result;
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private ParseDateExtensions()
-	{
 	}
 
 }

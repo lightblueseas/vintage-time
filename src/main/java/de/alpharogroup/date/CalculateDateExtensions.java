@@ -31,13 +31,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
-public class CalculateDateExtensions implements DatePatterns
+@UtilityClass
+public final class CalculateDateExtensions implements DatePatterns
 {
 
 	/**
@@ -474,13 +477,6 @@ public class CalculateDateExtensions implements DatePatterns
 		dateOnCalendar.setTime(date);
 		dateOnCalendar.add(Calendar.YEAR, substractYears * -1);
 		return dateOnCalendar.getTime();
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private CalculateDateExtensions()
-	{
 	}
 
 }

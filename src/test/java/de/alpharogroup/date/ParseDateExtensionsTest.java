@@ -34,12 +34,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * The unit test class for the class {@link ParseDateExtensions}.
+ * The unit test class for the class {@link ParseDateExtensions}
  *
  * @version 1.0
  * @author Asterios Raptis
@@ -137,9 +140,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseDate(java.lang.String, java.util.List)}
-	 * .
+	 * Test method for {@link ParseDateExtensions#parseDate(String, List)} 
 	 */
 	@Test
 	public void testParseDate()
@@ -151,7 +152,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Testparse to date.
+	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)} 
 	 *
 	 * @throws ParseException
 	 *             the parse exception
@@ -200,6 +201,9 @@ public class ParseDateExtensionsTest
 
 	}
 
+	/**
+	 * Test method for {@link ParseDateExtensions#parseToString(String, String, String)} 
+	 */
 	@Test
 	public void testParseToDateAndParseToString()
 	{
@@ -220,9 +224,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDateLenient(java.lang.String, java.lang.String, boolean)}
-	 * .
+	 * Test method for {@link ParseDateExtensions#parseToDateLenient(String, String, boolean)} 
 	 *
 	 * @throws ParseException
 	 *             the parse exception
@@ -265,9 +267,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDate(java.lang.String, java.lang.String)}
-	 * .
+	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)} 
 	 */
 	@Test
 	public void testParseToDateStringString()
@@ -286,9 +286,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToDate(java.lang.String, java.lang.String[], java.util.Locale)}
-	 * .
+	 * Test method for {@link ParseDateExtensions#parseToDate(String, String[], Locale)} 
 	 */
 	@Test
 	public void testParseToDateStringStringArrayLocale()
@@ -306,9 +304,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.ParseDateExtensions#parseToString(java.util.Date, java.lang.String)}
-	 * .
+	 * Test method for {@link ParseDateExtensions#parseToString(Date, String)} 
 	 */
 	@Test
 	public void testParseToString()
@@ -320,4 +316,13 @@ public class ParseDateExtensionsTest
 		System.out.println();
 	}
 
+	/**
+	 * Test method for {@link ParseDateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(ParseDateExtensions.class);
+	}
 }

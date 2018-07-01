@@ -29,12 +29,15 @@ import static org.testng.AssertJUnit.assertTrue;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * The unit test class for the class {@link CreateDateExtensions}.
+ * The unit test class for the class {@link CreateDateExtensions}
  *
  * @version 1.0
  * @author Asterios Raptis
@@ -66,7 +69,7 @@ public class CreateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CreateDateExtensions#newDate(int, int, int)}.
+	 * Test method for {@link CreateDateExtensions#newDate(int, int, int)}
 	 */
 	@Test
 	public void testCreateDateIntIntInt()
@@ -86,8 +89,7 @@ public class CreateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.CreateDateExtensions#newDate(int, int, int, int, int, int)} .
+	 * Test method for {@link CreateDateExtensions#newDate(int, int, int, int, int, int)}
 	 */
 	@Test
 	public void testCreateDateIntIntIntIntIntInt()
@@ -104,6 +106,16 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
 		assertTrue("The date should be equal with the expected.", date.equals(expected));
+	}
+
+	/**
+	 * Test method for {@link CreateDateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(CreateDateExtensions.class);
 	}
 
 }

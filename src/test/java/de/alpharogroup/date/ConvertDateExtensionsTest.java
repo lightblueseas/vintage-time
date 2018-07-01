@@ -30,12 +30,15 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * The unit test class for the class {@link ConvertDateExtensions}.
+ * The unit test class for the class {@link ConvertDateExtensions}
  *
  * @version 1.0
  * @author Asterios Raptis
@@ -51,7 +54,7 @@ public class ConvertDateExtensionsTest
 	private String format1 = null;
 
 	/**
-	 * Sets up method will be invoked before every unit test method in this class.
+	 * Sets up method will be invoked before every unit test method in this class
 	 *
 	 * @throws Exception
 	 *             the exception
@@ -63,7 +66,7 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Tear down method will be invoked after every unit test method in this class.
+	 * Tear down method will be invoked after every unit test method in this class
 	 *
 	 * @throws Exception
 	 *             the exception
@@ -74,8 +77,7 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)}
-	 * .
+	 * Test method for {@link ConvertDateExtensions#toCalendar(Date)}
 	 */
 	@Test
 	public void testConvertDateToCalendar()
@@ -88,8 +90,7 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toCalendar(java.util.Date)}
-	 * .
+	 * Test method for {@link ConvertDateExtensions#toCalendar(Date)}
 	 * 
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.
@@ -105,8 +106,7 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.ConvertDateExtensions#toDate(java.util.Calendar)}
-	 * .
+	 * Test method for {@link ConvertDateExtensions#toDate(Calendar)}
 	 * 
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.
@@ -121,6 +121,12 @@ public class ConvertDateExtensionsTest
 		assertTrue(date.equals(expected));
 	}
 
+	/**
+	 * Test method for {@link ConvertDateExtensions#toCalendar(long)}
+	 * 
+	 * @throws ParseException
+	 *             occurs when their are problems with parsing the String to Date.
+	 */
 	@Test
 	public void testToCalendar() throws ParseException
 	{
@@ -131,6 +137,12 @@ public class ConvertDateExtensionsTest
 		assertTrue(calendar.equals(compare));
 	}
 
+	/**
+	 * Test method for {@link ConvertDateExtensions#toDate(long)}
+	 * 
+	 * @throws ParseException
+	 *             occurs when their are problems with parsing the String to Date.
+	 */
 	@Test
 	public void testToDate() throws ParseException
 	{
@@ -140,6 +152,16 @@ public class ConvertDateExtensionsTest
 		compare.setTime(expected);
 		final Date actual = ConvertDateExtensions.toDate(millis);
 		assertTrue(actual.equals(expected));
+	}
+	
+	/**
+	 * Test method for {@link ConvertDateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(ConvertDateExtensions.class);
 	}
 
 }

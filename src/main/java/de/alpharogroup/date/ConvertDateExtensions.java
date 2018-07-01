@@ -29,12 +29,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
+@UtilityClass
 public final class ConvertDateExtensions implements DatePatterns
 {
 
@@ -108,13 +111,6 @@ public final class ConvertDateExtensions implements DatePatterns
 		cal.set(Calendar.MILLISECOND, 0);
 
 		return new Timestamp(cal.getTime().getTime());
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private ConvertDateExtensions()
-	{
 	}
 
 }

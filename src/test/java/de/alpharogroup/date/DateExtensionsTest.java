@@ -35,6 +35,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -256,6 +259,16 @@ public class DateExtensionsTest
 		actual = DateExtensions.setDate(dateToSet, hours, minutes, seconds, milisec, zone, locale);
 		expected = CreateDateExtensions.newDate(year, month, day, hours, minutes, seconds, milisec);
 		assertEquals(actual, expected);
+	}
+	
+	/**
+	 * Test method for {@link DateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(DateExtensions.class);
 	}
 
 }

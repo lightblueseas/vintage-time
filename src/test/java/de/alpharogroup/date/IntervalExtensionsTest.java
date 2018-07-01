@@ -35,13 +35,13 @@ import org.meanbean.test.BeanTester;
 import org.testng.annotations.Test;
 
 /**
- * The class {@link IntervalExtensions}.
+ * The unit test class for the class {@link IntervalExtensions}.
  */
 public class IntervalExtensionsTest
 {
 
 	/**
-	 * Test method for {@link IntervalExtensions#isBetween(Interval, Interval)}.
+	 * Test method for {@link IntervalExtensions#isBetween(Interval, Interval)}
 	 */
 	@Test
 	public void testIsBetween()

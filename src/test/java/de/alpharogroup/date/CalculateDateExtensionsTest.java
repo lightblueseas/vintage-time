@@ -29,12 +29,15 @@ import static org.testng.AssertJUnit.assertTrue;
 
 import java.util.Date;
 
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * The unit test class for the class {@link CalculateDateExtensions}.
+ * The unit test class for the class {@link CalculateDateExtensions}
  *
  * @version 1.0
  * @author Asterios Raptis
@@ -104,7 +107,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addDays(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#addDays(Date, int)}
 	 */
 	@Test
 	public void testAddDaysToDate()
@@ -150,7 +153,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)} 
 	 */
 	@Test
 	public void testAddMinutesToDate()
@@ -172,7 +175,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addMonths(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#addMonths(Date, int)} 
 	 */
 	@Test
 	public void testAddMonthsToDate()
@@ -190,7 +193,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)} 
 	 */
 	@Test
 	public void testAddSecondsToDate()
@@ -213,7 +216,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addWeeks(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#addWeeks(Date, int)} 
 	 */
 	@Test
 	public void testAddWeeksToDate()
@@ -231,7 +234,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addYears(Date, int)}.
+	 * Test method for {@link CalculateDateExtensions#addYears(Date, int)}
 	 */
 	@Test
 	public void testAddYearsToDate()
@@ -363,7 +366,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#isDateInTheFuture(Date)} .
+	 * Test method for {@link CalculateDateExtensions#isDateInTheFuture(Date)}
 	 */
 	@Test
 	public void testIsDateInTheFuture()
@@ -379,7 +382,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#isDateInThePast(Date)} .
+	 * Test method for {@link CalculateDateExtensions#isDateInThePast(Date)} 
 	 */
 	@Test
 	public void testIsDateInThePast()
@@ -395,7 +398,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#isLeapYear(int)}.
+	 * Test method for {@link CalculateDateExtensions#isLeapYear(int)}
 	 */
 	@Test
 	public void testIsLeapYear()
@@ -407,7 +410,7 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Test method for
-	 * {@link CalculateDateExtensions#isValidDate(java.lang.String, java.lang.String, boolean)} .
+	 * {@link CalculateDateExtensions#isValidDate(java.lang.String, java.lang.String, boolean)}
 	 */
 	@Test
 	public void testIsValidDate()
@@ -419,7 +422,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#substractDaysFromDate(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#substractDaysFromDate(Date, int)} 
 	 */
 	@Test
 	public void testSubstractDaysFromDate()
@@ -434,7 +437,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#substractYearsFromDate(Date, int)} .
+	 * Test method for {@link CalculateDateExtensions#substractYearsFromDate(Date, int)} 
 	 */
 	@Test
 	public void testSubstractYearsFromDate()
@@ -449,7 +452,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addMilliseconds(Date, int)}.
+	 * Test method for {@link CalculateDateExtensions#addMilliseconds(Date, int)}
 	 */
 	@Test
 	public void testAddMilliseconds()
@@ -458,7 +461,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#isBetween(Date, Date, Date)}.
+	 * Test method for {@link CalculateDateExtensions#isBetween(Date, Date, Date)}
 	 */
 	@Test
 	public void testIsBetween()
@@ -467,7 +470,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#substractMonthsFromDate(Date, int)}.
+	 * Test method for {@link CalculateDateExtensions#substractMonthsFromDate(Date, int)}
 	 */
 	@Test
 	public void testSubstractMonthsFromDate()
@@ -476,7 +479,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#substractWeeksFromDate(Date, int)}.
+	 * Test method for {@link CalculateDateExtensions#substractWeeksFromDate(Date, int)}
 	 */
 	@Test
 	public void testSubstractWeeksFromDate()
@@ -484,5 +487,14 @@ public class CalculateDateExtensionsTest
 		// TODO implement unit test cases...
 	}
 
+	/**
+	 * Test method for {@link CalculateDateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(CalculateDateExtensions.class);
+	}
 
 }

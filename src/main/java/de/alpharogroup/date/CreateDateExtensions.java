@@ -29,12 +29,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
+@UtilityClass
 public final class CreateDateExtensions implements DatePatterns
 {
 
@@ -161,13 +164,6 @@ public final class CreateDateExtensions implements DatePatterns
 	public static Date now()
 	{
 		return newDate(System.currentTimeMillis());
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private CreateDateExtensions()
-	{
 	}
 
 }
