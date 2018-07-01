@@ -26,9 +26,25 @@ package de.alpharogroup.date;
 
 import org.joda.time.Interval;
 
-public class IntervalExtensions
+import lombok.experimental.UtilityClass;
+
+/**
+ * The class {@link IntervalExtensions} provides algorithms for compute if a given time range is
+ * between of two points of time.
+ */
+@UtilityClass
+public final class IntervalExtensions
 {
 
+	/**
+	 * Checks if the given time range is between the given time range to check.
+	 *
+	 * @param timeRange
+	 *            the time range
+	 * @param timeRangeToCheck
+	 *            the time range to check
+	 * @return true, if it is between otherwise false
+	 */
 	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)
 	{
 		if (timeRange.getStart() != null

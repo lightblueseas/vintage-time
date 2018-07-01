@@ -31,6 +31,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import lombok.experimental.UtilityClass;
+
 
 /**
  * Utility class for the use of Date and Calendar object.
@@ -38,7 +40,8 @@ import java.util.Locale;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class ParseDateExtensions implements DatePatterns
+@UtilityClass
+public final class ParseDateExtensions implements DatePatterns
 {
 
 	/**
@@ -149,9 +152,9 @@ public class ParseDateExtensions implements DatePatterns
 
 	/**
 	 * The Method parseToString(Date, String) formats the given Date to the given Format. For
-	 * Example: Date date =new Date(System.currentTimeMillis()); String format =
-	 * "dd.MM.yyyy HH:mm:ss"; String now = UtilDate.parseToString(date, format);
-	 * System.out.println(now); The output would be something like this:'15.07.2005 14:12:00'
+	 * Example: Date date =new Date(System.currentTimeMillis()); String format = "dd.MM.yyyy
+	 * HH:mm:ss"; String now = UtilDate.parseToString(date, format); System.out.println(now); The
+	 * output would be something like this:'15.07.2005 14:12:00'
 	 *
 	 * @param date
 	 *            The Date to format to a String
@@ -166,9 +169,9 @@ public class ParseDateExtensions implements DatePatterns
 
 	/**
 	 * The Method parseToString(Date, String) formats the given Date to the given Format. For
-	 * Example: Date date =new Date(System.currentTimeMillis()); String format =
-	 * "dd.MM.yyyy HH:mm:ss"; String now = UtilDate.parseToString(date, format);
-	 * System.out.println(now); The output would be something like this:'15.07.2005 14:12:00'
+	 * Example: Date date =new Date(System.currentTimeMillis()); String format = "dd.MM.yyyy
+	 * HH:mm:ss"; String now = UtilDate.parseToString(date, format); System.out.println(now); The
+	 * output would be something like this:'15.07.2005 14:12:00'
 	 *
 	 * @param date
 	 *            The Date to format to a String
@@ -212,13 +215,6 @@ public class ParseDateExtensions implements DatePatterns
 		final Date currentDate = parseToDate(date, currentformat);
 		final String result = parseToString(currentDate, newFormat);
 		return result;
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private ParseDateExtensions()
-	{
 	}
 
 }

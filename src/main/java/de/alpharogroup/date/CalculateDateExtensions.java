@@ -31,13 +31,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
-public class CalculateDateExtensions implements DatePatterns
+@UtilityClass
+public final class CalculateDateExtensions implements DatePatterns
 {
 
 	/**
@@ -233,6 +236,20 @@ public class CalculateDateExtensions implements DatePatterns
 	}
 
 	/**
+	 * Calculate elapsed time in seconds from the given start time as long to the current system
+	 * time. This is useful for benchmarking
+	 *
+	 * @param startTime
+	 *            the start time
+	 * @return The elapsed time in double
+	 */
+	public static double calculateElapsedTimeInSeconds(final long startTime)
+	{
+		final double elapsedTime = ((double)(System.nanoTime() - startTime)) / 1000000;
+		return elapsedTime;
+	}
+
+	/**
 	 * Calculates the elapsed time from the future to now.
 	 *
 	 * @param now
@@ -254,12 +271,11 @@ public class CalculateDateExtensions implements DatePatterns
 	 *            The Date object from the birthday.
 	 * @param computeDate
 	 *            The Date-object from where to compute.
-	 * @return Returns the computed age.
+	 * @return Returns the computed age in years.
 	 */
 	public static int computeAge(final Date birthday, final Date computeDate)
 	{
-		final long ageInLong = CalculateDateExtensions.calculateElapsedTime(birthday, computeDate);
-		final Age age = new Age(ageInLong);
+		final Age age = new Age(birthday, computeDate);
 		return (int)age.calculateInYears();
 	}
 
@@ -272,7 +288,6 @@ public class CalculateDateExtensions implements DatePatterns
 	 */
 	public static Date computeEasternSunday(final int year)
 	{
-
 		final int easternSundayNumber = computeEasternSundayNumber(year);
 		final int month = easternSundayNumber / 31;
 		final int day = easternSundayNumber % 31 + 1;
@@ -462,13 +477,6 @@ public class CalculateDateExtensions implements DatePatterns
 		dateOnCalendar.setTime(date);
 		dateOnCalendar.add(Calendar.YEAR, substractYears * -1);
 		return dateOnCalendar.getTime();
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private CalculateDateExtensions()
-	{
 	}
 
 }

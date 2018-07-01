@@ -4,7 +4,15 @@
   <test name="Test">
     <classes>
       <class name="de.alpharogroup.date.comparators.DayComparatorTest"/>
+      <class name="de.alpharogroup.date.AgeTest"/>
+      <class name="de.alpharogroup.date.CalculateDateExtensionsTest"/>
+      <class name="de.alpharogroup.date.ConvertDateExtensionsTest"/>
+      <class name="de.alpharogroup.date.CreateDateExtensionsTest"/>
       <class name="de.alpharogroup.date.DateExtensionsTest"/>
+      <class name="de.alpharogroup.date.DatePatternsTest"/>
+      <class name="de.alpharogroup.date.IntervalExtensionsTest"/>
+      <class name="de.alpharogroup.date.ParseDateExtensionsTest"/>
+      <class name="de.alpharogroup.date.TimeZoneExtensionsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

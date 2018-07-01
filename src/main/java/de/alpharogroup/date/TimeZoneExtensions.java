@@ -27,10 +27,13 @@ package de.alpharogroup.date;
 import java.util.Calendar;
 import java.util.Date;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * The class {@link TimeZoneExtensions}.
  */
-public class TimeZoneExtensions
+@UtilityClass
+public final class TimeZoneExtensions
 {
 
 	/**
@@ -58,8 +61,10 @@ public class TimeZoneExtensions
 	{
 		final Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
-		final int x = -(calendar.get(Calendar.ZONE_OFFSET) + calendar.get(Calendar.DST_OFFSET))
-			/ (60 * 1000);
+		int zoneOffset = calendar.get(Calendar.ZONE_OFFSET);
+		int dstOffset = calendar.get(Calendar.DST_OFFSET);
+		final int x = -(zoneOffset + dstOffset) / (60 * 1000);
 		return x;
 	}
+
 }

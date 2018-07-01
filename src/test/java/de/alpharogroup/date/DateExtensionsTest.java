@@ -24,16 +24,26 @@
  */
 package de.alpharogroup.date;
 
-import java.util.Date;
-import java.util.List;
+import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.assertTrue;
 
-import org.testng.AssertJUnit;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
+
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class {@link DateExtensions}.
+ * The unit test class for the class {@link DateExtensions}.
  *
  * @version 1.0
  * @author Asterios Raptis
@@ -94,6 +104,35 @@ public class DateExtensionsTest
 	}
 
 	/**
+	 * Test method for {@link DateExtensions#getAllDatePatterns()}.
+	 */
+	@Test
+	public void testGetAllDatePatterns()
+	{
+		Map<String, Object> actual;
+		Map<String, Object> expected;
+		actual = DateExtensions.getAllDatePatterns();
+		expected = new HashMap<>();
+		expected.put("DD_MMM_YY", "dd-MMM-yy");
+		expected.put("DOT_DD_MM", "dd.MM");
+		expected.put("DOT_DD_MM_YY", "dd.MM.yy");
+		expected.put("DOT_DD_MM_YYYY", "dd.MM.yyyy");
+		expected.put("DOT_DD_MM_YYYY_HH_MM_SS", "dd.MM.yyyy HH:mm:ss");
+		expected.put("DOT_YYYY_MM_DD_HH_MM_SS", "yyyy.MM.dd.HH.mm.ss");
+		expected.put("EEE_MMM_DD_HH_MM_SS_Z_YYYY", "EEE MMM dd hh:mm:ss z yyyy");
+		expected.put("EEEE_MMM_DD_YYYY", "EEEE MMM dd, yyyy");
+		expected.put("LHH_MM_SS", "hh:mm:ss");
+		expected.put("UHH_MM", "HH:mm");
+		expected.put("UHH_MM_SS", "HH:mm:ss");
+		expected.put("YYYY_MM_DD", "yyyy-MM-dd");
+		expected.put("YYYY_MM_DD_HH_MM_SS", "yyyy-MM-dd hh:mm:ss");
+		expected.put("YYYY_MM_DD_HH_MM_SS_S", "yyyy-MM-dd hh:mm:ss.S");
+		expected.put("YYYY_MM_DD_T_HH_MM_SS", "yyyy-MM-dd'T'HH:mm:ss");
+		expected.put("YYYYMMDDHHMMSS", "yyyyMMddHHmmss");
+		assertEquals(actual, expected);
+	}
+
+	/**
 	 * Test method for {@link de.alpharogroup.date.DateExtensions#getDay(java.util.Date)}.
 	 */
 	@Test
@@ -102,7 +141,7 @@ public class DateExtensionsTest
 
 		final int day = DateExtensions.getDay(this.expectedDate1);
 		final int expected = 31;
-		AssertJUnit.assertTrue("The day should be 31.", day == expected);
+		assertTrue("The day should be 31.", day == expected);
 	}
 
 	/**
@@ -114,7 +153,7 @@ public class DateExtensionsTest
 
 		final int hour = DateExtensions.getHours(this.expectedDate4);
 		final int expected = 0;
-		AssertJUnit.assertTrue("The hour should be 0.", hour == expected);
+		assertTrue("The hour should be 0.", hour == expected);
 	}
 
 	/**
@@ -126,7 +165,7 @@ public class DateExtensionsTest
 
 		final int minutes = DateExtensions.getMinutes(this.expectedDate4);
 		final int expected = 0;
-		AssertJUnit.assertTrue("The minutes should be 0.", minutes == expected);
+		assertTrue("The minutes should be 0.", minutes == expected);
 	}
 
 	/**
@@ -138,7 +177,7 @@ public class DateExtensionsTest
 
 		final int month = DateExtensions.getMonth(this.expectedDate1);
 		final int expected = 11;
-		AssertJUnit.assertTrue("The month should be 11.", month == expected);
+		assertTrue("The month should be 11.", month == expected);
 	}
 
 	/**
@@ -150,7 +189,31 @@ public class DateExtensionsTest
 
 		final int seconds = DateExtensions.getSeconds(this.expectedDate4);
 		final int expected = 0;
-		AssertJUnit.assertTrue("The seconds should be 0.", seconds == expected);
+		assertTrue("The seconds should be 0.", seconds == expected);
+	}
+
+	/**
+	 * Test method for {@link DateExtensions#getWeekOfYear(Date)}.
+	 */
+	@Test
+	public void testGetWeekOfYear()
+	{
+		int actual;
+		int expected;
+		Date birthDay;
+		int weekOfYear;
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		weekOfYear = DateExtensions.getWeekOfYear(birthDay);
+		actual = weekOfYear;
+		expected = 45;
+		assertEquals(actual, expected);
+
+		birthDay = CreateDateExtensions.newDate(2007, 1, 8, 19, 0, 0);
+		weekOfYear = DateExtensions.getWeekOfYear(birthDay);
+		actual = weekOfYear;
+		expected = 2;
+		assertEquals(actual, expected);
 	}
 
 	/**
@@ -162,7 +225,50 @@ public class DateExtensionsTest
 
 		final int year = DateExtensions.getYear(this.expectedDate1);
 		final int expected = 2000;
-		AssertJUnit.assertTrue("The year should be 2000.", year == expected);
+		assertTrue("The year should be 2000.", year == expected);
+	}
+
+	/**
+	 * Test method for {@link DateExtensions#setDate(Date, int, int, int, int, TimeZone, Locale)}.
+	 */
+	@Test(enabled = false)
+	public void testSetDate()
+	{
+		Date actual;
+		Date expected;
+		Date dateToSet;
+		TimeZone zone;
+		Locale locale;
+		int year;
+		int month;
+		int day;
+		int hours;
+		int minutes;
+		int seconds;
+		int milisec;
+		year = 2007;
+		month = 11;
+		day = 8;
+		dateToSet = CreateDateExtensions.newDate(year, month, day);
+		hours = 12;
+		minutes = 35;
+		seconds = 15;
+		milisec = 30;
+		zone = TimeZone.getTimeZone(ZoneId.of("Europe/Berlin"));
+		locale = Locale.GERMANY;
+		actual = DateExtensions.setDate(dateToSet, hours, minutes, seconds, milisec, zone, locale);
+		expected = CreateDateExtensions.newDate(year, month, day, hours, minutes, seconds, milisec);
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link DateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(DateExtensions.class);
 	}
 
 }

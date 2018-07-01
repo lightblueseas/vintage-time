@@ -34,6 +34,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
+import lombok.experimental.UtilityClass;
+
 
 /**
  * Utility class for the use of Date and Calendar object.
@@ -41,7 +43,8 @@ import java.util.TimeZone;
  * @version 1.0
  * @author Asterios Raptis
  */
-public class DateExtensions implements DatePatterns
+@UtilityClass
+public final class DateExtensions implements DatePatterns
 {
 
 	/**
@@ -232,13 +235,6 @@ public class DateExtensions implements DatePatterns
 		cal.set(Calendar.SECOND, seconds);
 		cal.set(Calendar.MILLISECOND, milisec);
 		return cal.getTime();
-	}
-
-	/**
-	 * Util-class. Do not make instances from this class.
-	 */
-	private DateExtensions()
-	{
 	}
 
 }

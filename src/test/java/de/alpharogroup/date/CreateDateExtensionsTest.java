@@ -24,16 +24,22 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.AssertJUnit.assertTrue;
+
 import java.util.Calendar;
 import java.util.Date;
 
-import org.testng.AssertJUnit;
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Test class for the class {@link CreateDateExtensions}.
+ * The unit test class for the class {@link CreateDateExtensions}
  *
  * @version 1.0
  * @author Asterios Raptis
@@ -65,7 +71,7 @@ public class CreateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.CreateDateExtensions#newDate(int, int, int)}.
+	 * Test method for {@link CreateDateExtensions#newDate(int, int, int)}
 	 */
 	@Test
 	public void testCreateDateIntIntInt()
@@ -81,13 +87,11 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
-		AssertJUnit
-			.assertTrue("The date should be equal with the expected.", date.equals(expected));
+		assertTrue("The date should be equal with the expected.", date.equals(expected));
 	}
 
 	/**
-	 * Test method for
-	 * {@link de.alpharogroup.date.CreateDateExtensions#newDate(int, int, int, int, int, int)} .
+	 * Test method for {@link CreateDateExtensions#newDate(int, int, int, int, int, int)}
 	 */
 	@Test
 	public void testCreateDateIntIntIntIntIntInt()
@@ -103,8 +107,46 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
-		AssertJUnit
-			.assertTrue("The date should be equal with the expected.", date.equals(expected));
+		assertTrue("The date should be equal with the expected.", date.equals(expected));
+	}
+
+	/**
+	 * Test method for {@link CreateDateExtensions#inPast(Date, int)}.
+	 */
+	@Test
+	public void testInPast()
+	{
+		Date actual;
+		Date expected;
+		Date from;
+		int millis;
+		from = CreateDateExtensions.newDate(2000, 1, 2, 12, 0, 0);
+		millis = (int)Age.ONE_DAY;
+		actual = CreateDateExtensions.inPast(from, millis);
+		expected = CreateDateExtensions.newDate(2000, 1, 1, 12, 0, 0);
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link CreateDateExtensions#newRandomDate(Date)}.
+	 */
+	@Test
+	public void testNewRandomDate()
+	{
+		Date from;
+		from = CreateDateExtensions.newDate(2000, 1, 2, 12, 0, 0);
+		Date newRandomDate = CreateDateExtensions.newRandomDate(from);
+		assertNotNull(newRandomDate);
+	}
+
+	/**
+	 * Test method for {@link CreateDateExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(CreateDateExtensions.class);
 	}
 
 }
