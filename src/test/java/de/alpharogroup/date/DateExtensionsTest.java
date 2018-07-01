@@ -255,7 +255,7 @@ public class DateExtensionsTest
 		seconds = 15;
 		milisec = 30;
 		zone = TimeZone.getTimeZone(ZoneId.of("Europe/Berlin"));
-		locale = Locale.FRANCE;
+		locale = Locale.GERMANY;
 		actual = DateExtensions.setDate(dateToSet, hours, minutes, seconds, milisec, zone, locale);
 		expected = CreateDateExtensions.newDate(year, month, day, hours, minutes, seconds, milisec);
 		assertEquals(actual, expected);
