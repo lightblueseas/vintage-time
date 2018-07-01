@@ -24,10 +24,16 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
+import java.time.ZoneId;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -164,6 +170,92 @@ public class DateExtensionsTest
 		final int year = DateExtensions.getYear(this.expectedDate1);
 		final int expected = 2000;
 		assertTrue("The year should be 2000.", year == expected);
+	}
+
+	/**
+	 * Test method for {@link DateExtensions#getAllDatePatterns()}.
+	 */
+	@Test
+	public void testGetAllDatePatterns()
+	{
+		Map<String, Object> actual;
+		Map<String, Object> expected;
+		actual = DateExtensions.getAllDatePatterns();
+		expected = new HashMap<>();
+		expected.put("DD_MMM_YY", "dd-MMM-yy");
+		expected.put("DOT_DD_MM", "dd.MM");
+		expected.put("DOT_DD_MM_YY", "dd.MM.yy");
+		expected.put("DOT_DD_MM_YYYY", "dd.MM.yyyy");
+		expected.put("DOT_DD_MM_YYYY_HH_MM_SS", "dd.MM.yyyy HH:mm:ss");
+		expected.put("DOT_YYYY_MM_DD_HH_MM_SS", "yyyy.MM.dd.HH.mm.ss");
+		expected.put("EEE_MMM_DD_HH_MM_SS_Z_YYYY", "EEE MMM dd hh:mm:ss z yyyy");
+		expected.put("EEEE_MMM_DD_YYYY", "EEEE MMM dd, yyyy");
+		expected.put("LHH_MM_SS", "hh:mm:ss");
+		expected.put("UHH_MM", "HH:mm");
+		expected.put("UHH_MM_SS", "HH:mm:ss");
+		expected.put("YYYY_MM_DD", "yyyy-MM-dd");
+		expected.put("YYYY_MM_DD_HH_MM_SS", "yyyy-MM-dd hh:mm:ss");
+		expected.put("YYYY_MM_DD_HH_MM_SS_S", "yyyy-MM-dd hh:mm:ss.S");
+		expected.put("YYYY_MM_DD_T_HH_MM_SS", "yyyy-MM-dd'T'HH:mm:ss");
+		expected.put("YYYYMMDDHHMMSS", "yyyyMMddHHmmss");
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link DateExtensions#getWeekOfYear(Date)}.
+	 */
+	@Test
+	public void testGetWeekOfYear()
+	{
+		int actual;
+		int expected;
+		Date birthDay;
+		int weekOfYear;
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		weekOfYear = DateExtensions.getWeekOfYear(birthDay);
+		actual = weekOfYear;
+		expected = 45;
+		assertEquals(actual, expected);
+
+		birthDay = CreateDateExtensions.newDate(2007, 1, 8, 19, 0, 0);
+		weekOfYear = DateExtensions.getWeekOfYear(birthDay);
+		actual = weekOfYear;
+		expected = 2;
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link DateExtensions#setDate(Date, int, int, int, int, TimeZone, Locale)}.
+	 */
+	@Test
+	public void testSetDate()
+	{
+		Date actual;
+		Date expected;
+		Date dateToSet;
+		TimeZone zone;
+		Locale locale;
+		int year;
+		int month;
+		int day;
+		int hours;
+		int minutes;
+		int seconds;
+		int milisec;
+		year = 2007;
+		month = 11;
+		day = 8;
+		dateToSet = CreateDateExtensions.newDate(year, month, day);
+		hours = 12;
+		minutes = 35;
+		seconds = 15;
+		milisec = 30;
+		zone = TimeZone.getTimeZone(ZoneId.of("Europe/Berlin"));
+		locale = Locale.FRANCE;
+		actual = DateExtensions.setDate(dateToSet, hours, minutes, seconds, milisec, zone, locale);
+		expected = CreateDateExtensions.newDate(year, month, day, hours, minutes, seconds, milisec);
+		assertEquals(actual, expected);
 	}
 
 }

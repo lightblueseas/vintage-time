@@ -47,7 +47,7 @@ public class TimeZoneExtensionsTest
 		final Date date = CreateDateExtensions.newDate(2000, 1, 1, 12, 0, 0);
 		actual = TimeZoneExtensions.getTimezoneOffsetInHours(date);
 		expected = -1;
-		assertEquals(expected, actual);		
+		assertEquals(expected, actual);
 	}
 
 	/**

@@ -52,7 +52,7 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
+
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
@@ -81,8 +81,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_HOUR);
@@ -96,7 +96,7 @@ public class AgeTest
 		actual = (int)age.calculateInHours();
 		assertEquals(actual, expected);
 	}
-	
+
 
 	/**
 	 * Test method for {@link Age#of(Date, Date)}.
@@ -110,7 +110,7 @@ public class AgeTest
 		Age age;
 		Date now;
 		Date birthDay;
-		now = CreateDateExtensions.now();		
+		now = CreateDateExtensions.now();
 
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = Age.of(birthDay, now);
@@ -133,7 +133,7 @@ public class AgeTest
 		Age age;
 		Date now;
 		Date birthDay;
-		now = CreateDateExtensions.now();		
+		now = CreateDateExtensions.now();
 
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = Age.of(birthDay.getTime());
@@ -157,8 +157,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
@@ -186,8 +186,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
@@ -215,8 +215,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_MINUTE);
@@ -244,8 +244,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_MINUTE);
@@ -273,8 +273,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_SECOND);
@@ -302,8 +302,8 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_SECOND);
@@ -329,9 +329,9 @@ public class AgeTest
 		Age age;
 		Date till;
 		Date birthDay;
-		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);	
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);	
+		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = new Age(birthDay, till);
 		expected = new int[6];
 		expected[0] = 3;
@@ -368,9 +368,9 @@ public class AgeTest
 		Age age;
 		Date till;
 		Date birthDay;
-		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);	
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);	
+		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, till);
 		age = new Age(birthDay, till);
 		expected = new int[6];
@@ -407,9 +407,9 @@ public class AgeTest
 		Age age;
 		Date till;
 		Date birthDay;
-		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);	
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = new Age(birthDay, till);
 		expected = "Your are 3 years 0 months 0 days 6 hours 0 minutes 0 seconds young!";
 		actual = age.getHumanReadableAge();
@@ -433,10 +433,10 @@ public class AgeTest
 		Age age;
 		Date till;
 		Date birthDay;
-		int [] readableAge;
-		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);	
-		
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);		
+		int[] readableAge;
+		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = new Age(birthDay, till);
 		readableAge = new int[6];
 		readableAge[0] = 3;

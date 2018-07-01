@@ -60,8 +60,7 @@ public class TimeZoneExtensions
 		calendar.setTime(date);
 		int zoneOffset = calendar.get(Calendar.ZONE_OFFSET);
 		int dstOffset = calendar.get(Calendar.DST_OFFSET);
-		final int x = -(zoneOffset + dstOffset)
-			/ (60 * 1000);
+		final int x = -(zoneOffset + dstOffset) / (60 * 1000);
 		return x;
 	}
 }
