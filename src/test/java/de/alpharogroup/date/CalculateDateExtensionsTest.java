@@ -24,6 +24,7 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -457,7 +458,12 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testAddMilliseconds()
 	{
-		// TODO implement unit test cases...
+		Date actual;
+		Date expected;
+		actual = CalculateDateExtensions.addMilliseconds(this.expectedDate1, (int)Age.ONE_HOUR);
+		expected = CreateDateExtensions.newDate(2000, 12, 31, 1, 0, 0);
+		assertTrue("The expected date should be 10 years after the actual date.",
+			actual.equals(expected));
 	}
 
 	/**
@@ -466,7 +472,16 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testIsBetween()
 	{
-		// TODO implement unit test cases...
+		boolean actual;
+		boolean expected;
+
+		actual = CalculateDateExtensions.isBetween(expectedDate4, expectedDate2, expectedDate1);
+		expected = true;
+		assertEquals(actual, expected);
+		
+		actual = CalculateDateExtensions.isBetween(expectedDate1, expectedDate2, expectedDate4);
+		expected = false;
+		assertEquals(actual, expected);
 	}
 
 	/**
@@ -475,7 +490,16 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testSubstractMonthsFromDate()
 	{
-		// TODO implement unit test cases...
+		Date actual;
+		Date expected;
+		
+		final Date testDate = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
+
+		expected = CreateDateExtensions.newDate(1971, 1, 2, 0, 0, 0);
+
+		actual = CalculateDateExtensions.substractMonthsFromDate(testDate, 1);
+
+		assertTrue("The expected date should be equal with actual date.", actual.equals(expected));
 	}
 
 	/**
@@ -484,7 +508,16 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testSubstractWeeksFromDate()
 	{
-		// TODO implement unit test cases...
+		Date actual;
+		Date expected;
+		
+		final Date testDate = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
+
+		expected = CreateDateExtensions.newDate(1971, 1, 26, 0, 0, 0);
+
+		actual = CalculateDateExtensions.substractWeeksFromDate(testDate, 1);
+
+		assertTrue("The expected date should be equal with actual date.", actual.equals(expected));
 	}
 
 	/**
