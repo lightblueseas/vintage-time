@@ -40,7 +40,7 @@ public class Age implements Serializable
 	/**
 	 * The serialVersionUID from Age.
 	 */
-	private static final long serialVersionUID = -1110889254918807595L;
+	private static final long serialVersionUID = -1L;
 
 	/** The Constant ONE_SECOND. */
 	public static final long ONE_SECOND = 1000l;
@@ -59,6 +59,7 @@ public class Age implements Serializable
 
 	/** The Constant ONE_YEAR. */
 	public static final long ONE_YEAR = ONE_DAY * 365l + ONE_HOUR * 6l;
+
 
 	/**
 	 * Factory method to create a new {@link Age} object from the given birthday Date object. It
@@ -104,11 +105,11 @@ public class Age implements Serializable
 		return new Age(startFrom);
 	}
 
-	/** The elapsed time in long. */
-	private final long elapsed;
-
 	/** The birthday. */
 	private final Calendar birthday;
+
+	/** The elapsed time in long. */
+	private final long elapsed;
 
 	/** The point where the Age stops. */
 	private final Calendar till;

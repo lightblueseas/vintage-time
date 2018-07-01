@@ -58,12 +58,6 @@ public class CalculateDateExtensionsTest
 	/** The datum4. */
 	private String datum4 = null;
 
-	/** The format3. */
-	private String format3 = null;
-
-	/** The format4. */
-	private String format4 = null;
-
 	/** The expected date1. */
 	private Date expectedDate1 = null;
 
@@ -72,6 +66,12 @@ public class CalculateDateExtensionsTest
 
 	/** The expected date4. */
 	private Date expectedDate4 = null;
+
+	/** The format3. */
+	private String format3 = null;
+
+	/** The format4. */
+	private String format4 = null;
 
 	/**
 	 * Sets up method will be invoked before every unit test method in this class.

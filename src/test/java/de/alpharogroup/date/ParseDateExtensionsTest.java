@@ -24,7 +24,7 @@
  */
 package de.alpharogroup.date;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertNotNull;
 import static org.testng.AssertJUnit.assertNull;
 import static org.testng.AssertJUnit.assertTrue;
@@ -55,14 +55,14 @@ public class ParseDateExtensionsTest
 	/** The Constant DD_MM. */
 	private static final String DD_MM = "dd.MM";
 
-	/** The Constant YYYY_MMDD_HHMMSS. */
-	private static final String YYYY_MMDD_HHMMSS = "yyyyMMddHHmmss";
-
 	/** The Constant DD_MM_YYYY_HH_MM_SS. */
 	private static final String DD_MM_YYYY_HH_MM_SS = "dd.MM.yyyy HH:mm:ss";
 
 	/** The Constant YYYY_MM_DD. */
 	private static final String YYYY_MM_DD = "yyyy-MM-dd";
+
+	/** The Constant YYYY_MMDD_HHMMSS. */
+	private static final String YYYY_MMDD_HHMMSS = "yyyyMMddHHmmss";
 
 	/** The datum1. */
 	private String datum1 = null;
@@ -76,18 +76,6 @@ public class ParseDateExtensionsTest
 	/** The datum4. */
 	private String datum4 = null;
 
-	/** The format1. */
-	private String format1 = null;
-
-	/** The format2. */
-	private String format2 = null;
-
-	/** The format3. */
-	private String format3 = null;
-
-	/** The format4. */
-	private String format4 = null;
-
 	/** The expected date1. */
 	private Date expectedDate1 = null;
 
@@ -99,6 +87,18 @@ public class ParseDateExtensionsTest
 
 	/** The expected date4. */
 	private Date expectedDate4 = null;
+
+	/** The format1. */
+	private String format1 = null;
+
+	/** The format2. */
+	private String format2 = null;
+
+	/** The format3. */
+	private String format3 = null;
+
+	/** The format4. */
+	private String format4 = null;
 
 	/**
 	 * Sets up method will be invoked before every unit test method in this class.
