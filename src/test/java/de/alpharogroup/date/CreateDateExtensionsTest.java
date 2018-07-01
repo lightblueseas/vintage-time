@@ -24,6 +24,8 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 import static org.testng.AssertJUnit.assertTrue;
 
 import java.util.Calendar;
@@ -106,6 +108,35 @@ public class CreateDateExtensionsTest
 		calendar.set(Calendar.MILLISECOND, 0);
 		final Date expected = calendar.getTime();
 		assertTrue("The date should be equal with the expected.", date.equals(expected));
+	}
+
+	/**
+	 * Test method for {@link CreateDateExtensions#inPast(Date, int)}.
+	 */
+	@Test
+	public void testInPast()
+	{
+		Date actual;
+		Date expected;
+		Date from;
+		int millis;
+		from = CreateDateExtensions.newDate(2000, 1, 2, 12, 0, 0);
+		millis = (int)Age.ONE_DAY;
+		actual = CreateDateExtensions.inPast(from, millis);
+		expected = CreateDateExtensions.newDate(2000, 1, 1, 12, 0, 0);
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link CreateDateExtensions#newRandomDate(Date)}.
+	 */
+	@Test
+	public void testNewRandomDate()
+	{
+		Date from;
+		from = CreateDateExtensions.newDate(2000, 1, 2, 12, 0, 0);
+		Date newRandomDate = CreateDateExtensions.newRandomDate(from);
+		assertNotNull(newRandomDate);
 	}
 
 	/**
