@@ -4,7 +4,10 @@
 
 [![Build Status](https://travis-ci.org/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.org/lightblueseas/vintage-time)
 [![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=develop)](https://coveralls.io/github/lightblueseas/vintage-time?branch=develop)
+[![Open Issues](https://img.shields.io/github/issues/lightblueseas/vintage-time.svg?style=flat)](https://github.com/lightblueseas/vintage-time/issues)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
+[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/vintage-time.svg)](http://www.javadoc.io/doc/de.alpharogroup/vintage-time)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 </div>
 
@@ -24,7 +27,7 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 Than you can add the dependency to your dependencies:
 
 		<!-- VINTAGE-TIME version -->
-		<vintage-time.version>4.11.0</vintage-time.version>
+		<vintage-time.version>4.12</vintage-time.version>
 
 		<dependencies>
 			...
@@ -37,6 +40,15 @@ Than you can add the dependency to your dependencies:
 			...
 		</dependencies>
 
+## Semantic Versioning
+
+The versions of vintage-time are maintained with the Semantic Versioning guidelines.
+
+Release version numbers will be incremented in the following format:
+
+`<major>.<minor>.<patch>`
+
+For detailed information on versioning you can visit the [wiki page](https://github.com/lightblueseas/mvn-parent-projects/wiki/Semantic-Versioning).
 
 ## Want to Help and improve it? ###
 
