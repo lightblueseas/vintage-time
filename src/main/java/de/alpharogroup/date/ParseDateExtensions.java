@@ -51,7 +51,7 @@ public final class ParseDateExtensions implements DatePatterns
 	 *            The date to convert as String.
 	 * @param patterns
 	 *            The date patterns to convert the String to a date-object.
-	 * @return Gives a Date if the convertion was successfull otherwise false.
+	 * @return Gives a Date if the convertion was successfull otherwise null.
 	 */
 	public static Date parseDate(final String date, final List<String> patterns)
 	{
@@ -78,7 +78,7 @@ public final class ParseDateExtensions implements DatePatterns
 	 *            The Date as String
 	 * @param format
 	 *            The Format for the Date to parse
-	 * @return The formated Date
+	 * @return The parsed Date
 	 * @throws ParseException
 	 *             occurs when their are problems with parsing the String to Date.
 	 */
@@ -127,7 +127,7 @@ public final class ParseDateExtensions implements DatePatterns
 	 *            The Format for the Date to parse
 	 * @param lenient
 	 *            Specify whether or not date/time interpretation is to be lenient.
-	 * @return The formated Date or null.
+	 * @return The parsed Date or null.
 	 */
 	public static Date parseToDateLenient(final String date, final String format,
 		final boolean lenient)
