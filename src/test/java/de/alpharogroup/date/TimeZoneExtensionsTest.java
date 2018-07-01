@@ -76,5 +76,5 @@ public class TimeZoneExtensionsTest
 		final BeanTester beanTester = new BeanTester();
 		beanTester.testBean(TimeZoneExtensions.class);
 	}
-	
+
 }

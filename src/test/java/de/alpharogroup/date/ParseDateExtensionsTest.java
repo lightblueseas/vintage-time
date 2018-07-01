@@ -142,27 +142,25 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseDate(String, List)} 
+	 * Test method for {@link ParseDateExtensions#parseDate(String, List)}
 	 */
 	@Test
 	public void testParseDate()
 	{
 		Date actual;
 		Date expected;
-		
-		actual = ParseDateExtensions.parseDate(this.datum1,
-			DateExtensions.getAllDateFormats());
+
+		actual = ParseDateExtensions.parseDate(this.datum1, DateExtensions.getAllDateFormats());
 		expected = expectedDate1;
 		assertEquals(actual, expected);
-		
-		actual = ParseDateExtensions.parseDate(this.datum1,
-			new ArrayList<>());
+
+		actual = ParseDateExtensions.parseDate(this.datum1, new ArrayList<>());
 		expected = null;
 		assertEquals(actual, expected);
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)} 
+	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)}
 	 *
 	 * @throws ParseException
 	 *             the parse exception
@@ -194,7 +192,7 @@ public class ParseDateExtensionsTest
 		actual = ParseDateExtensions.parseToDate(datum3, format3);
 		assertEquals(actual, expected);
 		assertEquals(actual, expectedDate3);
-		
+
 		// -----------------------------------------------
 
 		dateFormat = new SimpleDateFormat(format4);
@@ -206,7 +204,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseToString(String, String, String)} 
+	 * Test method for {@link ParseDateExtensions#parseToString(String, String, String)}
 	 */
 	@Test
 	public void testParseToDateAndParseToString()
@@ -228,7 +226,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseToDateLenient(String, String, boolean)} 
+	 * Test method for {@link ParseDateExtensions#parseToDateLenient(String, String, boolean)}
 	 *
 	 * @throws ParseException
 	 *             the parse exception
@@ -245,39 +243,39 @@ public class ParseDateExtensionsTest
 		actual = ParseDateExtensions.parseToDateLenient(datum1, format1, false);
 		assertEquals(actual, expected);
 		assertEquals(actual, expectedDate1);
-		
+
 		// ----------------------------------------------
 		dateFormat = new SimpleDateFormat(format2);
 		expected = dateFormat.parse(datum2);
 		actual = ParseDateExtensions.parseToDateLenient(datum2, format2, false);
 		assertEquals(actual, expected);
 		assertEquals(actual, expectedDate2);
-		
+
 		// -----------------------------------------------
 		dateFormat = new SimpleDateFormat(format3);
 		expected = dateFormat.parse(datum3);
 		actual = ParseDateExtensions.parseToDateLenient(datum3, format3, false);
 		assertEquals(actual, expected);
 		assertEquals(actual, expectedDate3);
-		
+
 		// -----------------------------------------------
 		dateFormat = new SimpleDateFormat(format4);
 		expected = dateFormat.parse(datum4);
 		actual = ParseDateExtensions.parseToDateLenient(datum4, format4, false);
 		assertNull(actual);
 		assertEquals(expected, expectedDate4);
-		
+
 		// -----------------------------------------------
 		dateFormat = new SimpleDateFormat(format4);
 		expected = dateFormat.parse(datum4);
 		actual = ParseDateExtensions.parseToDateLenient(null, format4, false);
 		assertNull(actual);
 		assertEquals(expected, expectedDate4);
-		
+
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)} 
+	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)}
 	 */
 	@Test
 	public void testParseToDateStringString()
@@ -296,7 +294,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseToDate(String, String[], Locale)} 
+	 * Test method for {@link ParseDateExtensions#parseToDate(String, String[], Locale)}
 	 */
 	@Test
 	public void testParseToDateStringStringArrayLocale()
@@ -314,7 +312,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseToString(Date, String)} 
+	 * Test method for {@link ParseDateExtensions#parseToString(Date, String)}
 	 */
 	@Test
 	public void testParseToString()

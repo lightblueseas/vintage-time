@@ -108,6 +108,22 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
+	 * Test method for {@link ConvertDateExtensions#toDate(Calendar)}
+	 * 
+	 * @throws ParseException
+	 *             occurs when their are problems with parsing the String to Date.
+	 */
+	@Test
+	public void testConvertToDate() throws ParseException
+	{
+		final Date expected = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
+		final Calendar compare = Calendar.getInstance();
+		compare.setTime(expected);
+		final Date date = ConvertDateExtensions.toDate(compare);
+		assertTrue(date.equals(expected));
+	}
+
+	/**
 	 * Test method for {@link ConvertDateExtensions#toTimestamp(Date)}
 	 * 
 	 * @throws ParseException
@@ -129,22 +145,6 @@ public class ConvertDateExtensionsTest
 		compare.set(Calendar.MILLISECOND, 0);
 		expected = new Timestamp(compare.getTime().getTime());
 		assertEquals(actual, expected);
-	}
-
-	/**
-	 * Test method for {@link ConvertDateExtensions#toDate(Calendar)}
-	 * 
-	 * @throws ParseException
-	 *             occurs when their are problems with parsing the String to Date.
-	 */
-	@Test
-	public void testConvertToDate() throws ParseException
-	{
-		final Date expected = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
-		final Calendar compare = Calendar.getInstance();
-		compare.setTime(expected);
-		final Date date = ConvertDateExtensions.toDate(compare);
-		assertTrue(date.equals(expected));
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class ConvertDateExtensionsTest
 		final Date actual = ConvertDateExtensions.toDate(millis);
 		assertTrue(actual.equals(expected));
 	}
-	
+
 	/**
 	 * Test method for {@link ConvertDateExtensions}
 	 */

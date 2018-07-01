@@ -69,82 +69,6 @@ public class AgeTest
 	}
 
 	/**
-	 * Test method for {@link Age#calculateInHours()}
-	 */
-	@Test
-	public void testCalculateInHours()
-	{
-		int actual;
-		int expected;
-		long elapsed;
-		Age age;
-		Date now;
-		Date birthDay;
-		now = CreateDateExtensions.now();
-
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
-		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
-		age = new Age(birthDay);
-		expected = (int)(elapsed / Age.ONE_HOUR);
-		actual = (int)age.calculateInHours();
-		assertEquals(actual, expected);
-
-		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
-		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
-		age = Age.of(birthDay);
-		expected = (int)(elapsed / Age.ONE_HOUR);
-		actual = (int)age.calculateInHours();
-		assertEquals(actual, expected);
-	}
-
-
-	/**
-	 * Test method for {@link Age#of(Date, Date)}.
-	 */
-	@Test
-	public void testOfDateDate()
-	{
-		int actual;
-		int expected;
-		long elapsed;
-		Age age;
-		Date now;
-		Date birthDay;
-		now = CreateDateExtensions.now();
-
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
-		age = Age.of(birthDay, now);
-		assertNotNull(age);
-		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
-		expected = (int)(elapsed / Age.ONE_DAY);
-		actual = (int)age.calculateInDays();
-		assertEquals(actual, expected);
-	}
-
-	/**
-	 * Test method for {@link Age#of(long)}.
-	 */
-	@Test
-	public void testOfLong()
-	{
-		int actual;
-		int expected;
-		long elapsed;
-		Age age;
-		Date now;
-		Date birthDay;
-		now = CreateDateExtensions.now();
-
-		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
-		age = Age.of(birthDay.getTime());
-		assertNotNull(age);
-		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
-		expected = (int)(elapsed / Age.ONE_DAY);
-		actual = (int)age.calculateInDays();
-		assertEquals(actual, expected);
-	}
-
-	/**
 	 * Test method for {@link Age#calculateInDefaultMonth()}.
 	 */
 	@Test
@@ -173,6 +97,7 @@ public class AgeTest
 		assertEquals(actual, expected);
 	}
 
+
 	/**
 	 * Test method for {@link Age#calculateInDefaultMonth(long)}.
 	 */
@@ -199,6 +124,35 @@ public class AgeTest
 		age = Age.of(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
 		actual = (int)age.calculateInDefaultMonth(elapsed);
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link Age#calculateInHours()}
+	 */
+	@Test
+	public void testCalculateInHours()
+	{
+		int actual;
+		int expected;
+		long elapsed;
+		Age age;
+		Date now;
+		Date birthDay;
+		now = CreateDateExtensions.now();
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = new Age(birthDay);
+		expected = (int)(elapsed / Age.ONE_HOUR);
+		actual = (int)age.calculateInHours();
+		assertEquals(actual, expected);
+
+		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_HOUR);
+		actual = (int)age.calculateInHours();
 		assertEquals(actual, expected);
 	}
 
@@ -459,6 +413,52 @@ public class AgeTest
 		readableAge[5] = 0;
 		actual = age.getHumanReadableAge(readableAge);
 		expected = "Your are 22 years 10 months 20 days 7 hours 0 minutes 0 seconds young!";
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link Age#of(Date, Date)}.
+	 */
+	@Test
+	public void testOfDateDate()
+	{
+		int actual;
+		int expected;
+		long elapsed;
+		Age age;
+		Date now;
+		Date birthDay;
+		now = CreateDateExtensions.now();
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		age = Age.of(birthDay, now);
+		assertNotNull(age);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		expected = (int)(elapsed / Age.ONE_DAY);
+		actual = (int)age.calculateInDays();
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link Age#of(long)}.
+	 */
+	@Test
+	public void testOfLong()
+	{
+		int actual;
+		int expected;
+		long elapsed;
+		Age age;
+		Date now;
+		Date birthDay;
+		now = CreateDateExtensions.now();
+
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		age = Age.of(birthDay.getTime());
+		assertNotNull(age);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		expected = (int)(elapsed / Age.ONE_DAY);
+		actual = (int)age.calculateInDays();
 		assertEquals(actual, expected);
 	}
 

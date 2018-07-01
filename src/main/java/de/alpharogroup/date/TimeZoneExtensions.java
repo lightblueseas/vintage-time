@@ -66,5 +66,5 @@ public final class TimeZoneExtensions
 		final int x = -(zoneOffset + dstOffset) / (60 * 1000);
 		return x;
 	}
-	
+
 }

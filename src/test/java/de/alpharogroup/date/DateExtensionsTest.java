@@ -104,6 +104,35 @@ public class DateExtensionsTest
 	}
 
 	/**
+	 * Test method for {@link DateExtensions#getAllDatePatterns()}.
+	 */
+	@Test
+	public void testGetAllDatePatterns()
+	{
+		Map<String, Object> actual;
+		Map<String, Object> expected;
+		actual = DateExtensions.getAllDatePatterns();
+		expected = new HashMap<>();
+		expected.put("DD_MMM_YY", "dd-MMM-yy");
+		expected.put("DOT_DD_MM", "dd.MM");
+		expected.put("DOT_DD_MM_YY", "dd.MM.yy");
+		expected.put("DOT_DD_MM_YYYY", "dd.MM.yyyy");
+		expected.put("DOT_DD_MM_YYYY_HH_MM_SS", "dd.MM.yyyy HH:mm:ss");
+		expected.put("DOT_YYYY_MM_DD_HH_MM_SS", "yyyy.MM.dd.HH.mm.ss");
+		expected.put("EEE_MMM_DD_HH_MM_SS_Z_YYYY", "EEE MMM dd hh:mm:ss z yyyy");
+		expected.put("EEEE_MMM_DD_YYYY", "EEEE MMM dd, yyyy");
+		expected.put("LHH_MM_SS", "hh:mm:ss");
+		expected.put("UHH_MM", "HH:mm");
+		expected.put("UHH_MM_SS", "HH:mm:ss");
+		expected.put("YYYY_MM_DD", "yyyy-MM-dd");
+		expected.put("YYYY_MM_DD_HH_MM_SS", "yyyy-MM-dd hh:mm:ss");
+		expected.put("YYYY_MM_DD_HH_MM_SS_S", "yyyy-MM-dd hh:mm:ss.S");
+		expected.put("YYYY_MM_DD_T_HH_MM_SS", "yyyy-MM-dd'T'HH:mm:ss");
+		expected.put("YYYYMMDDHHMMSS", "yyyyMMddHHmmss");
+		assertEquals(actual, expected);
+	}
+
+	/**
 	 * Test method for {@link de.alpharogroup.date.DateExtensions#getDay(java.util.Date)}.
 	 */
 	@Test
@@ -164,47 +193,6 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateExtensions#getYear(java.util.Date)}.
-	 */
-	@Test
-	public void testGetYear()
-	{
-
-		final int year = DateExtensions.getYear(this.expectedDate1);
-		final int expected = 2000;
-		assertTrue("The year should be 2000.", year == expected);
-	}
-
-	/**
-	 * Test method for {@link DateExtensions#getAllDatePatterns()}.
-	 */
-	@Test
-	public void testGetAllDatePatterns()
-	{
-		Map<String, Object> actual;
-		Map<String, Object> expected;
-		actual = DateExtensions.getAllDatePatterns();
-		expected = new HashMap<>();
-		expected.put("DD_MMM_YY", "dd-MMM-yy");
-		expected.put("DOT_DD_MM", "dd.MM");
-		expected.put("DOT_DD_MM_YY", "dd.MM.yy");
-		expected.put("DOT_DD_MM_YYYY", "dd.MM.yyyy");
-		expected.put("DOT_DD_MM_YYYY_HH_MM_SS", "dd.MM.yyyy HH:mm:ss");
-		expected.put("DOT_YYYY_MM_DD_HH_MM_SS", "yyyy.MM.dd.HH.mm.ss");
-		expected.put("EEE_MMM_DD_HH_MM_SS_Z_YYYY", "EEE MMM dd hh:mm:ss z yyyy");
-		expected.put("EEEE_MMM_DD_YYYY", "EEEE MMM dd, yyyy");
-		expected.put("LHH_MM_SS", "hh:mm:ss");
-		expected.put("UHH_MM", "HH:mm");
-		expected.put("UHH_MM_SS", "HH:mm:ss");
-		expected.put("YYYY_MM_DD", "yyyy-MM-dd");
-		expected.put("YYYY_MM_DD_HH_MM_SS", "yyyy-MM-dd hh:mm:ss");
-		expected.put("YYYY_MM_DD_HH_MM_SS_S", "yyyy-MM-dd hh:mm:ss.S");
-		expected.put("YYYY_MM_DD_T_HH_MM_SS", "yyyy-MM-dd'T'HH:mm:ss");
-		expected.put("YYYYMMDDHHMMSS", "yyyyMMddHHmmss");
-		assertEquals(actual, expected);
-	}
-
-	/**
 	 * Test method for {@link DateExtensions#getWeekOfYear(Date)}.
 	 */
 	@Test
@@ -226,6 +214,18 @@ public class DateExtensionsTest
 		actual = weekOfYear;
 		expected = 2;
 		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getYear(java.util.Date)}.
+	 */
+	@Test
+	public void testGetYear()
+	{
+
+		final int year = DateExtensions.getYear(this.expectedDate1);
+		final int expected = 2000;
+		assertTrue("The year should be 2000.", year == expected);
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class DateExtensionsTest
 		expected = CreateDateExtensions.newDate(year, month, day, hours, minutes, seconds, milisec);
 		assertEquals(actual, expected);
 	}
-	
+
 	/**
 	 * Test method for {@link DateExtensions}
 	 */

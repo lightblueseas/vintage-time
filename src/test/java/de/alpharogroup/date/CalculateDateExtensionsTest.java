@@ -154,7 +154,21 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)} 
+	 * Test method for {@link CalculateDateExtensions#addMilliseconds(Date, int)}
+	 */
+	@Test
+	public void testAddMilliseconds()
+	{
+		Date actual;
+		Date expected;
+		actual = CalculateDateExtensions.addMilliseconds(this.expectedDate1, (int)Age.ONE_HOUR);
+		expected = CreateDateExtensions.newDate(2000, 12, 31, 1, 0, 0);
+		assertTrue("The expected date should be 10 years after the actual date.",
+			actual.equals(expected));
+	}
+
+	/**
+	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)}
 	 */
 	@Test
 	public void testAddMinutesToDate()
@@ -176,7 +190,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addMonths(Date, int)} 
+	 * Test method for {@link CalculateDateExtensions#addMonths(Date, int)}
 	 */
 	@Test
 	public void testAddMonthsToDate()
@@ -194,7 +208,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)} 
+	 * Test method for {@link CalculateDateExtensions#addHours(Date, int)}
 	 */
 	@Test
 	public void testAddSecondsToDate()
@@ -217,7 +231,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#addWeeks(Date, int)} 
+	 * Test method for {@link CalculateDateExtensions#addWeeks(Date, int)}
 	 */
 	@Test
 	public void testAddWeeksToDate()
@@ -367,6 +381,24 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
+	 * Test method for {@link CalculateDateExtensions#isBetween(Date, Date, Date)}
+	 */
+	@Test
+	public void testIsBetween()
+	{
+		boolean actual;
+		boolean expected;
+
+		actual = CalculateDateExtensions.isBetween(expectedDate4, expectedDate2, expectedDate1);
+		expected = true;
+		assertEquals(actual, expected);
+
+		actual = CalculateDateExtensions.isBetween(expectedDate1, expectedDate2, expectedDate4);
+		expected = false;
+		assertEquals(actual, expected);
+	}
+
+	/**
 	 * Test method for {@link CalculateDateExtensions#isDateInTheFuture(Date)}
 	 */
 	@Test
@@ -383,7 +415,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#isDateInThePast(Date)} 
+	 * Test method for {@link CalculateDateExtensions#isDateInThePast(Date)}
 	 */
 	@Test
 	public void testIsDateInThePast()
@@ -423,7 +455,7 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#substractDaysFromDate(Date, int)} 
+	 * Test method for {@link CalculateDateExtensions#substractDaysFromDate(Date, int)}
 	 */
 	@Test
 	public void testSubstractDaysFromDate()
@@ -438,53 +470,6 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#substractYearsFromDate(Date, int)} 
-	 */
-	@Test
-	public void testSubstractYearsFromDate()
-	{
-		final Date actual = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
-
-		final Date expected = CreateDateExtensions.newDate(1970, 2, 2, 0, 0, 0);
-
-		final Date date = CalculateDateExtensions.substractYearsFromDate(actual, 1);
-
-		assertTrue("The expected should be equal with actual.", date.equals(expected));
-	}
-
-	/**
-	 * Test method for {@link CalculateDateExtensions#addMilliseconds(Date, int)}
-	 */
-	@Test
-	public void testAddMilliseconds()
-	{
-		Date actual;
-		Date expected;
-		actual = CalculateDateExtensions.addMilliseconds(this.expectedDate1, (int)Age.ONE_HOUR);
-		expected = CreateDateExtensions.newDate(2000, 12, 31, 1, 0, 0);
-		assertTrue("The expected date should be 10 years after the actual date.",
-			actual.equals(expected));
-	}
-
-	/**
-	 * Test method for {@link CalculateDateExtensions#isBetween(Date, Date, Date)}
-	 */
-	@Test
-	public void testIsBetween()
-	{
-		boolean actual;
-		boolean expected;
-
-		actual = CalculateDateExtensions.isBetween(expectedDate4, expectedDate2, expectedDate1);
-		expected = true;
-		assertEquals(actual, expected);
-		
-		actual = CalculateDateExtensions.isBetween(expectedDate1, expectedDate2, expectedDate4);
-		expected = false;
-		assertEquals(actual, expected);
-	}
-
-	/**
 	 * Test method for {@link CalculateDateExtensions#substractMonthsFromDate(Date, int)}
 	 */
 	@Test
@@ -492,7 +477,7 @@ public class CalculateDateExtensionsTest
 	{
 		Date actual;
 		Date expected;
-		
+
 		final Date testDate = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
 
 		expected = CreateDateExtensions.newDate(1971, 1, 2, 0, 0, 0);
@@ -510,7 +495,7 @@ public class CalculateDateExtensionsTest
 	{
 		Date actual;
 		Date expected;
-		
+
 		final Date testDate = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
 
 		expected = CreateDateExtensions.newDate(1971, 1, 26, 0, 0, 0);
@@ -518,6 +503,21 @@ public class CalculateDateExtensionsTest
 		actual = CalculateDateExtensions.substractWeeksFromDate(testDate, 1);
 
 		assertTrue("The expected date should be equal with actual date.", actual.equals(expected));
+	}
+
+	/**
+	 * Test method for {@link CalculateDateExtensions#substractYearsFromDate(Date, int)}
+	 */
+	@Test
+	public void testSubstractYearsFromDate()
+	{
+		final Date actual = CreateDateExtensions.newDate(1971, 2, 2, 0, 0, 0);
+
+		final Date expected = CreateDateExtensions.newDate(1970, 2, 2, 0, 0, 0);
+
+		final Date date = CalculateDateExtensions.substractYearsFromDate(actual, 1);
+
+		assertTrue("The expected should be equal with actual.", date.equals(expected));
 	}
 
 	/**
