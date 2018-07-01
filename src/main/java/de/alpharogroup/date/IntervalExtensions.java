@@ -26,11 +26,14 @@ package de.alpharogroup.date;
 
 import org.joda.time.Interval;
 
+import lombok.experimental.UtilityClass;
+
 /**
  * The class {@link IntervalExtensions} provides algorithms for compute if a given time range is
  * between of two points of time.
  */
-public class IntervalExtensions
+@UtilityClass
+public final class IntervalExtensions
 {
 
 	/**

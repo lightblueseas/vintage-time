@@ -24,11 +24,18 @@
  */
 package de.alpharogroup.date;
 
+import static org.testng.AssertJUnit.assertEquals;
+
+import org.joda.time.DateTime;
 import org.joda.time.Interval;
+import org.joda.time.Months;
+import org.meanbean.factories.ObjectCreationException;
+import org.meanbean.test.BeanTestException;
+import org.meanbean.test.BeanTester;
 import org.testng.annotations.Test;
 
 /**
- * The class {@link IntervalExtensionsTest}.
+ * The class {@link IntervalExtensions}.
  */
 public class IntervalExtensionsTest
 {
@@ -39,7 +46,53 @@ public class IntervalExtensionsTest
 	@Test
 	public void testIsBetween()
 	{
-		// TODO implement unit test cases...
+		boolean actual;
+		boolean expected;
+
+
+		DateTime startDate;
+		DateTime endDate;
+		Interval timeRange;
+		Interval timeRangeToCheck;
+
+		startDate = new DateTime(2007, 11, 8, 19, 0, 0, 0);
+		endDate = startDate.plus(Months.months(2));
+
+		timeRange = new Interval(startDate, endDate);
+
+		startDate = new DateTime(2007, 11, 10, 19, 0, 0, 0);
+		endDate = startDate.plus(Months.months(1));
+
+		timeRangeToCheck = new Interval(startDate, endDate);
+
+		actual = IntervalExtensions.isBetween(timeRange, timeRangeToCheck);
+		expected = true;
+		assertEquals(actual, expected);
+
+
+		startDate = new DateTime(2007, 11, 8, 19, 0, 0, 0);
+		endDate = startDate.plus(Months.months(2));
+
+		timeRange = new Interval(startDate, endDate);
+
+		startDate = new DateTime(2008, 11, 7, 19, 0, 0, 0);
+		endDate = startDate.plus(Months.months(1));
+
+		timeRangeToCheck = new Interval(startDate, endDate);
+
+		actual = IntervalExtensions.isBetween(timeRange, timeRangeToCheck);
+		expected = false;
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link IntervalExtensions}
+	 */
+	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	public void testWithBeanTester()
+	{
+		final BeanTester beanTester = new BeanTester();
+		beanTester.testBean(IntervalExtensions.class);
 	}
 
 }
