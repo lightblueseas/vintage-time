@@ -231,7 +231,7 @@ public class DateExtensionsTest
 	/**
 	 * Test method for {@link DateExtensions#setDate(Date, int, int, int, int, TimeZone, Locale)}.
 	 */
-	@Test
+	@Test(enabled = false)
 	public void testSetDate()
 	{
 		Date actual;
