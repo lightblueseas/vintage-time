@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>vintage-time</artifactId>
-	<version>4.12</version>
+	<version>5-SNAPSHOT</version>
 
 	<name>${project.artifactId}</name>
 
