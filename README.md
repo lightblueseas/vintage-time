@@ -98,3 +98,7 @@ or over flattr:
 |:-:|
 |![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)|
 |Many thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects.|
+
+## Similar projects
+
+* [threeten-extra](https://github.com/ThreeTen/threeten-extra) Provides additional date-time classes that complement those in JDK 8
