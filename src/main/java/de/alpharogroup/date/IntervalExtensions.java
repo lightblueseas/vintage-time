@@ -24,7 +24,7 @@
  */
 package de.alpharogroup.date;
 
-import org.joda.time.Interval;
+import org.threeten.extra.Interval;
 
 import lombok.experimental.UtilityClass;
 
