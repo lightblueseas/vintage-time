@@ -24,7 +24,7 @@
  */
 package de.alpharogroup.date;
 
-import org.joda.time.Interval;
+import org.threeten.extra.Interval;
 
 import lombok.experimental.UtilityClass;
 
@@ -48,10 +48,9 @@ public final class IntervalExtensions
 	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)
 	{
 		if (timeRange.getStart() != null
-			&& !timeRange.getStart().isAfter(timeRangeToCheck.getEnd()))
+			&& timeRange.getStart().isBefore(timeRangeToCheck.getStart()))
 		{
-			if (timeRange.getEnd() != null
-				&& !timeRange.getEnd().isBefore(timeRangeToCheck.getStart()))
+			if (timeRange.getEnd() != null && timeRange.getEnd().isAfter(timeRangeToCheck.getEnd()))
 			{
 				return true;
 			}

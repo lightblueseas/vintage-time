@@ -1,23 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>de.alpharogroup</groupId>
 		<artifactId>mvn-java-parent</artifactId>
-		<version>3.12</version>
+		<version>4.4</version>
 		<relativePath></relativePath>
 	</parent>
 
 	<artifactId>vintage-time</artifactId>
-	<version>4.12</version>
+	<version>5</version>
 
 	<name>${project.artifactId}</name>
 
 	<description>
 		Project that have utility classes for compute date objects before jdk8
 	</description>
-	
+
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -46,18 +47,18 @@
 
 
 	<properties>
-		<!-- EXTERNAL LIBRARIES versions -->
-		<joda-time.version>2.10</joda-time.version>
+		<!-- THREETEN-EXTRA version -->
+		<threeten-extra.version>1.4</threeten-extra.version>
 	</properties>
 
 	<dependencyManagement>
 
 		<dependencies>
-
+			<!-- THREETEN-EXTRA DEPENDENCY -->
 			<dependency>
-				<groupId>joda-time</groupId>
-				<artifactId>joda-time</artifactId>
-				<version>${joda-time.version}</version>
+				<groupId>org.threeten</groupId>
+				<artifactId>threeten-extra</artifactId>
+				<version>1.4</version>
 			</dependency>
 
 		</dependencies>
@@ -65,10 +66,10 @@
 	</dependencyManagement>
 
 	<dependencies>
-
+		<!-- THREETEN-EXTRA DEPENDENCY -->
 		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
+			<groupId>org.threeten</groupId>
+			<artifactId>threeten-extra</artifactId>
 		</dependency>
 		<!-- MEANBEAN DEPENDENCY -->
 		<dependency>
@@ -78,7 +79,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 
 		<resources>
@@ -186,5 +187,5 @@
 		</plugins>
 
 	</build>
-	
+
 </project>

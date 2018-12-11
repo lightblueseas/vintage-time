@@ -1,6 +1,16 @@
 ## Change log
 ----------------------
 
+Version 5
+-------------
+
+CHANGED:
+ 
+- update of parent version to 4.4
+- removed old log4j in version 1.* configuration files
+- update to log4j2 configuration files
+- replaced obsolet joda-time with new threeten-extra dependency in version 1.4
+
 Version 4.12
 -------------
 
