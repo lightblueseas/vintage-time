@@ -29,11 +29,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Set;
 import java.util.TimeZone;
 
 import lombok.experimental.UtilityClass;
@@ -53,42 +51,19 @@ public final class DateExtensions implements DatePatterns
 	 * Returns a list with all date formats from the interface {@link DatePatterns}
 	 *
 	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
-	 * @throws IllegalArgumentException is thrown if an inappropriate argument have been given
-	 * @throws IllegalAccessException is thrown when an application tries to reflectively create an instance
+	 * @throws IllegalArgumentException
+	 *             is thrown if an inappropriate argument have been given
+	 * @throws IllegalAccessException
+	 *             is thrown when an application tries to reflectively create an instance
 	 */
-	public static Set<String> getDatePatterns() throws IllegalArgumentException, IllegalAccessException
+	public static List<String> getDatePatterns()
+		throws IllegalArgumentException, IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
-		final Set<String> list = new HashSet<>(fields.length);
+		final List<String> list = new ArrayList<>(fields.length);
 		for (final Field field : fields)
 		{
-				list.add((String)field.get(field.getName()));
-		}
-		return list;
-	}
-
-	/**
-	 * Returns a list with all date formats from the interface {@link DatePatterns}
-	 *
-	 * @return Returns a list with all dateformats from the Interface DateFormats.
-	 * @deprecated use instead the method <code>getDatePatterns</code><br><br>
-	 *     Note: will be removed in next minor version
-	 */
-	@Deprecated
-	public static List<String> getAllDateFormats()
-	{
-		final List<String> list = new ArrayList<>();
-		try
-		{
-			list.addAll(getDatePatterns());
-		}
-		catch (final IllegalArgumentException e)
-		{
-			e.printStackTrace();
-		}
-		catch (final IllegalAccessException e)
-		{
-			e.printStackTrace();
+			list.add((String)field.get(field.getName()));
 		}
 		return list;
 	}
@@ -98,46 +73,23 @@ public final class DateExtensions implements DatePatterns
 	 * the pattern.
 	 *
 	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
-	 * @throws IllegalArgumentException is thrown if an inappropriate argument have been given
-	 * @throws IllegalAccessException is thrown when an application tries to reflectively create an instance
+	 * @throws IllegalArgumentException
+	 *             is thrown if an inappropriate argument have been given
+	 * @throws IllegalAccessException
+	 *             is thrown when an application tries to reflectively create an instance
 	 */
-	public static Map<String, Object> getDatePatternsAsMap()  throws IllegalArgumentException, IllegalAccessException
+	public static Map<String, Object> getAllDatePatterns()
+		throws IllegalArgumentException, IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final Map<String, Object> patterns = new HashMap<>(fields.length);
 		for (final Field field : fields)
-		{			
-				patterns.put(field.getName(), field.get(field.getName()));			
+		{
+			patterns.put(field.getName(), field.get(field.getName()));
 		}
 		return patterns;
 	}
 
-	/**
-	 * Returns a map with all date patterns from the Interface DatePatterns. As key is the name from
-	 * the pattern.
-	 *
-	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
-	 * @deprecated use instead the method <code>getDatePatternsAsMap</code><br><br>
-	 *     Note: will be removed in next minor version
-	 */
-	public static Map<String, Object> getAllDatePatterns()
-	{
-		final Map<String, Object> patterns = new HashMap<>();
-		try
-		{
-			patterns.putAll(getDatePatternsAsMap());
-		}
-		catch (final IllegalArgumentException e)
-		{
-			e.printStackTrace();
-		}
-		catch (final IllegalAccessException e)
-		{
-			e.printStackTrace();
-		}
-		return patterns;
-	}
-	
 	/**
 	 * The Method from the Date.getDay is deprecated. This is a helper-Method.
 	 *

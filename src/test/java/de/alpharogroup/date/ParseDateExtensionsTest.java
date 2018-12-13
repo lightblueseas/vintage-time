@@ -145,12 +145,12 @@ public class ParseDateExtensionsTest
 	 * Test method for {@link ParseDateExtensions#parseDate(String, List)}
 	 */
 	@Test
-	public void testParseDate()
+	public void testParseDate() throws IllegalArgumentException, IllegalAccessException
 	{
 		Date actual;
 		Date expected;
 
-		actual = ParseDateExtensions.parseDate(this.datum1, DateExtensions.getAllDateFormats());
+		actual = ParseDateExtensions.parseDate(this.datum1, new ArrayList<>(DateExtensions.getDatePatterns()));
 		expected = expectedDate1;
 		assertEquals(actual, expected);
 
