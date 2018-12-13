@@ -27,6 +27,7 @@ package de.alpharogroup.date;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.internal.junit.ArrayAsserts.assertArrayEquals;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -52,15 +53,29 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		actual = (int)age.calculateInDays();
 		expected = (int)(elapsed / Age.ONE_DAY);
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_DAY);
+		actual = (int)age.calculateInDays();
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 3, 44);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_DAY);
+		actual = (int)age.calculateInDays();
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 0, 3, 44);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
 		expected = (int)(elapsed / Age.ONE_DAY);
@@ -81,17 +96,31 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
 		actual = (int)age.calculateInDefaultMonth();
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
+		actual = (int)age.calculateInDefaultMonth();
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 14, 22);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = new Age(birthDay);
+		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
+		actual = (int)age.calculateInDefaultMonth();
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 0, 14, 22);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
 		actual = (int)age.calculateInDefaultMonth();
 		assertEquals(actual, expected);
@@ -111,17 +140,24 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
 		actual = (int)age.calculateInDefaultMonth(elapsed);
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
+		actual = (int)age.calculateInDefaultMonth(elapsed);
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 0, 0, 0);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_DEFAULT_MONTH);
 		actual = (int)age.calculateInDefaultMonth(elapsed);
 		assertEquals(actual, expected);
@@ -140,14 +176,14 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_HOUR);
 		actual = (int)age.calculateInHours();
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
@@ -169,14 +205,14 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_MINUTE);
 		actual = (int)age.calculateInMinutes();
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
@@ -198,14 +234,14 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_MINUTE);
 		actual = (int)age.calculateInMinutes(elapsed);
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
@@ -227,14 +263,14 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_SECOND);
 		actual = (int)age.calculateInSeconds();
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
@@ -256,14 +292,14 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = new Age(birthDay);
 		expected = (int)(elapsed / Age.ONE_SECOND);
 		actual = (int)age.calculateInSeconds(elapsed);
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
 		age = Age.of(birthDay);
@@ -283,6 +319,7 @@ public class AgeTest
 		Age age;
 		Date till;
 		Date birthDay;
+		// new scenario...
 		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
 
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
@@ -295,8 +332,9 @@ public class AgeTest
 		expected[4] = 0;
 		expected[5] = 0;
 		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds();
+		assertArrayEquals(actual, expected);
 		assertTrue(Arrays.equals(actual, expected));
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		age = Age.of(birthDay, till);
 		expected = new int[6];
@@ -307,6 +345,7 @@ public class AgeTest
 		expected[4] = 0;
 		expected[5] = 0;
 		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds();
+		assertArrayEquals(actual, expected);
 		assertTrue(Arrays.equals(actual, expected));
 	}
 
@@ -322,6 +361,7 @@ public class AgeTest
 		Age age;
 		Date till;
 		Date birthDay;
+		// new scenario...
 		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
 
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
@@ -336,7 +376,7 @@ public class AgeTest
 		expected[5] = 0;
 		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds(elapsed);
 		assertTrue(Arrays.equals(actual, expected));
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, till);
 		age = Age.of(birthDay, till);
@@ -362,13 +402,13 @@ public class AgeTest
 		Date till;
 		Date birthDay;
 		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = new Age(birthDay, till);
 		expected = "Your are 3 years 0 months 0 days 6 hours 0 minutes 0 seconds young!";
 		actual = age.getHumanReadableAge();
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		age = Age.of(birthDay, till);
 		expected = "Your are 22 years 10 months 20 days 7 hours 0 minutes 0 seconds young!";
@@ -389,7 +429,7 @@ public class AgeTest
 		Date birthDay;
 		int[] readableAge;
 		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = new Age(birthDay, till);
 		readableAge = new int[6];
@@ -402,7 +442,7 @@ public class AgeTest
 		actual = age.getHumanReadableAge(readableAge);
 		expected = "Your are 3 years 0 months 0 days 6 hours 0 minutes 0 seconds young!";
 		assertEquals(actual, expected);
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
 		age = Age.of(birthDay, till);
 		readableAge[0] = 22;
@@ -429,7 +469,7 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = Age.of(birthDay, now);
 		assertNotNull(age);
@@ -452,7 +492,7 @@ public class AgeTest
 		Date now;
 		Date birthDay;
 		now = CreateDateExtensions.now();
-
+		// new scenario...
 		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
 		age = Age.of(birthDay.getTime());
 		assertNotNull(age);
