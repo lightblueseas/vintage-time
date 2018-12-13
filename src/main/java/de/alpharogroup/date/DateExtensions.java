@@ -48,10 +48,31 @@ public final class DateExtensions implements DatePatterns
 {
 
 	/**
+	 * Returns a list with all dateformats from the interface {@link DatePatterns}
+	 *
+	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
+	 * @throws IllegalArgumentException is thrown if an inappropriate argument have been given
+	 * @throws IllegalAccessException is thrown when an application tries to reflectively create an instance
+	 */
+	public static Set<String> getDatePatterns() throws IllegalArgumentException, IllegalAccessException
+	{
+		final Field[] fields = DatePatterns.class.getFields();
+		final Set<String> list = new HashSet<>(fields.length);
+		for (final Field field : fields)
+		{
+				list.add((String)field.get(field.getName()));
+		}
+		return list;
+	}
+
+	/**
 	 * Returns a list with all dateformats from the Interface DateFormats.
 	 *
 	 * @return Returns a list with all dateformats from the Interface DateFormats.
+	 * @deprecated use instead the method <code>getDatePatterns</code><br><br>
+	 *     Note: will be removed in next minor version
 	 */
+	@Deprecated
 	public static List<String> getAllDateFormats()
 	{
 		final Field[] fields = DatePatterns.class.getFields();
