@@ -280,7 +280,7 @@ public class DateExtensionsTest
 		zone = TimeZone.getTimeZone(ZoneId.of("Europe/Berlin"));
 		locale = Locale.GERMANY;
 		actual = DateExtensions.setDate(dateToSet, hours, minutes, seconds, milisec, zone, locale);
-		expected = CreateDateExtensions.newDate(year, 10, day, hours, minutes, seconds, milisec);
+		expected = CreateDateExtensions.newDate(year, 10, day, hours, minutes, seconds, milisec, zone, locale);
 		assertEquals(actual, expected);
 	}
 
