@@ -34,6 +34,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
+import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 
 
@@ -193,30 +194,58 @@ public final class DateExtensions implements DatePatterns
 	 *
 	 * @param dateToSet
 	 *            the date to set
-	 * @param hours
-	 *            the hours
-	 * @param minutes
-	 *            the minutes
-	 * @param seconds
-	 *            the seconds
-	 * @param milisec
-	 *            the milisec
+	 * @param hour
+	 *            the hour
+	 * @param minute
+	 *            the minute
+	 * @param second
+	 *            the second
+	 * @param milliSecond
+	 *            the mili second
 	 * @param zone
 	 *            the zone
 	 * @param locale
 	 *            the a locale
 	 * @return the date
 	 */
-	public static Date setDate(final Date dateToSet, final int hours, final int minutes,
-		final int seconds, final int milisec, final TimeZone zone, final Locale locale)
+	public static Date setDate(final @NonNull Date dateToSet, final int hour, final int minute,
+		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
 	{
-		final Calendar cal = Calendar.getInstance(zone, locale);
-		cal.setTime(dateToSet);
-		cal.set(Calendar.HOUR_OF_DAY, hours);
-		cal.set(Calendar.MINUTE, minutes);
-		cal.set(Calendar.SECOND, seconds);
-		cal.set(Calendar.MILLISECOND, milisec);
-		return cal.getTime();
+		return setDate(dateToSet, getYear(dateToSet), getMonth(dateToSet), getDay(dateToSet), hour, minute, second, milliSecond, zone, locale);
+	}
+
+	/**
+	 * Returns a new {@link Date} object from the given Date object and sets the given parameters.
+	 *
+	 * @param dateToSet
+	 *            the date to set
+	 * @param hour
+	 *            the hour
+	 * @param minute
+	 *            the minute
+	 * @param second
+	 *            the second
+	 * @param milliSecond
+	 *            the mili second
+	 * @param zone
+	 *            the zone
+	 * @param locale
+	 *            the a locale
+	 * @return the date
+	 */
+	public static Date setDate(final @NonNull Date dateToSet, final int year, final int month, final int day, final int hour, final int minute,
+		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
+	{
+		final Calendar calendar = Calendar.getInstance(zone, locale);
+		calendar.setTime(dateToSet);
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month - 1);
+		calendar.set(Calendar.DATE, day);
+		calendar.set(Calendar.HOUR_OF_DAY, hour);
+		calendar.set(Calendar.MINUTE, minute);
+		calendar.set(Calendar.SECOND, second);
+		calendar.set(Calendar.MILLISECOND, milliSecond);
+		return calendar.getTime();
 	}
 
 }
