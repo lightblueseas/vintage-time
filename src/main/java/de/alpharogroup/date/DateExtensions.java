@@ -50,7 +50,7 @@ public final class DateExtensions implements DatePatterns
 {
 
 	/**
-	 * Returns a list with all dateformats from the interface {@link DatePatterns}
+	 * Returns a list with all date formats from the interface {@link DatePatterns}
 	 *
 	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
 	 * @throws IllegalArgumentException is thrown if an inappropriate argument have been given
@@ -68,7 +68,7 @@ public final class DateExtensions implements DatePatterns
 	}
 
 	/**
-	 * Returns a list with all dateformats from the Interface DateFormats.
+	 * Returns a list with all date formats from the interface {@link DatePatterns}
 	 *
 	 * @return Returns a list with all dateformats from the Interface DateFormats.
 	 * @deprecated use instead the method <code>getDatePatterns</code><br><br>
@@ -77,60 +77,67 @@ public final class DateExtensions implements DatePatterns
 	@Deprecated
 	public static List<String> getAllDateFormats()
 	{
-		final Field[] fields = DatePatterns.class.getFields();
-		final List<String> list = new ArrayList<>(fields.length);
-		for (final Field field : fields)
+		final List<String> list = new ArrayList<>();
+		try
 		{
-			try
-			{
-				list.add((String)field.get(field.getName()));
-			}
-			catch (final IllegalArgumentException e)
-			{
-				e.printStackTrace();
-			}
-			catch (final IllegalAccessException e)
-			{
-				e.printStackTrace();
-			}
-			finally
-			{
-			}
+			list.addAll(getDatePatterns());
+		}
+		catch (final IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+		catch (final IllegalAccessException e)
+		{
+			e.printStackTrace();
 		}
 		return list;
 	}
 
 	/**
-	 * Returns a map with all datepatterns from the Interface DatePatterns. As key is the name from
+	 * Returns a map with all date patterns from the Interface DatePatterns. As key is the name from
 	 * the pattern.
 	 *
-	 * @return Returns a Map with all datepatterns from the Interface DatePatterns.
+	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
+	 * @throws IllegalArgumentException is thrown if an inappropriate argument have been given
+	 * @throws IllegalAccessException is thrown when an application tries to reflectively create an instance
 	 */
-	public static Map<String, Object> getAllDatePatterns()
+	public static Map<String, Object> getDatePatternsAsMap()  throws IllegalArgumentException, IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final Map<String, Object> patterns = new HashMap<>(fields.length);
 		for (final Field field : fields)
-		{
-			try
-			{
-				patterns.put(field.getName(), field.get(field.getName()));
-			}
-			catch (final IllegalArgumentException e)
-			{
-				e.printStackTrace();
-			}
-			catch (final IllegalAccessException e)
-			{
-				e.printStackTrace();
-			}
-			finally
-			{
-			}
+		{			
+				patterns.put(field.getName(), field.get(field.getName()));			
 		}
 		return patterns;
 	}
 
+	/**
+	 * Returns a map with all date patterns from the Interface DatePatterns. As key is the name from
+	 * the pattern.
+	 *
+	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
+	 * @deprecated use instead the method <code>getDatePatternsAsMap</code><br><br>
+	 *     Note: will be removed in next minor version
+	 */
+	public static Map<String, Object> getAllDatePatterns()
+	{
+		final Map<String, Object> patterns = new HashMap<>();
+		try
+		{
+			patterns.putAll(getDatePatternsAsMap());
+		}
+		catch (final IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+		catch (final IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}
+		return patterns;
+	}
+	
 	/**
 	 * The Method from the Date.getDay is deprecated. This is a helper-Method.
 	 *
