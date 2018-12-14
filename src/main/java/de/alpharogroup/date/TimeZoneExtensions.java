@@ -57,6 +57,10 @@ public final class TimeZoneExtensions
 	 */
 	public static int getTimezoneOffsetInMinutes(final Date date)
 	{
+		final Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		int zoneOffset = calendar.get(Calendar.ZONE_OFFSET);
+		int dstOffset = calendar.get(Calendar.DST_OFFSET);
 		return -(zoneOffset + dstOffset) / (60 * 1000);
 	}
 
