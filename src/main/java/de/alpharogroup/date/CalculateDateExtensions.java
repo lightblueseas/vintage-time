@@ -231,8 +231,7 @@ public final class CalculateDateExtensions implements DatePatterns
 	 */
 	public static long calculateElapsedTime(final Date past, final Date now)
 	{
-		final long elapsedTime = now.getTime() - past.getTime();
-		return elapsedTime;
+		return now.getTime() - past.getTime();
 	}
 
 	/**
@@ -245,8 +244,7 @@ public final class CalculateDateExtensions implements DatePatterns
 	 */
 	public static double calculateElapsedTimeInSeconds(final long startTime)
 	{
-		final double elapsedTime = ((double)(System.nanoTime() - startTime)) / 1000000;
-		return elapsedTime;
+		return ((double)(System.nanoTime() - startTime)) / 1000000;
 	}
 
 	/**
@@ -260,8 +258,7 @@ public final class CalculateDateExtensions implements DatePatterns
 	 */
 	public static long calculateTimeFromNow(final Date now, final Date future)
 	{
-		final long elapsedTime = future.getTime() - now.getTime();
-		return elapsedTime;
+		return future.getTime() - now.getTime();
 	}
 
 	/**
@@ -309,8 +306,7 @@ public final class CalculateDateExtensions implements DatePatterns
 		final int k = year % 100;
 		final int l = (19 * i + j - j / 4 - (j - (j + 8) / 25 + 1) / 3 + 15) % 30;
 		final int m = (32 + 2 * (j % 4) + 2 * (k / 4) - l - k % 4) % 7;
-		final int n = l + m - 7 * ((i + 11 * l + 22 * m) / 451) + 114;
-		return n;
+		return (l + m - 7 * ((i + 11 * l + 22 * m) / 451) + 114);
 	}
 
 	/**
@@ -329,14 +325,7 @@ public final class CalculateDateExtensions implements DatePatterns
 		final long min = start.getTime();
 		final long max = end.getTime();
 		final long index = between.getTime();
-		if (min <= index && index <= max)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return min <= index && index <= max;
 	}
 
 	/**
