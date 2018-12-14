@@ -45,9 +45,7 @@ public final class TimeZoneExtensions
 	 */
 	public static int getTimezoneOffsetInHours(final Date date)
 	{
-		final int x = getTimezoneOffsetInMinutes(date);
-		final int inHours = x / 60;
-		return inHours;
+		return getTimezoneOffsetInMinutes(date) / 60;
 	}
 
 	/**
@@ -59,12 +57,7 @@ public final class TimeZoneExtensions
 	 */
 	public static int getTimezoneOffsetInMinutes(final Date date)
 	{
-		final Calendar calendar = Calendar.getInstance();
-		calendar.setTime(date);
-		int zoneOffset = calendar.get(Calendar.ZONE_OFFSET);
-		int dstOffset = calendar.get(Calendar.DST_OFFSET);
-		final int x = -(zoneOffset + dstOffset) / (60 * 1000);
-		return x;
+		return -(zoneOffset + dstOffset) / (60 * 1000);
 	}
 
 }
