@@ -55,8 +55,7 @@ public final class DateExtensions implements DatePatterns
 	 * @throws IllegalAccessException
 	 *             is thrown when an application tries to reflectively create an instance
 	 */
-	public static List<String> getDatePatterns()
-		throws IllegalAccessException
+	public static List<String> getDatePatterns() throws IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final List<String> list = new ArrayList<>(fields.length);
@@ -75,8 +74,7 @@ public final class DateExtensions implements DatePatterns
 	 * @throws IllegalAccessException
 	 *             is thrown when an application tries to reflectively create an instance
 	 */
-	public static Map<String, Object> getAllDatePatterns()
-		throws IllegalAccessException
+	public static Map<String, Object> getAllDatePatterns() throws IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final Map<String, Object> patterns = new HashMap<>(fields.length);
@@ -207,7 +205,8 @@ public final class DateExtensions implements DatePatterns
 	public static Date setDate(final @NonNull Date dateToSet, final int hour, final int minute,
 		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
 	{
-		return setDate(dateToSet, getYear(dateToSet), getMonth(dateToSet), getDay(dateToSet), hour, minute, second, milliSecond, zone, locale);
+		return setDate(dateToSet, getYear(dateToSet), getMonth(dateToSet), getDay(dateToSet), hour,
+			minute, second, milliSecond, zone, locale);
 	}
 
 	/**
@@ -229,8 +228,9 @@ public final class DateExtensions implements DatePatterns
 	 *            the a locale
 	 * @return the date
 	 */
-	public static Date setDate(final @NonNull Date dateToSet, final int year, final int month, final int day, final int hour, final int minute,
-		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
+	public static Date setDate(final @NonNull Date dateToSet, final int year, final int month,
+		final int day, final int hour, final int minute, final int second, final int milliSecond,
+		final TimeZone zone, final Locale locale)
 	{
 		final Calendar calendar = Calendar.getInstance(zone, locale);
 		calendar.setTime(dateToSet);

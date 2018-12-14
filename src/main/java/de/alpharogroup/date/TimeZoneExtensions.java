@@ -30,8 +30,11 @@ import java.util.Date;
 import lombok.experimental.UtilityClass;
 
 /**
- * The class {@link TimeZoneExtensions}.
+ * The class {@link TimeZoneExtensions}
+ *
+ * @deprecated will be removed in the next minor release.
  */
+@Deprecated
 @UtilityClass
 public final class TimeZoneExtensions
 {

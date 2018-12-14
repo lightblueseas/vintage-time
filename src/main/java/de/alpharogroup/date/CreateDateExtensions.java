@@ -25,7 +25,10 @@
 package de.alpharogroup.date;
 
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
+import java.util.TimeZone;
 
 import lombok.experimental.UtilityClass;
 
@@ -114,8 +117,8 @@ public final class CreateDateExtensions implements DatePatterns
 	public static Date newDate(final int year, final int month, final int day, final int hour,
 		final int minute, final int seconds, final int milliSecond)
 	{
-		return newDate(year, month, day, hour, minute, seconds, milliSecond, TimeZone
-			.getDefault(), Locale.getDefault());
+		return newDate(year, month, day, hour, minute, seconds, milliSecond, TimeZone.getDefault(),
+			Locale.getDefault());
 	}
 
 	/**
@@ -138,9 +141,11 @@ public final class CreateDateExtensions implements DatePatterns
 	 * @return Returns the created Date object.
 	 */
 	public static Date newDate(final int year, final int month, final int day, final int hour,
-		final int minute, final int seconds, final int milliSecond, final TimeZone zone, final Locale locale)
+		final int minute, final int seconds, final int milliSecond, final TimeZone zone,
+		final Locale locale)
 	{
-		return DateExtensions.setDate(new Date(), year, month, day, hour, minute, seconds, milliSecond, zone, locale);
+		return DateExtensions.setDate(new Date(), year, month, day, hour, minute, seconds,
+			milliSecond, zone, locale);
 	}
 
 	/**

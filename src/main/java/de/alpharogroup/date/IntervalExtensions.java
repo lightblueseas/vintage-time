@@ -48,7 +48,8 @@ public final class IntervalExtensions
 	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)
 	{
 		return ((timeRange.getStart() != null
-				&& timeRange.getStart().isBefore(timeRangeToCheck.getStart()))
-				&& (timeRange.getEnd() != null && timeRange.getEnd().isAfter(timeRangeToCheck.getEnd())));
+			&& timeRange.getStart().isBefore(timeRangeToCheck.getStart()))
+			&& (timeRange.getEnd() != null
+				&& timeRange.getEnd().isAfter(timeRangeToCheck.getEnd())));
 	}
 }
