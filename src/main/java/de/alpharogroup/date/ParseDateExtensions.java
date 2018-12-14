@@ -60,8 +60,7 @@ public final class ParseDateExtensions implements DatePatterns
 			final SimpleDateFormat formatter = new SimpleDateFormat(pattern);
 			try
 			{
-				final Date result = formatter.parse(date);
-				return result;
+				return formatter.parse(date);
 			}
 			catch (final ParseException e)
 			{
@@ -184,8 +183,7 @@ public final class ParseDateExtensions implements DatePatterns
 	public static String parseToString(final Date date, final String format, final Locale locale)
 	{
 		final DateFormat df = new SimpleDateFormat(format, locale);
-		final String result = df.format(date);
-		return result;
+		return df.format(date);
 	}
 
 	/**
@@ -213,8 +211,7 @@ public final class ParseDateExtensions implements DatePatterns
 		final String newFormat) throws ParseException
 	{
 		final Date currentDate = parseToDate(date, currentformat);
-		final String result = parseToString(currentDate, newFormat);
-		return result;
+		return parseToString(currentDate, newFormat);
 	}
 
 }
