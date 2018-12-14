@@ -52,13 +52,11 @@ public final class DateExtensions implements DatePatterns
 	 * Returns a list with all date formats from the interface {@link DatePatterns}
 	 *
 	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
-	 * @throws IllegalArgumentException
-	 *             is thrown if an inappropriate argument have been given
 	 * @throws IllegalAccessException
 	 *             is thrown when an application tries to reflectively create an instance
 	 */
 	public static List<String> getDatePatterns()
-		throws IllegalArgumentException, IllegalAccessException
+		throws IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final List<String> list = new ArrayList<>(fields.length);
@@ -74,13 +72,11 @@ public final class DateExtensions implements DatePatterns
 	 * the pattern.
 	 *
 	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
-	 * @throws IllegalArgumentException
-	 *             is thrown if an inappropriate argument have been given
 	 * @throws IllegalAccessException
 	 *             is thrown when an application tries to reflectively create an instance
 	 */
 	public static Map<String, Object> getAllDatePatterns()
-		throws IllegalArgumentException, IllegalAccessException
+		throws IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final Map<String, Object> patterns = new HashMap<>(fields.length);
