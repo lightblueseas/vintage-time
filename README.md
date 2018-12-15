@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Build Status](https://travis-ci.org/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.org/lightblueseas/vintage-time)
-[![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=develop)](https://coveralls.io/github/lightblueseas/vintage-time?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=master)](https://coveralls.io/github/lightblueseas/vintage-time?branch=master)
 [![Open Issues](https://img.shields.io/github/issues/lightblueseas/vintage-time.svg?style=flat)](https://github.com/lightblueseas/vintage-time/issues)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
 [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/vintage-time.svg)](http://www.javadoc.io/doc/de.alpharogroup/vintage-time)
