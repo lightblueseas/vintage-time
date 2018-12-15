@@ -314,7 +314,7 @@ public class CalculateDateExtensionsTest
 	/**
 	 * Test method for {@link CalculateDateExtensions#calculateElapsedTimeInSeconds(long)}
 	 */
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testCalculateElapsedTimeInSeconds()
 	{
 		final Date now = CreateDateExtensions.now();
@@ -326,7 +326,7 @@ public class CalculateDateExtensionsTest
 	/**
 	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)}
 	 */
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testCalculateTimeFromNow()
 	{
 		long actual;
@@ -448,10 +448,30 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testIsValidDate()
 	{
-		assertTrue("Date should be valid.",
-			CalculateDateExtensions.isValidDate(this.datum3, this.format3, false));
-		assertFalse("Date should be invalid.",
-			CalculateDateExtensions.isValidDate(this.datum4, this.format4, false));
+		boolean actual;
+		boolean expected;
+		// new scenario...
+		expected = true;
+		actual = CalculateDateExtensions.isValidDate(this.datum3, this.format3, false);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = false;
+		actual = CalculateDateExtensions.isValidDate(this.datum4, this.format4, false);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = true;
+		actual = CalculateDateExtensions.isValidDate(this.datum4, this.format4, true);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = false;
+		actual = CalculateDateExtensions.isValidDate(null, this.format4, true);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = false;
+		actual = CalculateDateExtensions.isValidDate(this.datum4, "yyMMMSSSNNN;-a", false);
+		assertEquals(actual, expected);
+
+
 	}
 
 	/**

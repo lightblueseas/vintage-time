@@ -390,13 +390,13 @@ public final class CalculateDateExtensions implements DatePatterns
 		{
 			return false;
 		}
-		final DateFormat df = new SimpleDateFormat(format);
-		df.setLenient(lenient);
 		try
 		{
+			final DateFormat df = new SimpleDateFormat(format);
+			df.setLenient(lenient);
 			df.parse(date);
 		}
-		catch (final ParseException e)
+		catch (final ParseException | IllegalArgumentException e)
 		{
 			isValid = false;
 		}
