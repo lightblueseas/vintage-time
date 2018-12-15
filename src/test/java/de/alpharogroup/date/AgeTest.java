@@ -312,7 +312,8 @@ public class AgeTest
 	 * Test method for {@link Age#calculateInYears()}
 	 */
 	@Test
-	public void testCalculateInYears() {
+	public void testCalculateInYears()
+	{
 		int actual;
 		int expected;
 		long elapsed;

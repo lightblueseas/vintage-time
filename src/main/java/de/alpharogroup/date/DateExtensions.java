@@ -214,6 +214,12 @@ public final class DateExtensions implements DatePatterns
 	 *
 	 * @param dateToSet
 	 *            the date to set
+	 * @param year
+	 *            the year
+	 * @param month
+	 *            the month
+	 * @param day
+	 *            the day
 	 * @param hour
 	 *            the hour
 	 * @param minute
@@ -226,7 +232,7 @@ public final class DateExtensions implements DatePatterns
 	 *            the zone
 	 * @param locale
 	 *            the a locale
-	 * @return the date
+	 * @return the new {@link Date} object
 	 */
 	public static Date setDate(final @NonNull Date dateToSet, final int year, final int month,
 		final int day, final int hour, final int minute, final int second, final int milliSecond,

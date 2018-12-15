@@ -142,7 +142,7 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseDate(String, List)}
+	 * Test method for {@link ParseDateExtensions#parseDate(String, java.util.List)}
 	 */
 	@Test
 	public void testParseDate() throws IllegalArgumentException, IllegalAccessException
@@ -220,10 +220,8 @@ public class ParseDateExtensionsTest
 		{
 			e.printStackTrace();
 		}
-		assertTrue(
-			"Generated actual date string '" + actual
-				+ "' should be equal with the expected value '" + expected + "'.",
-			expected.equals(actual));
+		assertEquals("Generated actual date string '" + actual
+			+ "' should be equal with the expected value '" + expected + "'.", actual, expected);
 	}
 
 	/**
@@ -301,7 +299,7 @@ public class ParseDateExtensionsTest
 	public void testParseToDateStringStringArrayLocale()
 	{
 		final Locale de = new Locale("de", "DE");
-		final String formats[] = { this.format2, this.format3 };
+		final String[] formats = { this.format2, this.format3 };
 		Date testDate = ParseDateExtensions.parseToDate(this.datum1, formats, de);
 		assertNull(testDate);
 		formats[0] = this.format1;

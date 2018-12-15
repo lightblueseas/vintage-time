@@ -138,7 +138,11 @@ public final class CreateDateExtensions implements DatePatterns
 	 *            The second.
 	 * @param milliSecond
 	 *            The millisecond.
-	 * @return Returns the created Date object.
+	 * @param zone
+	 *            the zone
+	 * @param locale
+	 *            the locale
+	 * @return the created Date object
 	 */
 	public static Date newDate(final int year, final int month, final int day, final int hour,
 		final int minute, final int seconds, final int milliSecond, final TimeZone zone,

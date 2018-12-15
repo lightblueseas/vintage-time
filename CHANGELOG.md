@@ -4,6 +4,13 @@
 Version 5.1-SNAPSHOT
 -------------
 
+CHANGED:
+
+- unit tests extended for improve code coverage to 100%
+- deleted unused method CalculateDateExtensions#calculateTimeFromNow
+- deleted unused method CalculateDateExtensions#calculateElapsedTimeInSeconds
+- deleted unused class TimeZoneExtensions
+
 Version 5
 -------------
 
