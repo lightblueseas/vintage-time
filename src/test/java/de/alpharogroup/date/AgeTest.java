@@ -309,6 +309,63 @@ public class AgeTest
 	}
 
 	/**
+	 * Test method for {@link Age#calculateInYears()}
+	 */
+	@Test
+	public void testCalculateInYears() {
+		int actual;
+		int expected;
+		long elapsed;
+		Age age;
+		Date now;
+		Date birthDay;
+		now = CreateDateExtensions.now();
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = new Age(birthDay);
+		expected = (int)(elapsed / Age.ONE_YEAR);
+		actual = (int)age.calculateInYears();
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_YEAR);
+		actual = (int)age.calculateInYears();
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link Age#calculateInYears(long)}.
+	 */
+	@Test
+	public void testCalculateInYearsLong()
+	{
+		int actual;
+		int expected;
+		long elapsed;
+		Age age;
+		Date now;
+		Date birthDay;
+		now = CreateDateExtensions.now();
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = new Age(birthDay);
+		expected = (int)(elapsed / Age.ONE_YEAR);
+		actual = (int)age.calculateInYears(elapsed);
+		assertEquals(actual, expected);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(1987, 12, 24);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, now);
+		age = Age.of(birthDay);
+		expected = (int)(elapsed / Age.ONE_YEAR);
+		actual = (int)age.calculateInYears(elapsed);
+		assertEquals(actual, expected);
+	}
+
+	/**
 	 * Test method for {@link Age#calculateInYearsMonthsDaysHoursMinutesAndSeconds()}.
 	 */
 	@Test
@@ -332,6 +389,7 @@ public class AgeTest
 		expected[4] = 0;
 		expected[5] = 0;
 		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds();
+		assertArrayEquals(actual, expected);
 		assertArrayEquals(actual, expected);
 		assertTrue(Arrays.equals(actual, expected));
 		// new scenario...
@@ -386,6 +444,42 @@ public class AgeTest
 		expected[3] = 7;
 		expected[4] = 0;
 		expected[5] = 0;
+		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds(elapsed);
+		assertTrue(Arrays.equals(actual, expected));
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(0, 12, 24);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, till);
+		age = Age.of(birthDay, till);
+		expected[0] = 2009;
+		expected[1] = 10;
+		expected[2] = 6;
+		expected[3] = 13;
+		expected[4] = 0;
+		expected[5] = 0;
+		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds(elapsed);
+		assertTrue(Arrays.equals(actual, expected));
+		// new scenario...
+		birthDay = CreateDateExtensions.now();
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, till);
+		age = Age.of(birthDay, till);
+		expected[0] = 0;
+		expected[1] = 0;
+		expected[2] = 0;
+		expected[3] = 0;
+		expected[4] = 0;
+		expected[5] = 0;
+		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds(elapsed);
+		assertTrue(Arrays.equals(actual, expected));
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(1987, 12, 24, 30, 45, 20);
+		elapsed = CalculateDateExtensions.calculateElapsedTime(birthDay, till);
+		age = Age.of(birthDay, till);
+		expected[0] = 22;
+		expected[1] = 10;
+		expected[2] = 19;
+		expected[3] = 0;
+		expected[4] = 14;
+		expected[5] = 40;
 		actual = age.calculateInYearsMonthsDaysHoursMinutesAndSeconds(elapsed);
 		assertTrue(Arrays.equals(actual, expected));
 	}
@@ -454,6 +548,47 @@ public class AgeTest
 		actual = age.getHumanReadableAge(readableAge);
 		expected = "Your are 22 years 10 months 20 days 7 hours 0 minutes 0 seconds young!";
 		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link Age#getHumanReadableAge(int[])}
+	 */
+	@Test(expectedExceptions = IllegalArgumentException.class)
+	public void testGetHumanReadableAgeIntArrayThrowIllegalArgumentExceptionWithLengthGreaterThan6()
+	{
+		Age age;
+		Date till;
+		Date birthDay;
+		int[] readableAge;
+		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		age = new Age(birthDay, till);
+		readableAge = new int[7];
+		readableAge[0] = 3;
+		readableAge[1] = 0;
+		readableAge[2] = 0;
+		readableAge[3] = 6;
+		readableAge[4] = 0;
+		readableAge[5] = 0;
+		readableAge[6] = 0;
+		age.getHumanReadableAge(readableAge);
+	}
+
+	/**
+	 * Test method for {@link Age#getHumanReadableAge(int[])}
+	 */
+	@Test(expectedExceptions = IllegalArgumentException.class)
+	public void testGetHumanReadableAgeIntArrayThrowIllegalArgumentExceptionWithNull()
+	{
+		Age age;
+		Date till;
+		Date birthDay;
+		till = CreateDateExtensions.newDate(2010, 11, 8, 19, 0, 0);
+		// new scenario...
+		birthDay = CreateDateExtensions.newDate(2007, 11, 8, 19, 0, 0);
+		age = new Age(birthDay, till);
+		age.getHumanReadableAge(null);
 	}
 
 	/**
