@@ -312,41 +312,6 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateElapsedTimeInSeconds(long)}
-	 */
-	@Test(enabled = true)
-	public void testCalculateElapsedTimeInSeconds()
-	{
-		final Date now = CreateDateExtensions.now();
-		final double timeInSeconds = CalculateDateExtensions
-			.calculateElapsedTimeInSeconds(now.getTime());
-		assertTrue(0 <= timeInSeconds);
-	}
-
-	/**
-	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)}
-	 */
-	@Test(enabled = true)
-	public void testCalculateTimeFromNow()
-	{
-		long actual;
-		long expected;
-		expected = 141206695000l;
-		actual = CalculateDateExtensions.calculateTimeFromNow(this.expectedDate1,
-			this.expectedDate2);
-		assertTrue(
-			"The long elapsed:" + actual + " should be equal with the expected:" + expected + " ",
-			actual == expected);
-
-
-		final Date myBirthday = CreateDateExtensions.newDate(1969, 8, 28, 16, 0, 0);
-		final Date now = new Date();
-		actual = CalculateDateExtensions.calculateTimeFromNow(myBirthday, now);
-		Age time = new Age(myBirthday);
-		System.out.println(time.getHumanReadableAge());
-	}
-
-	/**
 	 * Test method for {@link CalculateDateExtensions#computeAge(Date, Date)}
 	 */
 	@Test
