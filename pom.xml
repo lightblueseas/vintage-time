@@ -11,7 +11,7 @@
 	</parent>
 
 	<artifactId>vintage-time</artifactId>
-	<version>5</version>
+	<version>5.1</version>
 
 	<name>${project.artifactId}</name>
 
@@ -149,7 +149,6 @@
 								<!-- explicit abstract classes -->
 								<!-- explicit annotations -->
 								<!-- explicit bean classes -->
-								<exclude>de/alpharogroup/date/TimeZoneExtensions.class</exclude>
 								<!-- explicit constant classes with only constants -->
 								<!-- explicit delegation classes -->
 								<!-- explicit enums -->

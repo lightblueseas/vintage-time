@@ -28,6 +28,8 @@ import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -84,7 +86,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link de.alpharogroup.date.DateExtensions#getAllDateFormats()}.
+	 * Test method for {@link de.alpharogroup.date.DateExtensions#getAllDateFormats()}
 	 *
 	 * @throws IllegalArgumentException
 	 *             the illegal argument exception
@@ -94,20 +96,42 @@ public class DateExtensionsTest
 	@Test
 	public void testGetAllDateFormats() throws IllegalArgumentException, IllegalAccessException
 	{
-		final List<String> dateformats = DateExtensions.getAllDateFormats();
-		int i = 1;
-		for (final String element : dateformats)
-		{
-			System.out.println(i++ + ".value:" + element);
+		List<String> actual;
+		List<String> expected;
 
-		}
+		expected = new ArrayList<>();
+		expected.add("dd-MMM-yy");
+		expected.add("dd.MM");
+		expected.add("dd.MM.yy");
+		expected.add("dd.MM.yyyy");
+		expected.add("dd.MM.yyyy HH:mm:ss");
+		expected.add("yyyy.MM.dd.HH.mm.ss");
+		expected.add("EEE MMM dd hh:mm:ss z yyyy");
+		expected.add("EEEE MMM dd, yyyy");
+		expected.add("hh:mm:ss");
+		expected.add("HH:mm");
+		expected.add("HH:mm:ss");
+		expected.add("yyyy-MM-dd");
+		expected.add("yyyy-MM-dd hh:mm:ss");
+		expected.add("yyyy-MM-dd hh:mm:ss.S");
+		expected.add("yyyy-MM-dd'T'HH:mm:ss");
+		expected.add("yyyyMMddHHmmss");
+		Collections.sort(expected, (o1, o2) -> o1.compareTo(o2));
+
+		actual = new ArrayList<>(DateExtensions.getDatePatterns());
+		Collections.sort(actual, (o1, o2) -> o1.compareTo(o2));
+
+		assertEquals(actual, expected);
 	}
 
 	/**
 	 * Test method for {@link DateExtensions#getAllDatePatterns()}.
+	 * 
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
 	 */
 	@Test
-	public void testGetAllDatePatterns()
+	public void testGetAllDatePatterns() throws IllegalArgumentException, IllegalAccessException
 	{
 		Map<String, Object> actual;
 		Map<String, Object> expected;
@@ -231,7 +255,7 @@ public class DateExtensionsTest
 	/**
 	 * Test method for {@link DateExtensions#setDate(Date, int, int, int, int, TimeZone, Locale)}.
 	 */
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void testSetDate()
 	{
 		Date actual;
@@ -257,7 +281,8 @@ public class DateExtensionsTest
 		zone = TimeZone.getTimeZone(ZoneId.of("Europe/Berlin"));
 		locale = Locale.GERMANY;
 		actual = DateExtensions.setDate(dateToSet, hours, minutes, seconds, milisec, zone, locale);
-		expected = CreateDateExtensions.newDate(year, month, day, hours, minutes, seconds, milisec);
+		expected = CreateDateExtensions.newDate(year, 10, day, hours, minutes, seconds, milisec,
+			zone, locale);
 		assertEquals(actual, expected);
 	}
 

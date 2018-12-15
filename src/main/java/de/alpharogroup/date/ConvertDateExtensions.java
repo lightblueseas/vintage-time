@@ -78,8 +78,7 @@ public final class ConvertDateExtensions implements DatePatterns
 	 */
 	public static Date toDate(final Calendar calendar)
 	{
-		final Date date = calendar.getTime();
-		return date;
+		return calendar.getTime();
 	}
 
 	/**
