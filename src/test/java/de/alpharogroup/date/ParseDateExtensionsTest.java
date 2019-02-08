@@ -220,8 +220,10 @@ public class ParseDateExtensionsTest
 		{
 			e.printStackTrace();
 		}
-		assertEquals("Generated actual date string '" + actual
-			+ "' should be equal with the expected value '" + expected + "'.", actual, expected);
+		assertEquals(
+			"Generated actual date string '" + actual
+				+ "' should be equal with the expected value '" + expected + "'.",
+			actual, expected);
 	}
 
 	/**
