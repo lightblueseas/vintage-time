@@ -49,6 +49,124 @@ public class IntervalExtensionsTest
 {
 
 	/**
+	 * Test method for {@link IntervalExtensions#isOverlappingBefore(Interval, Interval)}
+	 */
+	@Test(enabled = true)
+	public void testIsOverlappingBefore()
+	{
+
+		boolean actual;
+		boolean expected;
+
+		LocalDateTime startDate;
+		LocalDateTime endDate;
+		Interval timeRange;
+		Interval timeRangeToCheck;
+		DateTimeFormatter formatter;
+		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		// new scenario...
+		startDate = LocalDate.parse("2019-02-01", formatter).atStartOfDay();
+		endDate = startDate.plus(2, ChronoUnit.MONTHS);
+
+		timeRange = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		startDate = LocalDate.parse("2019-01-31", formatter).atStartOfDay();
+		endDate = startDate.plus(1, ChronoUnit.MONTHS);
+
+		timeRangeToCheck = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		actual = IntervalExtensions.isOverlappingBefore(timeRange, timeRangeToCheck);
+		expected = true;
+		assertEquals(actual, expected);
+		// new scenario...
+		startDate = LocalDate.parse("2019-02-01", formatter).atStartOfDay();
+		endDate = startDate.plus(2, ChronoUnit.MONTHS);
+
+		timeRange = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		startDate = LocalDate.parse("2019-03-31", formatter).atStartOfDay();
+		endDate = startDate.plus(1, ChronoUnit.MONTHS);
+
+		timeRangeToCheck = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		actual = IntervalExtensions.isOverlappingBefore(timeRange, timeRangeToCheck);
+		expected = false;
+		assertEquals(actual, expected);
+	}
+
+	/**
+	 * Test method for {@link IntervalExtensions#isOverlappingAfter(Interval, Interval)}
+	 */
+	@Test(enabled = true)
+	public void testIsOverlappingAfter()
+	{
+		boolean actual;
+		boolean expected;
+
+		LocalDateTime startDate;
+		LocalDateTime endDate;
+		Interval timeRange;
+		Interval timeRangeToCheck;
+		DateTimeFormatter formatter;
+		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		// new scenario...
+		startDate = LocalDate.parse("2019-02-01", formatter).atStartOfDay();
+		endDate = startDate.plus(1, ChronoUnit.MONTHS);
+
+		timeRange = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		startDate = LocalDate.parse("2019-02-02", formatter).atStartOfDay();
+		endDate = startDate.plus(2, ChronoUnit.MONTHS);
+
+		timeRangeToCheck = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		actual = IntervalExtensions.isOverlappingAfter(timeRange, timeRangeToCheck);
+		expected = true;
+		assertEquals(actual, expected);
+
+	}
+
+	/**
+	 * Test method for {@link IntervalExtensions#isOverlappingBeforeAndAfter(Interval, Interval)}
+	 */
+	@Test(enabled = true)
+	public void testIsOverlappingBeforeAndAfter()
+	{
+		boolean actual;
+		boolean expected;
+
+		LocalDateTime startDate;
+		LocalDateTime endDate;
+		Interval timeRange;
+		Interval timeRangeToCheck;
+		DateTimeFormatter formatter;
+		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		startDate = LocalDate.parse("2007-11-01", formatter).atStartOfDay();
+		endDate = startDate.plus(1, ChronoUnit.MONTHS);
+
+		timeRange = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		startDate = LocalDate.parse("2007-10-01", formatter).atStartOfDay();
+		endDate = startDate.plus(3, ChronoUnit.MONTHS);
+
+		timeRangeToCheck = Interval.of(startDate.toInstant(ZoneOffset.UTC),
+			endDate.toInstant(ZoneOffset.UTC));
+
+		actual = IntervalExtensions.isOverlappingBeforeAndAfter(timeRange, timeRangeToCheck);
+		expected = true;
+		assertEquals(actual, expected);
+
+	}
+
+	/**
 	 * Test method for {@link IntervalExtensions#isBetween(Interval, Interval)}
 	 */
 	@Test(enabled = true)
@@ -66,18 +184,13 @@ public class IntervalExtensionsTest
 		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 		startDate = LocalDate.parse("2007-11-08", formatter).atStartOfDay();
-		// new ZonedDateTime(2007, 11, 8, 19, 0, 0, 0);
 		endDate = startDate.plus(2, ChronoUnit.MONTHS);
-		// plus(Months.months(2));
 
 		timeRange = Interval.of(startDate.toInstant(ZoneOffset.UTC),
 			endDate.toInstant(ZoneOffset.UTC));
-		// new Interval(startDate.toInstant(), endDate.toInstant());
 
 		startDate = LocalDate.parse("2007-11-10", formatter).atStartOfDay();
-		// new DateTime(2007, 11, 10, 19, 0, 0, 0);
 		endDate = startDate.plus(1, ChronoUnit.MONTHS);
-		// plus(Months.months(1));
 
 		timeRangeToCheck = Interval.of(startDate.toInstant(ZoneOffset.UTC),
 			endDate.toInstant(ZoneOffset.UTC));
@@ -88,14 +201,12 @@ public class IntervalExtensionsTest
 
 
 		startDate = LocalDate.parse("2007-11-08", formatter).atStartOfDay();
-		// new DateTime(2007, 11, 8, 19, 0, 0, 0);
 		endDate = startDate.plus(2, ChronoUnit.MONTHS);
 
 		timeRange = Interval.of(startDate.toInstant(ZoneOffset.UTC),
 			endDate.toInstant(ZoneOffset.UTC));
 
 		startDate = LocalDate.parse("2007-11-07", formatter).atStartOfDay();
-		// new DateTime(2008, 11, 7, 19, 0, 0, 0);
 		endDate = startDate.plus(1, ChronoUnit.MONTHS);
 
 		timeRangeToCheck = Interval.of(startDate.toInstant(ZoneOffset.UTC),

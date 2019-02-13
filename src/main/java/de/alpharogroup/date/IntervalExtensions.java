@@ -37,13 +37,14 @@ public final class IntervalExtensions
 {
 
 	/**
-	 * Checks if the given time range is between the given time range to check.
+	 * Checks if the given time range is between the given time range to check
 	 *
 	 * @param timeRange
 	 *            the time range
 	 * @param timeRangeToCheck
 	 *            the time range to check
-	 * @return true, if it is between otherwise false
+	 * @return true, if the given time range is between the given time range to check otherwise
+	 *         false
 	 */
 	public static boolean isBetween(final Interval timeRange, final Interval timeRangeToCheck)
 	{
@@ -52,4 +53,62 @@ public final class IntervalExtensions
 			&& (timeRange.getEnd() != null
 				&& timeRange.getEnd().isAfter(timeRangeToCheck.getEnd())));
 	}
+
+	/**
+	 * Checks if the given time range is overlapping before the given time range to check.
+	 *
+	 * @param timeRange
+	 *            the time range
+	 * @param timeRangeToCheck
+	 *            the time range to check
+	 * @return true, if the given time range is overlapping before the given time range to check
+	 *         otherwise false
+	 */
+	public static boolean isOverlappingBefore(final Interval timeRange,
+		final Interval timeRangeToCheck)
+	{
+		return ((timeRange.getStart() != null
+			&& timeRange.getStart().isAfter(timeRangeToCheck.getStart()))
+			&& (timeRange.getEnd() != null
+				&& timeRange.getEnd().isAfter(timeRangeToCheck.getEnd())));
+	}
+
+	/**
+	 * Checks if the given time range is overlapping after the given time range to check.
+	 *
+	 * @param timeRange
+	 *            the time range
+	 * @param timeRangeToCheck
+	 *            the time range to check
+	 * @return true, if the given time range is overlapping after the given time range to check
+	 *         otherwise false
+	 */
+	public static boolean isOverlappingAfter(final Interval timeRange,
+		final Interval timeRangeToCheck)
+	{
+		return ((timeRange.getStart() != null
+			&& timeRange.getStart().isBefore(timeRangeToCheck.getStart()))
+			&& (timeRange.getEnd() != null
+				&& timeRange.getEnd().isBefore(timeRangeToCheck.getEnd())));
+	}
+
+	/**
+	 * Checks if the given time range is overlapping before and after the given time range to check.
+	 *
+	 * @param timeRange
+	 *            the time range
+	 * @param timeRangeToCheck
+	 *            the time range to check
+	 * @return true, if the given time range is overlapping before and after the given time range to
+	 *         check otherwise false
+	 */
+	public static boolean isOverlappingBeforeAndAfter(final Interval timeRange,
+		final Interval timeRangeToCheck)
+	{
+		return ((timeRange.getStart() != null
+			&& timeRange.getStart().isAfter(timeRangeToCheck.getStart()))
+			&& (timeRange.getEnd() != null
+				&& timeRange.getEnd().isBefore(timeRangeToCheck.getEnd())));
+	}
+
 }
