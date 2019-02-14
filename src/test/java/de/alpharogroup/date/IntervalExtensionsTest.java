@@ -32,38 +32,57 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-//
-//import org.joda.time.DateTime;
-//import org.joda.time.Interval;
-//import org.joda.time.Months;
 import org.meanbean.factories.ObjectCreationException;
 import org.meanbean.test.BeanTestException;
 import org.meanbean.test.BeanTester;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.threeten.extra.Interval;
 
 /**
- * The unit test class for the class {@link IntervalExtensions}.
+ * The unit test class for the class {@link IntervalExtensions}
  */
 public class IntervalExtensionsTest
 {
 
+	boolean actual;
+	boolean expected;
+
+	LocalDateTime startDate;
+	LocalDateTime endDate;
+	Interval timeRange;
+	Interval timeRangeToCheck;
+	DateTimeFormatter formatter;
+	/**
+	 * Sets up method will be invoked before every unit test method
+	 *
+	 * @throws Exception
+	 *             is thrown if an exception occurs
+	 */
+	@BeforeMethod
+	protected void setUp() throws Exception
+	{
+		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	}
+
+	/**
+	 * Tear down method will be invoked after every unit test method
+	 *
+	 * @throws Exception
+	 *             is thrown if an exception occurs
+	 */
+	@AfterMethod
+	protected void tearDown() throws Exception
+	{
+		formatter = null;
+	}
 	/**
 	 * Test method for {@link IntervalExtensions#isOverlappingBefore(Interval, Interval)}
 	 */
 	@Test(enabled = true)
 	public void testIsOverlappingBefore()
 	{
-
-		boolean actual;
-		boolean expected;
-
-		LocalDateTime startDate;
-		LocalDateTime endDate;
-		Interval timeRange;
-		Interval timeRangeToCheck;
-		DateTimeFormatter formatter;
-		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		// new scenario...
 		startDate = LocalDate.parse("2019-02-01", formatter).atStartOfDay();
 		endDate = startDate.plus(2, ChronoUnit.MONTHS);
@@ -104,15 +123,6 @@ public class IntervalExtensionsTest
 	@Test(enabled = true)
 	public void testIsOverlappingAfter()
 	{
-		boolean actual;
-		boolean expected;
-
-		LocalDateTime startDate;
-		LocalDateTime endDate;
-		Interval timeRange;
-		Interval timeRangeToCheck;
-		DateTimeFormatter formatter;
-		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		// new scenario...
 		startDate = LocalDate.parse("2019-02-01", formatter).atStartOfDay();
 		endDate = startDate.plus(1, ChronoUnit.MONTHS);
@@ -138,16 +148,6 @@ public class IntervalExtensionsTest
 	@Test(enabled = true)
 	public void testIsOverlappingBeforeAndAfter()
 	{
-		boolean actual;
-		boolean expected;
-
-		LocalDateTime startDate;
-		LocalDateTime endDate;
-		Interval timeRange;
-		Interval timeRangeToCheck;
-		DateTimeFormatter formatter;
-		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
 		startDate = LocalDate.parse("2007-11-01", formatter).atStartOfDay();
 		endDate = startDate.plus(1, ChronoUnit.MONTHS);
 
@@ -172,17 +172,6 @@ public class IntervalExtensionsTest
 	@Test(enabled = true)
 	public void testIsBetween()
 	{
-		boolean actual;
-		boolean expected;
-
-
-		LocalDateTime startDate;
-		LocalDateTime endDate;
-		Interval timeRange;
-		Interval timeRangeToCheck;
-		DateTimeFormatter formatter;
-		formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
 		startDate = LocalDate.parse("2007-11-08", formatter).atStartOfDay();
 		endDate = startDate.plus(2, ChronoUnit.MONTHS);
 
