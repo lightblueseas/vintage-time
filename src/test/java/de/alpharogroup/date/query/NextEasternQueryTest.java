@@ -44,9 +44,17 @@ public class NextEasternQueryTest
 	{
 		LocalDate actual;
 		LocalDate expected;
-		LocalDate valentinsDay = LocalDate.of(2019, 2, 14);
+		LocalDate valentinsDay;
+		LocalDate thanksgivingDay;
+		
+		valentinsDay = LocalDate.of(2019, 2, 14);
 		actual = valentinsDay.query(new NextEasternQuery());
 		expected = LocalDate.of(2019, 4, 21);
+		assertEquals(actual, expected);
+
+		thanksgivingDay = LocalDate.of(2019, 11, 28);
+		actual = thanksgivingDay.query(new NextEasternQuery());
+		expected = LocalDate.of(2020, 4, 12);
 		assertEquals(actual, expected);
 	}
 
