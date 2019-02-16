@@ -80,6 +80,7 @@ public class IntervalExtensionsTest
 	/**
 	 * Test method for {@link IntervalExtensions#isOverlappingBefore(Interval, Interval)}
 	 */
+	@SuppressWarnings({ "deprecation" })
 	@Test(enabled = true)
 	public void testIsOverlappingBefore()
 	{
@@ -120,6 +121,7 @@ public class IntervalExtensionsTest
 	/**
 	 * Test method for {@link IntervalExtensions#isOverlappingAfter(Interval, Interval)}
 	 */
+	@SuppressWarnings("deprecation")
 	@Test(enabled = true)
 	public void testIsOverlappingAfter()
 	{
@@ -145,6 +147,7 @@ public class IntervalExtensionsTest
 	/**
 	 * Test method for {@link IntervalExtensions#isOverlappingBeforeAndAfter(Interval, Interval)}
 	 */
+	@SuppressWarnings("deprecation")
 	@Test(enabled = true)
 	public void testIsOverlappingBeforeAndAfter()
 	{
@@ -169,6 +172,7 @@ public class IntervalExtensionsTest
 	/**
 	 * Test method for {@link IntervalExtensions#isBetween(Interval, Interval)}
 	 */
+	@SuppressWarnings("deprecation")
 	@Test(enabled = true)
 	public void testIsBetween()
 	{
@@ -209,6 +213,7 @@ public class IntervalExtensionsTest
 	/**
 	 * Test method for {@link IntervalExtensions}
 	 */
+	@SuppressWarnings("deprecation")
 	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
 	public void testWithBeanTester()
 	{

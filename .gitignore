@@ -10,6 +10,7 @@
 !.idea/runConfigurations
 .idea/inspectionProfiles
 .idea/libraries
+.idea/codeStyles
 .idea/*.*
 
 #################
@@ -58,3 +59,4 @@
 /build
 /.gradle
 /gradle
+/pom.xml.bak

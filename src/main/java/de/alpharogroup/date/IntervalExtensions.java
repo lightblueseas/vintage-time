@@ -31,7 +31,12 @@ import lombok.experimental.UtilityClass;
 /**
  * The class {@link IntervalExtensions} provides algorithms for compute if a given time range is
  * between of two points of time.
+ *
+ * @deprecated use instead the same name class from new project time-machine. <br>
+ *             <br>
+ *             Note: will be removed in the next minor release
  */
+@Deprecated
 @UtilityClass
 public final class IntervalExtensions
 {
