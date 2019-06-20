@@ -14,6 +14,8 @@
 
 Project that have utility classes for compute date objects before jdk8
 
+If you like this project put a ⭐ and donate
+
 ## License
 
 The source code comes under the liberal MIT License, making vintage-time great for all types of applications.
