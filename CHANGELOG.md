@@ -1,8 +1,19 @@
 ## Change log
 ----------------------
 
-Version 5.2-SNAPSHOT
+Version 5.2
 -------------
+
+ADDED: 
+
+- gradle as build system
+
+CHANGED:
+
+- changed project nature from maven to gradle nature
+- removed maven related files
+- removed lombok dependency
+- update of dependency threeten-extra version to 1.5.0
 
 Version 5.1
 -------------

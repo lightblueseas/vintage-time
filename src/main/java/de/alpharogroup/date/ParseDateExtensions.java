@@ -31,19 +31,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import lombok.experimental.UtilityClass;
-
-
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @version 1.0
  * @author Asterios Raptis
  */
-@UtilityClass
 public final class ParseDateExtensions implements DatePatterns
 {
-
 	/**
 	 * Tries to convert the given String to a Date.
 	 *
@@ -212,6 +207,10 @@ public final class ParseDateExtensions implements DatePatterns
 	{
 		final Date currentDate = parseToDate(date, currentformat);
 		return parseToString(currentDate, newFormat);
+	}
+
+	private ParseDateExtensions()
+	{
 	}
 
 }

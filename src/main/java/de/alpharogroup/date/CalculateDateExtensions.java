@@ -31,18 +31,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import lombok.experimental.UtilityClass;
-
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
-@UtilityClass
 public final class CalculateDateExtensions implements DatePatterns
 {
-
 	/**
 	 * Adds days to the given Date object and returns it. Note: you can add negative values too for
 	 * get date in past.
@@ -439,6 +435,10 @@ public final class CalculateDateExtensions implements DatePatterns
 		dateOnCalendar.setTime(date);
 		dateOnCalendar.add(Calendar.YEAR, substractYears * -1);
 		return dateOnCalendar.getTime();
+	}
+
+	private CalculateDateExtensions()
+	{
 	}
 
 }

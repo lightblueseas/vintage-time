@@ -30,18 +30,14 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.TimeZone;
 
-import lombok.experimental.UtilityClass;
-
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
-@UtilityClass
 public final class CreateDateExtensions implements DatePatterns
 {
-
 	/**
 	 * Creates a date in past from the given Date back in milliseconds.
 	 *
@@ -188,6 +184,10 @@ public final class CreateDateExtensions implements DatePatterns
 	public static Date now()
 	{
 		return newDate(System.currentTimeMillis());
+	}
+
+	private CreateDateExtensions()
+	{
 	}
 
 }

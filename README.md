@@ -32,7 +32,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- VINTAGE-TIME version -->
-		<vintage-time.version>5.1</vintage-time.version>
+		<vintage-time.version>5.2</vintage-time.version>
 			...
 	</properties>
 			...
@@ -46,6 +46,24 @@ Than you can add the dependency to your dependencies:
 			</dependency>
 			...
 		</dependencies>
+	
+			
+## gradle dependency
+
+You can first define the version in the ext section and add than the following gradle dependency to your project `build.gradle` if you want to import the core functionality of file-worker:
+
+```
+ext {
+			...
+    vintageTimeVersion = "5.2"
+			...
+}
+dependencies {
+			...
+compile("de.alpharogroup:vintage-time:$vintageTimeVersion")
+			...
+}
+```
 
 ## Semantic Versioning
 

@@ -32,11 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TimeZone;
-
-import lombok.NonNull;
-import lombok.experimental.UtilityClass;
-
 
 /**
  * Utility class for the use of Date and Calendar object.
@@ -44,28 +41,8 @@ import lombok.experimental.UtilityClass;
  * @version 1.0
  * @author Asterios Raptis
  */
-@UtilityClass
 public final class DateExtensions implements DatePatterns
 {
-
-	/**
-	 * Returns a list with all date formats from the interface {@link DatePatterns}
-	 *
-	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
-	 * @throws IllegalAccessException
-	 *             is thrown when an application tries to reflectively create an instance
-	 */
-	public static List<String> getDatePatterns() throws IllegalAccessException
-	{
-		final Field[] fields = DatePatterns.class.getFields();
-		final List<String> list = new ArrayList<>(fields.length);
-		for (final Field field : fields)
-		{
-			list.add((String)field.get(field.getName()));
-		}
-		return list;
-	}
-
 	/**
 	 * Returns a map with all date patterns from the Interface DatePatterns. As key is the name from
 	 * the pattern.
@@ -83,6 +60,24 @@ public final class DateExtensions implements DatePatterns
 			patterns.put(field.getName(), field.get(field.getName()));
 		}
 		return patterns;
+	}
+
+	/**
+	 * Returns a list with all date formats from the interface {@link DatePatterns}
+	 *
+	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
+	 * @throws IllegalAccessException
+	 *             is thrown when an application tries to reflectively create an instance
+	 */
+	public static List<String> getDatePatterns() throws IllegalAccessException
+	{
+		final Field[] fields = DatePatterns.class.getFields();
+		final List<String> list = new ArrayList<>(fields.length);
+		for (final Field field : fields)
+		{
+			list.add((String)field.get(field.getName()));
+		}
+		return list;
 	}
 
 	/**
@@ -188,32 +183,6 @@ public final class DateExtensions implements DatePatterns
 	 *
 	 * @param dateToSet
 	 *            the date to set
-	 * @param hour
-	 *            the hour
-	 * @param minute
-	 *            the minute
-	 * @param second
-	 *            the second
-	 * @param milliSecond
-	 *            the mili second
-	 * @param zone
-	 *            the zone
-	 * @param locale
-	 *            the a locale
-	 * @return the date
-	 */
-	public static Date setDate(final @NonNull Date dateToSet, final int hour, final int minute,
-		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
-	{
-		return setDate(dateToSet, getYear(dateToSet), getMonth(dateToSet), getDay(dateToSet), hour,
-			minute, second, milliSecond, zone, locale);
-	}
-
-	/**
-	 * Returns a new {@link Date} object from the given Date object and sets the given parameters.
-	 *
-	 * @param dateToSet
-	 *            the date to set
 	 * @param year
 	 *            the year
 	 * @param month
@@ -234,10 +203,11 @@ public final class DateExtensions implements DatePatterns
 	 *            the a locale
 	 * @return the new {@link Date} object
 	 */
-	public static Date setDate(final @NonNull Date dateToSet, final int year, final int month,
-		final int day, final int hour, final int minute, final int second, final int milliSecond,
+	public static Date setDate(final Date dateToSet, final int year, final int month, final int day,
+		final int hour, final int minute, final int second, final int milliSecond,
 		final TimeZone zone, final Locale locale)
 	{
+		Objects.requireNonNull(dateToSet);
 		final Calendar calendar = Calendar.getInstance(zone, locale);
 		calendar.setTime(dateToSet);
 		calendar.set(Calendar.YEAR, year);
@@ -248,6 +218,37 @@ public final class DateExtensions implements DatePatterns
 		calendar.set(Calendar.SECOND, second);
 		calendar.set(Calendar.MILLISECOND, milliSecond);
 		return calendar.getTime();
+	}
+
+	/**
+	 * Returns a new {@link Date} object from the given Date object and sets the given parameters.
+	 *
+	 * @param dateToSet
+	 *            the date to set
+	 * @param hour
+	 *            the hour
+	 * @param minute
+	 *            the minute
+	 * @param second
+	 *            the second
+	 * @param milliSecond
+	 *            the mili second
+	 * @param zone
+	 *            the zone
+	 * @param locale
+	 *            the a locale
+	 * @return the date
+	 */
+	public static Date setDate(final Date dateToSet, final int hour, final int minute,
+		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
+	{
+		Objects.requireNonNull(dateToSet);
+		return setDate(dateToSet, getYear(dateToSet), getMonth(dateToSet), getDay(dateToSet), hour,
+			minute, second, milliSecond, zone, locale);
+	}
+
+	private DateExtensions()
+	{
 	}
 
 }
