@@ -36,8 +36,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-import org.meanbean.factories.ObjectCreationException;
-import org.meanbean.test.BeanTestException;
 import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -142,15 +140,16 @@ public class ParseDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ParseDateExtensions#parseDate(String, List)}
+	 * Test method for {@link ParseDateExtensions#parseDate(String, java.util.List)}
 	 */
 	@Test
-	public void testParseDate()
+	public void testParseDate() throws IllegalArgumentException, IllegalAccessException
 	{
 		Date actual;
 		Date expected;
 
-		actual = ParseDateExtensions.parseDate(this.datum1, DateExtensions.getAllDateFormats());
+		actual = ParseDateExtensions.parseDate(this.datum1,
+			new ArrayList<>(DateExtensions.getDatePatterns()));
 		expected = expectedDate1;
 		assertEquals(actual, expected);
 
@@ -219,10 +218,10 @@ public class ParseDateExtensionsTest
 		{
 			e.printStackTrace();
 		}
-		assertTrue(
+		assertEquals(
 			"Generated actual date string '" + actual
 				+ "' should be equal with the expected value '" + expected + "'.",
-			expected.equals(actual));
+			actual, expected);
 	}
 
 	/**
@@ -300,7 +299,7 @@ public class ParseDateExtensionsTest
 	public void testParseToDateStringStringArrayLocale()
 	{
 		final Locale de = new Locale("de", "DE");
-		final String formats[] = { this.format2, this.format3 };
+		final String[] formats = { this.format2, this.format3 };
 		Date testDate = ParseDateExtensions.parseToDate(this.datum1, formats, de);
 		assertNull(testDate);
 		formats[0] = this.format1;
@@ -327,7 +326,7 @@ public class ParseDateExtensionsTest
 	/**
 	 * Test method for {@link ParseDateExtensions}
 	 */
-	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	@Test
 	public void testWithBeanTester()
 	{
 		final BeanTester beanTester = new BeanTester();

@@ -8,10 +8,13 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
 [![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/vintage-time.svg)](http://www.javadoc.io/doc/de.alpharogroup/vintage-time)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
+[![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
 </div>
 
 Project that have utility classes for compute date objects before jdk8
+
+If you like this project put a ⭐ and donate
 
 ## License
 
@@ -26,9 +29,13 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 
 Than you can add the dependency to your dependencies:
 
+	<properties>
+			...
 		<!-- VINTAGE-TIME version -->
-		<vintage-time.version>4.12</vintage-time.version>
-
+		<vintage-time.version>5.2</vintage-time.version>
+			...
+	</properties>
+			...
 		<dependencies>
 			...
 			<!-- VINTAGE-TIME DEPENDENCY -->
@@ -39,6 +46,24 @@ Than you can add the dependency to your dependencies:
 			</dependency>
 			...
 		</dependencies>
+	
+			
+## gradle dependency
+
+You can first define the version in the ext section and add than the following gradle dependency to your project `build.gradle` if you want to import the core functionality of file-worker:
+
+```
+ext {
+			...
+    vintageTimeVersion = "5.2"
+			...
+}
+dependencies {
+			...
+compile("de.alpharogroup:vintage-time:$vintageTimeVersion")
+			...
+}
+```
 
 ## Semantic Versioning
 
@@ -77,16 +102,20 @@ If you like this library, please consider a donation through paypal: <a href="ht
 
 or over bitcoin or bitcoin-cash with:
 
-1Jzso5h7U82QCNmgxxSCya1yUK7UVcSXsW
+36JxRRDfRazLNqUV6NsywCw1q7TK38ukpC
 
 or over ether with:
 
-0xaB6EaE10F352268B0CA672Dd6e999C86344D49D8
+0x588Aa02De98B1Ef70afeDC3ec5290130a3E5e273
 
 or over flattr: 
 <a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
 </a>
+
+## Similar projects
+
+ * [threeten-extra](https://github.com/ThreeTen/threeten-extra) Provides additional date-time classes that complement those in JDK 8
 
 ## Credits
 

@@ -391,7 +391,6 @@ public class Age implements Serializable
 		if (0 < seconds)
 		{
 			result[5] = seconds;
-			uebrig -= seconds * ONE_SECOND;
 		}
 		else
 		{
@@ -426,7 +425,7 @@ public class Age implements Serializable
 			throw new IllegalArgumentException(
 				"Int array should not be null and the length should be equal 6.");
 		}
-		final StringBuffer result = new StringBuffer();
+		final StringBuilder result = new StringBuilder();
 		result.append("Your are ");
 		result.append(readableAge[0]).append(" years");
 		result.append(" ");

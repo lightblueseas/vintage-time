@@ -25,11 +25,10 @@
 package de.alpharogroup.date;
 
 import java.security.SecureRandom;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
-
-import lombok.experimental.UtilityClass;
+import java.util.TimeZone;
 
 /**
  * Utility class for the use of Date and Calendar object.
@@ -37,10 +36,8 @@ import lombok.experimental.UtilityClass;
  * @author Asterios Raptis
  * @version 1.0
  */
-@UtilityClass
 public final class CreateDateExtensions implements DatePatterns
 {
-
 	/**
 	 * Creates a date in past from the given Date back in milliseconds.
 	 *
@@ -116,16 +113,39 @@ public final class CreateDateExtensions implements DatePatterns
 	public static Date newDate(final int year, final int month, final int day, final int hour,
 		final int minute, final int seconds, final int milliSecond)
 	{
-		final Calendar calendar = Calendar.getInstance();
+		return newDate(year, month, day, hour, minute, seconds, milliSecond, TimeZone.getDefault(),
+			Locale.getDefault());
+	}
 
-		calendar.set(Calendar.YEAR, year);
-		calendar.set(Calendar.MONTH, month - 1);
-		calendar.set(Calendar.DATE, day);
-		calendar.set(Calendar.HOUR_OF_DAY, hour);
-		calendar.set(Calendar.MINUTE, minute);
-		calendar.set(Calendar.SECOND, seconds);
-		calendar.set(Calendar.MILLISECOND, milliSecond);
-		return calendar.getTime();
+	/**
+	 * Creates a new Date object from the given values.
+	 *
+	 * @param year
+	 *            The year.
+	 * @param month
+	 *            The month.
+	 * @param day
+	 *            The day.
+	 * @param hour
+	 *            The hour.
+	 * @param minute
+	 *            The minute.
+	 * @param seconds
+	 *            The second.
+	 * @param milliSecond
+	 *            The millisecond.
+	 * @param zone
+	 *            the zone
+	 * @param locale
+	 *            the locale
+	 * @return the created Date object
+	 */
+	public static Date newDate(final int year, final int month, final int day, final int hour,
+		final int minute, final int seconds, final int milliSecond, final TimeZone zone,
+		final Locale locale)
+	{
+		return DateExtensions.setDate(new Date(), year, month, day, hour, minute, seconds,
+			milliSecond, zone, locale);
 	}
 
 	/**
@@ -164,6 +184,10 @@ public final class CreateDateExtensions implements DatePatterns
 	public static Date now()
 	{
 		return newDate(System.currentTimeMillis());
+	}
+
+	private CreateDateExtensions()
+	{
 	}
 
 }

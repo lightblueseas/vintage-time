@@ -24,14 +24,12 @@
  */
 package de.alpharogroup.date;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 
 import java.util.Date;
 
-import org.meanbean.factories.ObjectCreationException;
-import org.meanbean.test.BeanTestException;
 import org.meanbean.test.BeanTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -312,41 +310,6 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link CalculateDateExtensions#calculateElapsedTimeInSeconds(long)}
-	 */
-	@Test(enabled = false)
-	public void testCalculateElapsedTimeInSeconds()
-	{
-		final Date now = CreateDateExtensions.now();
-		final double timeInSeconds = CalculateDateExtensions
-			.calculateElapsedTimeInSeconds(now.getTime());
-		assertTrue(0 <= timeInSeconds);
-	}
-
-	/**
-	 * Test method for {@link CalculateDateExtensions#calculateTimeFromNow(Date, Date)}
-	 */
-	@Test(enabled = false)
-	public void testCalculateTimeFromNow()
-	{
-		long actual;
-		long expected;
-		expected = 141206695000l;
-		actual = CalculateDateExtensions.calculateTimeFromNow(this.expectedDate1,
-			this.expectedDate2);
-		assertTrue(
-			"The long elapsed:" + actual + " should be equal with the expected:" + expected + " ",
-			actual == expected);
-
-
-		final Date myBirthday = CreateDateExtensions.newDate(1969, 8, 28, 16, 0, 0);
-		final Date now = new Date();
-		actual = CalculateDateExtensions.calculateTimeFromNow(myBirthday, now);
-		Age time = new Age(myBirthday);
-		System.out.println(time.getHumanReadableAge());
-	}
-
-	/**
 	 * Test method for {@link CalculateDateExtensions#computeAge(Date, Date)}
 	 */
 	@Test
@@ -448,10 +411,30 @@ public class CalculateDateExtensionsTest
 	@Test
 	public void testIsValidDate()
 	{
-		assertTrue("Date should be valid.",
-			CalculateDateExtensions.isValidDate(this.datum3, this.format3, false));
-		assertFalse("Date should be invalid.",
-			CalculateDateExtensions.isValidDate(this.datum4, this.format4, false));
+		boolean actual;
+		boolean expected;
+		// new scenario...
+		expected = true;
+		actual = CalculateDateExtensions.isValidDate(this.datum3, this.format3, false);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = false;
+		actual = CalculateDateExtensions.isValidDate(this.datum4, this.format4, false);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = true;
+		actual = CalculateDateExtensions.isValidDate(this.datum4, this.format4, true);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = false;
+		actual = CalculateDateExtensions.isValidDate(null, this.format4, true);
+		assertEquals(actual, expected);
+		// new scenario...
+		expected = false;
+		actual = CalculateDateExtensions.isValidDate(this.datum4, "yyMMMSSSNNN;-a", false);
+		assertEquals(actual, expected);
+
+
 	}
 
 	/**
@@ -523,7 +506,7 @@ public class CalculateDateExtensionsTest
 	/**
 	 * Test method for {@link CalculateDateExtensions}
 	 */
-	@Test(expectedExceptions = { BeanTestException.class, ObjectCreationException.class })
+	@Test
 	public void testWithBeanTester()
 	{
 		final BeanTester beanTester = new BeanTester();

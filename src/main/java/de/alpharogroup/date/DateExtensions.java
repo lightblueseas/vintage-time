@@ -32,10 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TimeZone;
-
-import lombok.experimental.UtilityClass;
-
 
 /**
  * Utility class for the use of Date and Calendar object.
@@ -43,69 +41,43 @@ import lombok.experimental.UtilityClass;
  * @version 1.0
  * @author Asterios Raptis
  */
-@UtilityClass
 public final class DateExtensions implements DatePatterns
 {
-
 	/**
-	 * Returns a list with all dateformats from the Interface DateFormats.
-	 *
-	 * @return Returns a list with all dateformats from the Interface DateFormats.
-	 */
-	public static List<String> getAllDateFormats()
-	{
-		final Field[] fields = DatePatterns.class.getFields();
-		final List<String> list = new ArrayList<>(fields.length);
-		for (final Field field : fields)
-		{
-			try
-			{
-				list.add((String)field.get(field.getName()));
-			}
-			catch (final IllegalArgumentException e)
-			{
-				e.printStackTrace();
-			}
-			catch (final IllegalAccessException e)
-			{
-				e.printStackTrace();
-			}
-			finally
-			{
-			}
-		}
-		return list;
-	}
-
-	/**
-	 * Returns a map with all datepatterns from the Interface DatePatterns. As key is the name from
+	 * Returns a map with all date patterns from the Interface DatePatterns. As key is the name from
 	 * the pattern.
 	 *
-	 * @return Returns a Map with all datepatterns from the Interface DatePatterns.
+	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
+	 * @throws IllegalAccessException
+	 *             is thrown when an application tries to reflectively create an instance
 	 */
-	public static Map<String, Object> getAllDatePatterns()
+	public static Map<String, Object> getAllDatePatterns() throws IllegalAccessException
 	{
 		final Field[] fields = DatePatterns.class.getFields();
 		final Map<String, Object> patterns = new HashMap<>(fields.length);
 		for (final Field field : fields)
 		{
-			try
-			{
-				patterns.put(field.getName(), field.get(field.getName()));
-			}
-			catch (final IllegalArgumentException e)
-			{
-				e.printStackTrace();
-			}
-			catch (final IllegalAccessException e)
-			{
-				e.printStackTrace();
-			}
-			finally
-			{
-			}
+			patterns.put(field.getName(), field.get(field.getName()));
 		}
 		return patterns;
+	}
+
+	/**
+	 * Returns a list with all date formats from the interface {@link DatePatterns}
+	 *
+	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
+	 * @throws IllegalAccessException
+	 *             is thrown when an application tries to reflectively create an instance
+	 */
+	public static List<String> getDatePatterns() throws IllegalAccessException
+	{
+		final Field[] fields = DatePatterns.class.getFields();
+		final List<String> list = new ArrayList<>(fields.length);
+		for (final Field field : fields)
+		{
+			list.add((String)field.get(field.getName()));
+		}
+		return list;
 	}
 
 	/**
@@ -211,30 +183,72 @@ public final class DateExtensions implements DatePatterns
 	 *
 	 * @param dateToSet
 	 *            the date to set
-	 * @param hours
-	 *            the hours
-	 * @param minutes
-	 *            the minutes
-	 * @param seconds
-	 *            the seconds
-	 * @param milisec
-	 *            the milisec
+	 * @param year
+	 *            the year
+	 * @param month
+	 *            the month
+	 * @param day
+	 *            the day
+	 * @param hour
+	 *            the hour
+	 * @param minute
+	 *            the minute
+	 * @param second
+	 *            the second
+	 * @param milliSecond
+	 *            the mili second
+	 * @param zone
+	 *            the zone
+	 * @param locale
+	 *            the a locale
+	 * @return the new {@link Date} object
+	 */
+	public static Date setDate(final Date dateToSet, final int year, final int month, final int day,
+		final int hour, final int minute, final int second, final int milliSecond,
+		final TimeZone zone, final Locale locale)
+	{
+		Objects.requireNonNull(dateToSet);
+		final Calendar calendar = Calendar.getInstance(zone, locale);
+		calendar.setTime(dateToSet);
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month - 1);
+		calendar.set(Calendar.DATE, day);
+		calendar.set(Calendar.HOUR_OF_DAY, hour);
+		calendar.set(Calendar.MINUTE, minute);
+		calendar.set(Calendar.SECOND, second);
+		calendar.set(Calendar.MILLISECOND, milliSecond);
+		return calendar.getTime();
+	}
+
+	/**
+	 * Returns a new {@link Date} object from the given Date object and sets the given parameters.
+	 *
+	 * @param dateToSet
+	 *            the date to set
+	 * @param hour
+	 *            the hour
+	 * @param minute
+	 *            the minute
+	 * @param second
+	 *            the second
+	 * @param milliSecond
+	 *            the mili second
 	 * @param zone
 	 *            the zone
 	 * @param locale
 	 *            the a locale
 	 * @return the date
 	 */
-	public static Date setDate(final Date dateToSet, final int hours, final int minutes,
-		final int seconds, final int milisec, final TimeZone zone, final Locale locale)
+	public static Date setDate(final Date dateToSet, final int hour, final int minute,
+		final int second, final int milliSecond, final TimeZone zone, final Locale locale)
 	{
-		final Calendar cal = Calendar.getInstance(zone, locale);
-		cal.setTime(dateToSet);
-		cal.set(Calendar.HOUR_OF_DAY, hours);
-		cal.set(Calendar.MINUTE, minutes);
-		cal.set(Calendar.SECOND, seconds);
-		cal.set(Calendar.MILLISECOND, milisec);
-		return cal.getTime();
+		Objects.requireNonNull(dateToSet);
+		return setDate(dateToSet, getYear(dateToSet), getMonth(dateToSet), getDay(dateToSet), hour,
+			minute, second, milliSecond, zone, locale);
+	}
+
+	private DateExtensions()
+	{
 	}
 
 }

@@ -31,18 +31,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import lombok.experimental.UtilityClass;
-
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
-@UtilityClass
 public final class CalculateDateExtensions implements DatePatterns
 {
-
 	/**
 	 * Adds days to the given Date object and returns it. Note: you can add negative values too for
 	 * get date in past.
@@ -231,37 +227,7 @@ public final class CalculateDateExtensions implements DatePatterns
 	 */
 	public static long calculateElapsedTime(final Date past, final Date now)
 	{
-		final long elapsedTime = now.getTime() - past.getTime();
-		return elapsedTime;
-	}
-
-	/**
-	 * Calculate elapsed time in seconds from the given start time as long to the current system
-	 * time. This is useful for benchmarking
-	 *
-	 * @param startTime
-	 *            the start time
-	 * @return The elapsed time in double
-	 */
-	public static double calculateElapsedTimeInSeconds(final long startTime)
-	{
-		final double elapsedTime = ((double)(System.nanoTime() - startTime)) / 1000000;
-		return elapsedTime;
-	}
-
-	/**
-	 * Calculates the elapsed time from the future to now.
-	 *
-	 * @param now
-	 *            The Date from now.
-	 * @param future
-	 *            The Date in the future.
-	 * @return The elapsed time in long.
-	 */
-	public static long calculateTimeFromNow(final Date now, final Date future)
-	{
-		final long elapsedTime = future.getTime() - now.getTime();
-		return elapsedTime;
+		return now.getTime() - past.getTime();
 	}
 
 	/**
@@ -309,8 +275,7 @@ public final class CalculateDateExtensions implements DatePatterns
 		final int k = year % 100;
 		final int l = (19 * i + j - j / 4 - (j - (j + 8) / 25 + 1) / 3 + 15) % 30;
 		final int m = (32 + 2 * (j % 4) + 2 * (k / 4) - l - k % 4) % 7;
-		final int n = l + m - 7 * ((i + 11 * l + 22 * m) / 451) + 114;
-		return n;
+		return (l + m - 7 * ((i + 11 * l + 22 * m) / 451) + 114);
 	}
 
 	/**
@@ -329,14 +294,7 @@ public final class CalculateDateExtensions implements DatePatterns
 		final long min = start.getTime();
 		final long max = end.getTime();
 		final long index = between.getTime();
-		if (min <= index && index <= max)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return min <= index && index <= max;
 	}
 
 	/**
@@ -401,13 +359,13 @@ public final class CalculateDateExtensions implements DatePatterns
 		{
 			return false;
 		}
-		final DateFormat df = new SimpleDateFormat(format);
-		df.setLenient(lenient);
 		try
 		{
+			final DateFormat df = new SimpleDateFormat(format);
+			df.setLenient(lenient);
 			df.parse(date);
 		}
-		catch (final ParseException e)
+		catch (final ParseException | IllegalArgumentException e)
 		{
 			isValid = false;
 		}
@@ -477,6 +435,10 @@ public final class CalculateDateExtensions implements DatePatterns
 		dateOnCalendar.setTime(date);
 		dateOnCalendar.add(Calendar.YEAR, substractYears * -1);
 		return dateOnCalendar.getTime();
+	}
+
+	private CalculateDateExtensions()
+	{
 	}
 
 }

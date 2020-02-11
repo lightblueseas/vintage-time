@@ -29,18 +29,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import lombok.experimental.UtilityClass;
-
 /**
  * Utility class for the use of Date and Calendar object.
  *
  * @author Asterios Raptis
  * @version 1.0
  */
-@UtilityClass
 public final class ConvertDateExtensions implements DatePatterns
 {
-
 	/**
 	 * Converts a Date to a Calendar-object.
 	 *
@@ -78,8 +74,7 @@ public final class ConvertDateExtensions implements DatePatterns
 	 */
 	public static Date toDate(final Calendar calendar)
 	{
-		final Date date = calendar.getTime();
-		return date;
+		return calendar.getTime();
 	}
 
 	/**
@@ -111,6 +106,10 @@ public final class ConvertDateExtensions implements DatePatterns
 		cal.set(Calendar.MILLISECOND, 0);
 
 		return new Timestamp(cal.getTime().getTime());
+	}
+
+	private ConvertDateExtensions()
+	{
 	}
 
 }
