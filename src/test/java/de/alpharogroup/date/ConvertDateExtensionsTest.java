@@ -47,7 +47,7 @@ public class ConvertDateExtensionsTest
 {
 
 	/** The Constant YYYY_MM_DD. */
-	private static final String YYYY_MM_DD = "yyyy-MM-dd";
+	private static final String YYYY_MM_DD = DatePatterns.YYYY_MM_DD;
 
 
 	/** The format1. */
@@ -60,7 +60,7 @@ public class ConvertDateExtensionsTest
 	 *             the exception
 	 */
 	@BeforeMethod
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		this.format1 = YYYY_MM_DD;
 	}
@@ -72,7 +72,7 @@ public class ConvertDateExtensionsTest
 	 *             the exception
 	 */
 	@AfterMethod
-	protected void tearDown() throws Exception
+	protected void tearDown()
 	{
 	}
 

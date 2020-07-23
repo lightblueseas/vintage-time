@@ -95,6 +95,7 @@ public final class ConvertDateExtensions implements DatePatterns
 	 * @param date
 	 *            The date to convert.
 	 * @return The Timestamp from the date.
+	 * @deprecated use instead the same name method from the class <code>ConvertTimestampExtensions</code>
 	 */
 	public static Timestamp toTimestamp(final Date date)
 	{
