@@ -1,17 +1,16 @@
 package de.alpharogroup.timestamp;
 
-import de.alpharogroup.date.ConvertDateExtensions;
-import de.alpharogroup.date.DatePatterns;
-import de.alpharogroup.date.ParseDateExtensions;
-import org.testng.annotations.Test;
+import static org.testng.AssertJUnit.assertEquals;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.testng.Assert.*;
-import static org.testng.AssertJUnit.assertEquals;
+import org.testng.annotations.Test;
+
+import de.alpharogroup.date.DatePatterns;
+import de.alpharogroup.date.ParseDateExtensions;
 
 public class ConvertTimestampExtensionsTest {
 
