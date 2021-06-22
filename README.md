@@ -1,12 +1,12 @@
 # vintage-time
 
-<div align="center">
+<div style="text-align: center">
 
-[![Build Status](https://travis-ci.org/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.org/lightblueseas/vintage-time)
-[![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=master)](https://coveralls.io/github/lightblueseas/vintage-time?branch=master)
+[![Build Status](https://api.travis-ci.com/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.com/github/lightblueseas/vintage-time)
+[![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=develop)](https://coveralls.io/github/lightblueseas/vintage-time?branch=develop)
 [![Open Issues](https://img.shields.io/github/issues/lightblueseas/vintage-time.svg?style=flat)](https://github.com/lightblueseas/vintage-time/issues)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
-[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/vintage-time.svg)](http://www.javadoc.io/doc/de.alpharogroup/vintage-time)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/vintage-time)
+[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/vintage-time.svg)](http://www.javadoc.io/doc/io.github.astrapi69/vintage-time)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
@@ -23,7 +23,7 @@ The source code comes under the liberal MIT License, making vintage-time great f
 ## Maven dependency
 
 Maven dependency is now on sonatype.
-Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~de.alpharogroup~vintage-time~~~) for latest snapshots and releases.
+Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~vintage-time~~~) for latest snapshots and releases.
 
 Add the following maven dependency to your project `pom.xml` if you want to import the core functionality of vintage-time:
 
@@ -32,7 +32,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- VINTAGE-TIME version -->
-		<vintage-time.version>5.2</vintage-time.version>
+		<vintage-time.version>5.3</vintage-time.version>
 			...
 	</properties>
 			...
@@ -40,7 +40,7 @@ Than you can add the dependency to your dependencies:
 			...
 			<!-- VINTAGE-TIME DEPENDENCY -->
 			<dependency>
-				<groupId>de.alpharogroup</groupId>
+				<groupId>io.github.astrapi69</groupId>
 				<artifactId>vintage-time</artifactId>
 				<version>${vintage-time.version}</version>
 			</dependency>
@@ -50,17 +50,32 @@ Than you can add the dependency to your dependencies:
 			
 ## gradle dependency
 
-You can first define the version in the ext section and add than the following gradle dependency to your project `build.gradle` if you want to import the core functionality of file-worker:
+You can first define the version in the ext section and add than the following gradle dependency to 
+your project `build.gradle` if you want to import the core functionality of vintage-time:
+
+
+define version in file gradle.properties
+
+```
+vintageTimeVersion=5.3
+```
+
+or in build.gradle ext area
 
 ```
 ext {
 			...
-    vintageTimeVersion = "5.2"
+    vintageTimeVersion = "5.3"
 			...
 }
+```
+
+and then add the dependency to the dependencies area
+
+```
 dependencies {
 			...
-compile("de.alpharogroup:vintage-time:$vintageTimeVersion")
+compile("io.github.astrapi69:vintage-time:$vintageTimeVersion")
 			...
 }
 ```
@@ -96,21 +111,59 @@ No animals were harmed in the making of this library.
 
 # Donations
 
-If you like this library, please consider a donation through paypal: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=B37J9DZF6G9ZC" target="_blank">
-<img src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" alt="PayPal this" title="PayPal – The safer, easier way to pay online!" border="0" />
+This project is kept as an open source product and relies on contributions to remain being
+developed. If you like this library, please consider a donation
+
+over paypal: <br><br>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MJ7V43GU2H386" target="_blank">
+<img src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" alt="PayPal this" title="PayPal – The safer, easier way to pay online!" style="border: none" />
 </a>
+<br><br>
+or over bitcoin(BTC) with this address:
 
-or over bitcoin or bitcoin-cash with:
+bc1ql2y99q7e8psndhcc3gferk03esw3qqf677rhjy
 
-36JxRRDfRazLNqUV6NsywCw1q7TK38ukpC
+<img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/bc1ql2y99q7e8psndhcc3gferk03esw3qqf677rhjy.png"
+alt="Donation Bitcoin Wallet" width="250"/>
 
-or over ether with:
+or over FIO with this address:
 
-0x588Aa02De98B1Ef70afeDC3ec5290130a3E5e273
+FIO7tFMUVAA9cHiPPqKMfMXiSxHrbpiFyRYqTketNuM67aULuwjop
+
+<img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/FIO7tFMUVAA9cHiPPqKMfMXiSxHrbpiFyRYqTketNuM67aULuwjop.png"
+alt="Donation FIO Wallet" width="250"/>
+
+or over Ethereum(ETH) with:
+
+0xc057D159D3C8f3311E73568b334FF6fE82EB2b7D
+
+<img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/0xc057D159D3C8f3311E73568b334FF6fE82EB2b7D.png"
+alt="Donation Ethereum Wallet" width="250"/>
+
+or over Ethereum Classic(ETC) with:
+
+0xF708cA86D86C246B69c3F4BAe431eBbe0c2bfddD
+
+<img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/0xF708cA86D86C246B69c3F4BAe431eBbe0c2bfddD.png"
+alt="Donation Ethereum Classic Wallet" width="250"/>
+
+or over Dogecoin(DOGE) with:
+
+D5yi4Um8cpakd6yPRm2hGWuQ5nrVzhSSW1
+
+<img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/D5yi4Um8cpakd6yPRm2hGWuQ5nrVzhSSW1.png"
+alt="Donation Dogecoin Wallet" width="250"/>
+
+or over Monero(XMR) with:
+
+49bqeRQ7Bf49oJFVC72pqpe5hFbb62pfXDYPdLsadGGF81KZW2ZfrPZ8PbAVu5X2v1TYAspeczMya3cYQysNS4usRRPQHVw
+
+<img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/49bqeRQ7Bf49oJFVC72pqpe5hFbb62pfXDYPdLsadGGF81KZW2ZfrPZ8PbAVu5X2v1TYAspeczMya3cYQysNS4usRRPQHVw.png"
+alt="Donation Monero Wallet" width="250"/>
 
 or over flattr: 
 <a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
-<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
+<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" style="border: none" />
 </a>
 
 ## Similar projects
@@ -122,4 +175,4 @@ or over flattr:
 |Travis CI|
 |:-:|
 |![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)|
-|Many thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects.|
+|Many thanks to [Travis CI](https://travis-ci.com) for providing a free continuous integration service for open source projects.|

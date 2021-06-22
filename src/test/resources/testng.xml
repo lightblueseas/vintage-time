@@ -3,16 +3,16 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="de.alpharogroup.date.comparators.DayComparatorTest"/>
-      <class name="de.alpharogroup.date.AgeTest"/>
-      <class name="de.alpharogroup.date.CalculateDateExtensionsTest"/>
-      <class name="de.alpharogroup.date.ConvertDateExtensionsTest"/>
-      <class name="de.alpharogroup.date.CreateDateExtensionsTest"/>
-      <class name="de.alpharogroup.date.DateExtensionsTest"/>
-      <class name="de.alpharogroup.date.DatePatternsTest"/>
-      <class name="de.alpharogroup.date.IntervalExtensionsTest"/>
-      <class name="de.alpharogroup.date.ParseDateExtensionsTest"/>
-      <class name="de.alpharogroup.date.TimeZoneExtensionsTest"/>
+      <class name="io.github.astrapi69.date.comparators.DayComparatorTest"/>
+      <class name="io.github.astrapi69.date.AgeTest"/>
+      <class name="io.github.astrapi69.date.CalculateDateExtensionsTest"/>
+      <class name="io.github.astrapi69.date.ConvertDateExtensionsTest"/>
+      <class name="io.github.astrapi69.date.CreateDateExtensionsTest"/>
+      <class name="io.github.astrapi69.date.DateExtensionsTest"/>
+      <class name="io.github.astrapi69.date.DatePatternsTest"/>
+      <class name="io.github.astrapi69.date.IntervalExtensionsTest"/>
+      <class name="io.github.astrapi69.date.ParseDateExtensionsTest"/>
+      <class name="io.github.astrapi69.date.TimeZoneExtensionsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
