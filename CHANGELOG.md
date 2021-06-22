@@ -4,6 +4,13 @@
 Version 5.3-SNAPSHOT
 -------------
 
+CHANGED:
+
+- changed to new package io.github.astrapi69
+- update of gradle to new version 6.9
+- update of dependency threeten-extra version to 1.6.0
+- update of test dependency testng to new version 7.4.0
+
 Version 5.2
 -------------
 
