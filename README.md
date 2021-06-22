@@ -32,7 +32,7 @@ Than you can add the dependency to your dependencies:
 	<properties>
 			...
 		<!-- VINTAGE-TIME version -->
-		<vintage-time.version>5.2</vintage-time.version>
+		<vintage-time.version>5.3</vintage-time.version>
 			...
 	</properties>
 			...
@@ -57,7 +57,7 @@ your project `build.gradle` if you want to import the core functionality of vint
 define version in file gradle.properties
 
 ```
-vintageTimeVersion=5.2
+vintageTimeVersion=5.3
 ```
 
 or in build.gradle ext area
@@ -65,7 +65,7 @@ or in build.gradle ext area
 ```
 ext {
 			...
-    vintageTimeVersion = "5.2"
+    vintageTimeVersion = "5.3"
 			...
 }
 ```
