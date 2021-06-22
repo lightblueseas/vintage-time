@@ -2,11 +2,11 @@
 
 <div align="center">
 
-[![Build Status](https://travis-ci.org/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.org/lightblueseas/vintage-time)
+[![Build Status](https://api.travis-ci.com/lightblueseas/vintage-time.svg?branch=master)](https://travis-ci.com/github/lightblueseas/vintage-time)
 [![Coverage Status](https://coveralls.io/repos/github/lightblueseas/vintage-time/badge.svg?branch=develop)](https://coveralls.io/github/lightblueseas/vintage-time?branch=develop)
 [![Open Issues](https://img.shields.io/github/issues/lightblueseas/vintage-time.svg?style=flat)](https://github.com/lightblueseas/vintage-time/issues)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.alpharogroup/vintage-time)
-[![Javadocs](http://www.javadoc.io/badge/de.alpharogroup/vintage-time.svg)](http://www.javadoc.io/doc/de.alpharogroup/vintage-time)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/vintage-time/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/vintage-time)
+[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/vintage-time.svg)](http://www.javadoc.io/doc/io.github.astrapi69/vintage-time)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
@@ -23,7 +23,7 @@ The source code comes under the liberal MIT License, making vintage-time great f
 ## Maven dependency
 
 Maven dependency is now on sonatype.
-Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~de.alpharogroup~vintage-time~~~) for latest snapshots and releases.
+Check out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~vintage-time~~~) for latest snapshots and releases.
 
 Add the following maven dependency to your project `pom.xml` if you want to import the core functionality of vintage-time:
 
@@ -40,7 +40,7 @@ Than you can add the dependency to your dependencies:
 			...
 			<!-- VINTAGE-TIME DEPENDENCY -->
 			<dependency>
-				<groupId>de.alpharogroup</groupId>
+				<groupId>io.github.astrapi69</groupId>
 				<artifactId>vintage-time</artifactId>
 				<version>${vintage-time.version}</version>
 			</dependency>
@@ -60,7 +60,7 @@ ext {
 }
 dependencies {
 			...
-compile("de.alpharogroup:vintage-time:$vintageTimeVersion")
+compile("io.github.astrapi69:vintage-time:$vintageTimeVersion")
 			...
 }
 ```
@@ -122,4 +122,4 @@ or over flattr:
 |Travis CI|
 |:-:|
 |![Travis CI](https://travis-ci.com/images/logos/TravisCI-Full-Color.png)|
-|Many thanks to [Travis CI](https://travis-ci.org) for providing a free continuous integration service for open source projects.|
+|Many thanks to [Travis CI](https://travis-ci.com) for providing a free continuous integration service for open source projects.|
