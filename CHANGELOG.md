@@ -10,6 +10,9 @@ ADDED:
 
 CHANGED:
 
+- update of gradle to new version 7.2
+- update of dependency threeten-extra version to 1.7.0
+- update gradle-plugin dependency of gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin to new version 0.16.1
 - remove obsolete interface DatePatterns
 
 Version 5.3
