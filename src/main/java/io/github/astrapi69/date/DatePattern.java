@@ -27,7 +27,8 @@ package io.github.astrapi69.date;
 /**
  * The enum class {@link DatePattern} that holds date patterns
  */
-public enum DatePattern {
+public enum DatePattern
+{
 
 	YYYY_MM_DD_T_HH_MM_SS(DatePattern.YYYY_MM_DD_T_HH_MM_SS_PATTERN),
 	EEEE_MMM_DD_YYYY(DatePattern.EEEE_MMM_DD_YYYY_PATTERN),
@@ -114,7 +115,8 @@ public enum DatePattern {
 	/**
 	 * Dateformat in String. Current value:"dd.MM.yyyy HH:mm:ss"
 	 */
-	public static final String DOT_DD_MM_YYYY_HH_MM_SS_PATTERN = DOT_DD_MM_YYYY_PATTERN + " " + UHH_MM_SS_PATTERN;
+	public static final String DOT_DD_MM_YYYY_HH_MM_SS_PATTERN = DOT_DD_MM_YYYY_PATTERN + " "
+		+ UHH_MM_SS_PATTERN;
 
 	/**
 	 * Dateformat in String. Current value:"yyyy-MM-dd"

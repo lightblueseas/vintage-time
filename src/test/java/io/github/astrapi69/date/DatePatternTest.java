@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.date;
 
-import org.testng.annotations.Test;
-
 import static org.testng.AssertJUnit.assertEquals;
+
+import org.testng.annotations.Test;
 
 /**
  * The test class for the enum class {@link DatePattern}

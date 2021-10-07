@@ -24,7 +24,6 @@
  */
 package io.github.astrapi69.date;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,8 +47,8 @@ public final class DateExtensions
 	}
 
 	/**
-	 * Returns a map with all date patterns from the enum class {@link DatePattern}. As key is the name from
-	 * the pattern.
+	 * Returns a map with all date patterns from the enum class {@link DatePattern}. As key is the
+	 * name from the pattern.
 	 *
 	 * @return Returns a Map with all date patterns from the enum class {@link DatePattern}
 	 */
@@ -57,7 +56,8 @@ public final class DateExtensions
 	{
 		final DatePattern[] values = DatePattern.values();
 		final Map<String, Object> patterns = new HashMap<>(values.length);
-		for(DatePattern datePattern : values){
+		for (DatePattern datePattern : values)
+		{
 			patterns.put(datePattern.name(), datePattern.getValue());
 		}
 		return patterns;
@@ -72,7 +72,8 @@ public final class DateExtensions
 	{
 		final DatePattern[] values = DatePattern.values();
 		final List<String> list = new ArrayList<>(values.length);
-		for(DatePattern datePattern : values){
+		for (DatePattern datePattern : values)
+		{
 			list.add(datePattern.getValue());
 		}
 		return list;

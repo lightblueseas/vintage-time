@@ -31,9 +31,9 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import io.github.astrapi69.date.DatePattern;
 import org.testng.annotations.Test;
 
+import io.github.astrapi69.date.DatePattern;
 import io.github.astrapi69.date.ParseDateExtensions;
 
 public class ConvertTimestampExtensionsTest
@@ -51,7 +51,8 @@ public class ConvertTimestampExtensionsTest
 	{
 		Timestamp actual;
 		Timestamp expected;
-		final Date test = ParseDateExtensions.parseToDate("1900-10-01", DatePattern.YYYY_MM_DD_PATTERN);
+		final Date test = ParseDateExtensions.parseToDate("1900-10-01",
+			DatePattern.YYYY_MM_DD_PATTERN);
 		actual = ConvertTimestampExtensions.toTimestamp(test);
 		final Calendar compare = Calendar.getInstance();
 		compare.setTime(test);

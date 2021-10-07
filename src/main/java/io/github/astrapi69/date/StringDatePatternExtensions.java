@@ -27,9 +27,11 @@ package io.github.astrapi69.date;
 import java.util.Optional;
 import java.util.Set;
 
-public class StringDatePatternExtensions {
+public class StringDatePatternExtensions
+{
 
-	public static Optional<String> resolvePattern(String stringDate, Set<String> datePatterns){
+	public static Optional<String> resolvePattern(String stringDate, Set<String> datePatterns)
+	{
 
 		return Optional.empty();
 	}

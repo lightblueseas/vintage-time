@@ -372,8 +372,8 @@ public class AgeTest
 	@Test
 	public void testCalculateInYearsMonthsDaysHoursMinutesAndSeconds()
 	{
-		int actual[];
-		int expected[];
+		int[] actual;
+		int[] expected;
 		Age age;
 		Date till;
 		Date birthDay;
@@ -414,8 +414,8 @@ public class AgeTest
 	@Test
 	public void testCalculateInYearsMonthsDaysHoursMinutesAndSecondsLong()
 	{
-		int actual[];
-		int expected[];
+		int[] actual;
+		int[] expected;
 		long elapsed;
 		Age age;
 		Date till;
