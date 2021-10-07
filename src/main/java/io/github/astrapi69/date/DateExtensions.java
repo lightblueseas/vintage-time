@@ -41,45 +41,39 @@ import java.util.TimeZone;
  * @version 1.0
  * @author Asterios Raptis
  */
-public final class DateExtensions implements DatePatterns
+public final class DateExtensions
 {
 	private DateExtensions()
 	{
 	}
 
 	/**
-	 * Returns a map with all date patterns from the Interface DatePatterns. As key is the name from
+	 * Returns a map with all date patterns from the enum class {@link DatePattern}. As key is the name from
 	 * the pattern.
 	 *
-	 * @return Returns a Map with all date patterns from the Interface DatePatterns.
-	 * @throws IllegalAccessException
-	 *             is thrown when an application tries to reflectively create an instance
+	 * @return Returns a Map with all date patterns from the enum class {@link DatePattern}
 	 */
-	public static Map<String, Object> getAllDatePatterns() throws IllegalAccessException
+	public static Map<String, Object> getAllDatePatterns()
 	{
-		final Field[] fields = DatePatterns.class.getFields();
-		final Map<String, Object> patterns = new HashMap<>(fields.length);
-		for (final Field field : fields)
-		{
-			patterns.put(field.getName(), field.get(field.getName()));
+		final DatePattern[] values = DatePattern.values();
+		final Map<String, Object> patterns = new HashMap<>(values.length);
+		for(DatePattern datePattern : values){
+			patterns.put(datePattern.name(), datePattern.getValue());
 		}
 		return patterns;
 	}
 
 	/**
-	 * Returns a list with all date formats from the interface {@link DatePatterns}
+	 * Returns a list with all date formats from the enum class {@link DatePattern}
 	 *
-	 * @return Returns a list with all dateformats from the interface {@link DatePatterns}
-	 * @throws IllegalAccessException
-	 *             is thrown when an application tries to reflectively create an instance
+	 * @return Returns a list with all date formats from the enum class {@link DatePattern}
 	 */
-	public static List<String> getDatePatterns() throws IllegalAccessException
+	public static List<String> getDatePatterns()
 	{
-		final Field[] fields = DatePatterns.class.getFields();
-		final List<String> list = new ArrayList<>(fields.length);
-		for (final Field field : fields)
-		{
-			list.add((String)field.get(field.getName()));
+		final DatePattern[] values = DatePattern.values();
+		final List<String> list = new ArrayList<>(values.length);
+		for(DatePattern datePattern : values){
+			list.add(datePattern.getValue());
 		}
 		return list;
 	}

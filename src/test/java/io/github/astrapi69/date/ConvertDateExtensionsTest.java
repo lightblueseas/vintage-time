@@ -47,7 +47,7 @@ public class ConvertDateExtensionsTest
 {
 
 	/** The Constant YYYY_MM_DD. */
-	private static final String YYYY_MM_DD = DatePatterns.YYYY_MM_DD;
+	private static final String YYYY_MM_DD = DatePattern.YYYY_MM_DD_PATTERN;
 
 
 	/** The format1. */
@@ -55,9 +55,6 @@ public class ConvertDateExtensionsTest
 
 	/**
 	 * Sets up method will be invoked before every unit test method in this class
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@BeforeMethod
 	protected void setUp()
@@ -67,9 +64,6 @@ public class ConvertDateExtensionsTest
 
 	/**
 	 * Tear down method will be invoked after every unit test method in this class
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@AfterMethod
 	protected void tearDown()

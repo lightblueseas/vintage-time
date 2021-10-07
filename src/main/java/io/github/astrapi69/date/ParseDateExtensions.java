@@ -37,7 +37,7 @@ import java.util.Locale;
  * @version 1.0
  * @author Asterios Raptis
  */
-public final class ParseDateExtensions implements DatePatterns
+public final class ParseDateExtensions
 {
 	private ParseDateExtensions()
 	{

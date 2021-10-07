@@ -4,6 +4,14 @@
 Version 5.4-SNAPSHOT
 -------------
 
+ADDED:
+
+- new enum class DatePattern with all date patterns from the obsolet interface DatePatterns
+
+CHANGED:
+
+- remove obsolete interface DatePatterns
+
 Version 5.3
 -------------
 
