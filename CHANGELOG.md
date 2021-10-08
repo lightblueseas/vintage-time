@@ -7,6 +7,8 @@ Version 5.4-SNAPSHOT
 ADDED:
 
 - new enum class DatePattern with all date patterns from the obsolet interface DatePatterns
+- new test dependency silly-collections for testing in version 8.7
+- new class StringDatePatternExtensions for resolve date patterns 
 
 CHANGED:
 

@@ -110,7 +110,7 @@ public class DatePatternTest
 	}
 
 	/**
-	 * Test method for all constants of {@link io.github.astrapi69.date.DatePattern}
+	 * Test method for all constants of {@link DatePattern}
 	 */
 	@Test
 	public void testConstants()

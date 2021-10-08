@@ -24,15 +24,33 @@
  */
 package io.github.astrapi69.date;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.Set;
+import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
+/**
+ * The extension class {@link StringDatePatternExtensions} for resolve date patterns
+ */
 public class StringDatePatternExtensions
 {
 
-	public static Optional<String> resolvePattern(String stringDate, Set<String> datePatterns)
+	/**
+	 * Resolves the matching patterns from the given string date and the patterns by matching the
+	 * given {@link BiFunction} object. For an example see the corresponding unit test
+	 *
+	 * @param stringDate
+	 *            the date as {@link String}
+	 * @param patterns
+	 *            the pattern to check
+	 * @param biFunction
+	 *            the bi function for match
+	 * @return a list with the matching patterns
+	 */
+	public static List<String> resolvePattern(String stringDate, Set<String> patterns,
+		BiFunction<String, String, Boolean> biFunction)
 	{
-
-		return Optional.empty();
+		return patterns.stream().filter(pattern -> biFunction.apply(stringDate, pattern))
+			.collect(Collectors.toList());
 	}
 }

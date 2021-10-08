@@ -68,6 +68,7 @@ public class ConvertDateExtensionsTest
 	@AfterMethod
 	protected void tearDown()
 	{
+		this.format1 = null;
 	}
 
 	/**
