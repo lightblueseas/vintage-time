@@ -73,12 +73,9 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Sets up method will be invoked before every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@BeforeMethod
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		this.datum3 = "20050621134451";
 		this.datum4 = "32.13";
@@ -93,12 +90,9 @@ public class CalculateDateExtensionsTest
 
 	/**
 	 * Tear down method will be invoked after every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@AfterMethod
-	protected void tearDown() throws Exception
+	protected void tearDown()
 	{
 		this.expectedDate1 = null;
 		this.expectedDate2 = null;

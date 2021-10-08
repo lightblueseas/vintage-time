@@ -9,10 +9,8 @@
       <class name="io.github.astrapi69.date.ConvertDateExtensionsTest"/>
       <class name="io.github.astrapi69.date.CreateDateExtensionsTest"/>
       <class name="io.github.astrapi69.date.DateExtensionsTest"/>
-      <class name="io.github.astrapi69.date.DatePatternsTest"/>
-      <class name="io.github.astrapi69.date.IntervalExtensionsTest"/>
+      <class name="io.github.astrapi69.date.DatePatternTest"/>
       <class name="io.github.astrapi69.date.ParseDateExtensionsTest"/>
-      <class name="io.github.astrapi69.date.TimeZoneExtensionsTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -35,7 +35,7 @@ import java.util.GregorianCalendar;
  * @author Asterios Raptis
  * @version 1.0
  */
-public final class ConvertDateExtensions implements DatePatterns
+public final class ConvertDateExtensions
 {
 	private ConvertDateExtensions()
 	{

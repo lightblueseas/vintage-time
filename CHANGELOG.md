@@ -1,6 +1,22 @@
 ## Change log
 ----------------------
 
+Version 5.4
+-------------
+
+ADDED:
+
+- new enum class DatePattern with all date patterns from the obsolet interface DatePatterns
+- new test dependency silly-collections for testing in version 8.7
+- new class StringDatePatternExtensions for resolve date patterns 
+
+CHANGED:
+
+- update of gradle to new version 7.2
+- update of dependency threeten-extra version to 1.7.0
+- update gradle-plugin dependency of gradle.plugin.com.hierynomus.gradle.plugins:license-gradle-plugin to new version 0.16.1
+- remove obsolete interface DatePatterns
+
 Version 5.3
 -------------
 

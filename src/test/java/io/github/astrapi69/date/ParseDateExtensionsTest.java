@@ -100,12 +100,9 @@ public class ParseDateExtensionsTest
 
 	/**
 	 * Sets up method will be invoked before every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@BeforeMethod
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		this.datum1 = "2000-12-31";
 
@@ -126,12 +123,9 @@ public class ParseDateExtensionsTest
 
 	/**
 	 * Tear down method will be invoked after every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@AfterMethod
-	protected void tearDown() throws Exception
+	protected void tearDown()
 	{
 		this.expectedDate1 = null;
 		this.expectedDate2 = null;
@@ -143,13 +137,12 @@ public class ParseDateExtensionsTest
 	 * Test method for {@link ParseDateExtensions#parseDate(String, java.util.List)}
 	 */
 	@Test
-	public void testParseDate() throws IllegalArgumentException, IllegalAccessException
+	public void testParseDate() throws IllegalArgumentException
 	{
 		Date actual;
 		Date expected;
 
-		actual = ParseDateExtensions.parseDate(this.datum1,
-			new ArrayList<>(DateExtensions.getDatePatterns()));
+		actual = ParseDateExtensions.parseDate(this.datum1, DateExtensions.getDatePatterns());
 		expected = expectedDate1;
 		assertEquals(actual, expected);
 
@@ -162,7 +155,7 @@ public class ParseDateExtensionsTest
 	 * Test method for {@link ParseDateExtensions#parseToDate(String, String)}
 	 *
 	 * @throws ParseException
-	 *             the parse exception
+	 *             if the beginning of the specified string cannot be parsed
 	 */
 	@Test
 	public void testparseToDate() throws ParseException
@@ -228,7 +221,7 @@ public class ParseDateExtensionsTest
 	 * Test method for {@link ParseDateExtensions#parseToDateLenient(String, String, boolean)}
 	 *
 	 * @throws ParseException
-	 *             the parse exception
+	 *             if the beginning of the specified string cannot be parsed
 	 */
 	@Test
 	public void testParseToDateLenient() throws ParseException

@@ -36,7 +36,7 @@ import java.util.TimeZone;
  * @author Asterios Raptis
  * @version 1.0
  */
-public final class CreateDateExtensions implements DatePatterns
+public final class CreateDateExtensions
 {
 	private CreateDateExtensions()
 	{

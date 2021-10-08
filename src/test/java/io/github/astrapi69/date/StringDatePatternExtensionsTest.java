@@ -22,50 +22,59 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.timestamp;
+package io.github.astrapi69.date;
 
+import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.function.BiFunction;
 
 import org.testng.annotations.Test;
 
-import io.github.astrapi69.date.DatePattern;
-import io.github.astrapi69.date.ParseDateExtensions;
+import io.github.astrapi69.collections.list.ListExtensions;
+import io.github.astrapi69.collections.set.SetFactory;
 
-public class ConvertTimestampExtensionsTest
+/**
+ * The unit test class for the class {@link StringDatePatternExtensions}
+ *
+ * @version 1.0
+ * @author Asterios Raptis
+ */
+public class StringDatePatternExtensionsTest
 {
 
+	/** The datum1. */
+	private String datum1;
+
+	/** The expected date1. */
+	private Date expectedDate1;
 
 	/**
-	 * Test method for {@link ConvertTimestampExtensions#toTimestamp(Date)}
+	 * Test method for {@link StringDatePatternExtensions#resolvePattern(String, Set, BiFunction)}
 	 *
 	 * @throws ParseException
-	 *             occurs when their are problems with parsing the String to Date.
+	 *             if the beginning of the specified string cannot be parsed
 	 */
 	@Test
-	public void testToTimestamp() throws ParseException
+	public void testResolvePattern() throws ParseException
 	{
-		Timestamp actual;
-		Timestamp expected;
-		final Date test = ParseDateExtensions.parseToDate("1900-10-01",
-			DatePattern.YYYY_MM_DD_PATTERN);
-		actual = ConvertTimestampExtensions.toTimestamp(test);
-		final Calendar compare = Calendar.getInstance();
-		compare.setTime(test);
 
-		compare.set(Calendar.HOUR_OF_DAY, 0);
-		compare.set(Calendar.MINUTE, 0);
-		compare.set(Calendar.SECOND, 0);
-		compare.set(Calendar.MILLISECOND, 0);
-		expected = new Timestamp(compare.getTime().getTime());
-		assertEquals(actual, expected);
+		Date actual;
+		Date expected;
+		datum1 = "2000-12-31";
 
-		actual = ConvertTimestampExtensions.toTimestamp(test);
-		expected = new Timestamp(test.getTime());
+		expectedDate1 = CreateDateExtensions.newDate(2000, 12, 31);
+		List<String> matchedPatterns = StringDatePatternExtensions.resolvePattern(datum1,
+			SetFactory.newHashSet(DateExtensions.getDatePatterns()),
+			(s1, s2) -> s1.length() == s2.length() && s2.contains("-"));
+		assertTrue(matchedPatterns.size() == 1);
+		String firstMatchedPattern = ListExtensions.getFirst(matchedPatterns);
+		actual = ParseDateExtensions.parseToDate(datum1, firstMatchedPattern);
+		expected = expectedDate1;
 		assertEquals(actual, expected);
 	}
 }

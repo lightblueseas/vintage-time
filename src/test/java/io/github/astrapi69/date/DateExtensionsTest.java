@@ -59,12 +59,9 @@ public class DateExtensionsTest
 
 	/**
 	 * Sets up method will be invoked before every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@BeforeMethod
-	protected void setUp() throws Exception
+	protected void setUp()
 	{
 		this.expectedDate1 = CreateDateExtensions.newDate(2000, 12, 31);
 		this.expectedDate4 = CreateDateExtensions.newDate(1971, 2, 1, 0, 0, 0);
@@ -72,27 +69,19 @@ public class DateExtensionsTest
 
 	/**
 	 * Tear down method will be invoked after every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@AfterMethod
-	protected void tearDown() throws Exception
+	protected void tearDown()
 	{
 		this.expectedDate1 = null;
 		this.expectedDate4 = null;
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getAllDateFormats()}
-	 *
-	 * @throws IllegalArgumentException
-	 *             the illegal argument exception
-	 * @throws IllegalAccessException
-	 *             the illegal access exception
+	 * Test method for {@link DateExtensions#getDatePatterns()}
 	 */
 	@Test
-	public void testGetAllDateFormats() throws IllegalArgumentException, IllegalAccessException
+	public void testGetAllDateFormats()
 	{
 		List<String> actual;
 		List<String> expected;
@@ -123,13 +112,10 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link DateExtensions#getAllDatePatterns()}.
-	 * 
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
+	 * Test method for {@link DateExtensions#getAllDatePatterns()}
 	 */
 	@Test
-	public void testGetAllDatePatterns() throws IllegalArgumentException, IllegalAccessException
+	public void testGetAllDatePatterns()
 	{
 		Map<String, Object> actual;
 		Map<String, Object> expected;
@@ -155,7 +141,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getDay(java.util.Date)}.
+	 * Test method for {@link DateExtensions#getDay(java.util.Date)}.
 	 */
 	@Test
 	public void testGetDay()
@@ -167,7 +153,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getHours(java.util.Date)}.
+	 * Test method for {@link DateExtensions#getHours(java.util.Date)}.
 	 */
 	@Test
 	public void testGetHours()
@@ -179,7 +165,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getMinutes(java.util.Date)}.
+	 * Test method for {@link DateExtensions#getMinutes(java.util.Date)}.
 	 */
 	@Test
 	public void testGetMinutes()
@@ -191,7 +177,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getMonth(java.util.Date)}.
+	 * Test method for {@link DateExtensions#getMonth(java.util.Date)}.
 	 */
 	@Test
 	public void testGetMonth()
@@ -203,7 +189,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getSeconds(java.util.Date)}.
+	 * Test method for {@link DateExtensions#getSeconds(java.util.Date)}.
 	 */
 	@Test
 	public void testGetSeconds()
@@ -239,7 +225,7 @@ public class DateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link io.github.astrapi69.date.DateExtensions#getYear(java.util.Date)}.
+	 * Test method for {@link DateExtensions#getYear(java.util.Date)}.
 	 */
 	@Test
 	public void testGetYear()

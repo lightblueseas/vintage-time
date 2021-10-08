@@ -32,8 +32,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.meanbean.test.BeanTester;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -44,29 +42,6 @@ import org.testng.annotations.Test;
  */
 public class CreateDateExtensionsTest
 {
-
-	/**
-	 * Sets up method will be invoked before every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
-	 */
-	@BeforeMethod
-	protected void setUp() throws Exception
-	{
-
-	}
-
-	/**
-	 * Tear down method will be invoked after every unit test method in this class.
-	 *
-	 * @throws Exception
-	 *             the exception
-	 */
-	@AfterMethod
-	protected void tearDown() throws Exception
-	{
-	}
 
 	/**
 	 * Test method for {@link CreateDateExtensions#newDate(int, int, int)}
