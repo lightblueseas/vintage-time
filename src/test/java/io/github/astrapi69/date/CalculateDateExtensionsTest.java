@@ -100,6 +100,32 @@ public class CalculateDateExtensionsTest
 	}
 
 	/**
+	 * Test method for {@link CalculateDateExtensions#addDate(Date, Date)}
+	 */
+	@Test
+	public void testAddDateToDate()
+	{
+		Date actual;
+		Date expected;
+		Date first;
+		Date second;
+		Date third;
+
+		first = CreateDateExtensions.newDate(2007, 11, 8, 0, 0, 0);
+		second = CreateDateExtensions.newDate(2010, 5, 12, 0, 0, 0);
+		actual = CalculateDateExtensions.addDate(first, second);
+		expected = CreateDateExtensions.newDate(4018, 3, 20, 0, 0, 0);
+		assertEquals(actual, expected);
+
+		third = CreateDateExtensions.newDate(2012, 4, 19, 0, 0, 0);
+		actual = CalculateDateExtensions.addDate(actual, third);
+		expected = CreateDateExtensions.newDate(6030, 7, 9, 0, 0, 0);
+		assertEquals(actual, expected);
+
+	}
+
+
+	/**
 	 * Test method for {@link CalculateDateExtensions#addDays(Date, int)}
 	 */
 	@Test
