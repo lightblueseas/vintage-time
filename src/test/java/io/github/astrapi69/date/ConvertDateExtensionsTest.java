@@ -24,10 +24,8 @@
  */
 package io.github.astrapi69.date;
 
-import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
@@ -117,34 +115,10 @@ public class ConvertDateExtensionsTest
 	}
 
 	/**
-	 * Test method for {@link ConvertDateExtensions#toTimestamp(Date)}
-	 * 
-	 * @throws ParseException
-	 *             occurs when their are problems with parsing the String to Date.
-	 */
-	@Test
-	public void testConvertToTimestamp() throws ParseException
-	{
-		Timestamp actual;
-		Timestamp expected;
-		final Date test = ParseDateExtensions.parseToDate("1900-10-01", this.format1);
-		actual = ConvertDateExtensions.toTimestamp(test);
-		final Calendar compare = Calendar.getInstance();
-		compare.setTime(test);
-
-		compare.set(Calendar.HOUR_OF_DAY, 0);
-		compare.set(Calendar.MINUTE, 0);
-		compare.set(Calendar.SECOND, 0);
-		compare.set(Calendar.MILLISECOND, 0);
-		expected = new Timestamp(compare.getTime().getTime());
-		assertEquals(actual, expected);
-	}
-
-	/**
 	 * Test method for {@link ConvertDateExtensions#toCalendar(long)}
 	 * 
 	 * @throws ParseException
-	 *             occurs when their are problems with parsing the String to Date.
+	 *             occurs when there are problems with parsing the String to Date.
 	 */
 	@Test
 	public void testToCalendar() throws ParseException

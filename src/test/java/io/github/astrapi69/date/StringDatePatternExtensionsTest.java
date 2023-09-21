@@ -35,8 +35,8 @@ import java.util.function.BiFunction;
 
 import org.testng.annotations.Test;
 
-import io.github.astrapi69.collections.list.ListExtensions;
-import io.github.astrapi69.collections.set.SetFactory;
+import io.github.astrapi69.collection.list.ListExtensions;
+import io.github.astrapi69.collection.set.SetFactory;
 
 /**
  * The unit test class for the class {@link StringDatePatternExtensions}

@@ -36,44 +36,44 @@ Add the following maven dependency to your project `pom.xml` if you want to impo
 
 Than you can add the dependency to your dependencies:
 
-	<properties>
-			...
-		<!-- VINTAGE-TIME version -->
-		<vintage-time.version>5.4</vintage-time.version>
-			...
-	</properties>
-			...
-		<dependencies>
-			...
-			<!-- VINTAGE-TIME DEPENDENCY -->
-			<dependency>
-				<groupId>io.github.astrapi69</groupId>
-				<artifactId>vintage-time</artifactId>
-				<version>${vintage-time.version}</version>
-			</dependency>
-			...
-		</dependencies>
-	
-			
+    <properties>
+            ...
+        <!-- VINTAGE-TIME version -->
+        <vintage-time.version>6</vintage-time.version>
+            ...
+    </properties>
+            ...
+        <dependencies>
+            ...
+            <!-- VINTAGE-TIME DEPENDENCY -->
+            <dependency>
+                <groupId>io.github.astrapi69</groupId>
+                <artifactId>vintage-time</artifactId>
+                <version>${vintage-time.version}</version>
+            </dependency>
+            ...
+        </dependencies>
+
+
 ## gradle dependency
 
-You can first define the version in the ext section and add than the following gradle dependency to 
+You can first define the version in the ext section and add than the following gradle dependency to
 your project `build.gradle` if you want to import the core functionality of vintage-time:
 
 
 define version in file gradle.properties
 
 ```
-vintageTimeVersion=5.4
+vintageTimeVersion=6
 ```
 
 or in build.gradle ext area
 
 ```
 ext {
-			...
-    vintageTimeVersion = "5.4~~~~"
-			...
+            ...
+    vintageTimeVersion = "6"
+            ...
 }
 ```
 
@@ -81,9 +81,9 @@ and then add the dependency to the dependencies area
 
 ```
 dependencies {
-			...
+            ...
 compile("io.github.astrapi69:vintage-time:$vintageTimeVersion")
-			...
+            ...
 }
 ```
 
@@ -168,7 +168,7 @@ or over Monero(XMR) with:
 <img src="https://github.com/astrapi69/jgeohash/blob/master/src/main/resources/img/49bqeRQ7Bf49oJFVC72pqpe5hFbb62pfXDYPdLsadGGF81KZW2ZfrPZ8PbAVu5X2v1TYAspeczMya3cYQysNS4usRRPQHVw.png"
 alt="Donation Monero Wallet" width="250"/>
 
-or over flattr: 
+or over flattr:
 <a href="https://flattr.com/submit/auto?user_id=astrapi69&url=https://github.com/lightblueseas/vintage-time" target="_blank">
 <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" style="border: none" />
 </a>

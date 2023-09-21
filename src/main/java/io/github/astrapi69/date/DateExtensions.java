@@ -150,6 +150,20 @@ public final class DateExtensions
 	}
 
 	/**
+	 * The Method from the Date.getMilliseconds is deprecated. This is a helper-Method.
+	 *
+	 * @param date
+	 *            The Date-object to get the seconds.
+	 * @return The seconds from the Date-object.
+	 */
+	public static int getMilliseconds(final Date date)
+	{
+		final Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		return calendar.get(Calendar.MILLISECOND);
+	}
+
+	/**
 	 * The week of the year as an int from the given Date-object.
 	 *
 	 * @param date

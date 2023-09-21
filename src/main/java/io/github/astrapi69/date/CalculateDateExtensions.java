@@ -45,7 +45,7 @@ public final class CalculateDateExtensions
 
 	/**
 	 * Adds days to the given Date object and returns it. Note: you can add negative values too for
-	 * get date in past.
+	 * get date in the past.
 	 *
 	 * @param date
 	 *            The Date object to add the days.
@@ -59,6 +59,34 @@ public final class CalculateDateExtensions
 		dateOnCalendar.setTime(date);
 		dateOnCalendar.add(Calendar.DATE, addDays);
 		return dateOnCalendar.getTime();
+	}
+
+	/**
+	 * Adds the second given Date object to the first given Date object and returns it. Note: you
+	 * can add negative values too for get date in the past.
+	 *
+	 * @param date
+	 *            The Date object to add the days.
+	 * @param dateToAdd
+	 *            The days to add.
+	 * @return The resulted Date object.
+	 */
+	public static Date addDate(final Date date, final Date dateToAdd)
+	{
+		int year = DateExtensions.getYear(dateToAdd);
+		Date addYears = CalculateDateExtensions.addYears(date, year);
+		int month = DateExtensions.getMonth(dateToAdd);
+		Date addMonths = CalculateDateExtensions.addMonths(addYears, month);
+		Date addDays = CalculateDateExtensions.addDays(addMonths, DateExtensions.getDay(dateToAdd));
+		Date addHours = CalculateDateExtensions.addHours(addDays,
+			DateExtensions.getHours(dateToAdd));
+		Date addMinutes = CalculateDateExtensions.addMinutes(addHours,
+			DateExtensions.getMinutes(dateToAdd));
+		Date addSeconds = CalculateDateExtensions.addSeconds(addMinutes,
+			DateExtensions.getSeconds(dateToAdd));
+		Date addMilliseconds = CalculateDateExtensions.addMilliseconds(addSeconds,
+			DateExtensions.getMilliseconds(dateToAdd));
+		return addMilliseconds;
 	}
 
 	/**
@@ -117,7 +145,7 @@ public final class CalculateDateExtensions
 
 	/**
 	 * Adds months to the given Date object and returns it. Note: you can add negative values too
-	 * for get date in past.
+	 * for get date in the past.
 	 *
 	 * @param date
 	 *            The Date object to add the years.

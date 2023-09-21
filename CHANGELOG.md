@@ -1,6 +1,24 @@
 ## Change log
 ----------------------
 
+Version 6
+-------------
+
+ADDED:
+
+- new class module-info.java that provides this library as a module
+- new gradle-plugin dependency 'org.ajoberstar.grgit:grgit-gradle' in version 5.2.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' in version 6.21.0
+
+CHANGED:
+
+- update of JDK to newer version 17
+- update gradle to new version 8.4-rc-1
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.48.0
+- removed deprecated methods
+- removed unused dependency threeten-extra
+- adapted repository structure to fit better with gradle
+
 Version 5.4
 -------------
 
@@ -8,7 +26,7 @@ ADDED:
 
 - new enum class DatePattern with all date patterns from the obsolet interface DatePatterns
 - new test dependency silly-collections for testing in version 8.7
-- new class StringDatePatternExtensions for resolve date patterns 
+- new class StringDatePatternExtensions for resolve date patterns
 
 CHANGED:
 
@@ -30,7 +48,7 @@ CHANGED:
 Version 5.2
 -------------
 
-ADDED: 
+ADDED:
 
 - gradle as build system
 
@@ -55,7 +73,7 @@ Version 5
 -------------
 
 CHANGED:
- 
+
 - update of parent version to 4.4
 - removed old log4j in version 1.* configuration files
 - update to log4j2 configuration files
@@ -65,12 +83,12 @@ Version 4.12
 -------------
 
 ADDED:
- 
+
 - this changelog file
 - new method that calculated the time in seconds
 
 CHANGED:
- 
+
 - update of parent version to 3.12
 - removed unneeded .0 at the end of version
 - changed old packages to new in package.html
