@@ -11,7 +11,7 @@ ADDED:
 
 - new enum class DatePattern with all date patterns from the obsolet interface DatePatterns
 - new test dependency silly-collections for testing in version 8.7
-- new class StringDatePatternExtensions for resolve date patterns 
+- new class StringDatePatternExtensions for resolve date patterns
 
 CHANGED:
 
@@ -33,7 +33,7 @@ CHANGED:
 Version 5.2
 -------------
 
-ADDED: 
+ADDED:
 
 - gradle as build system
 
@@ -58,7 +58,7 @@ Version 5
 -------------
 
 CHANGED:
- 
+
 - update of parent version to 4.4
 - removed old log4j in version 1.* configuration files
 - update to log4j2 configuration files
@@ -68,12 +68,12 @@ Version 4.12
 -------------
 
 ADDED:
- 
+
 - this changelog file
 - new method that calculated the time in seconds
 
 CHANGED:
- 
+
 - update of parent version to 3.12
 - removed unneeded .0 at the end of version
 - changed old packages to new in package.html
