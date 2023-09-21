@@ -1,8 +1,22 @@
 ## Change log
 ----------------------
 
-Version 5.5-SNAPSHOT
+Version 6-SNAPSHOT
 -------------
+
+ADDED:
+
+- new gradle-plugin dependency 'org.ajoberstar.grgit:grgit-gradle' in version 5.2.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' in version 6.21.0
+
+CHANGED:
+
+- update of JDK to newer version 17
+- update gradle to new version 8.4-rc-1
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.48.0
+- removed deprecated methods
+- removed unused dependency threeten-extra
+- adapted repository structure to fit better with gradle
 
 Version 5.4
 -------------
