@@ -1,11 +1,12 @@
 ## Change log
 ----------------------
 
-Version 6-SNAPSHOT
+Version 6
 -------------
 
 ADDED:
 
+- new class module-info.java that provides this library as a module
 - new gradle-plugin dependency 'org.ajoberstar.grgit:grgit-gradle' in version 5.2.0
 - update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' in version 6.21.0
 
